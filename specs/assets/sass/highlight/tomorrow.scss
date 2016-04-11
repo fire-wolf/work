@@ -1,0 +1,115 @@
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+
+.tomorrow-comment {
+  color: #8e908c;
+}
+
+pre {
+  .comment, .title {
+    color: #8e908c;
+  }
+}
+
+.tomorrow-red {
+  color: #c82829;
+}
+
+pre {
+  .variable, .attribute, .tag, .regexp, .ruby .constant {
+    color: #c82829;
+  }
+  .xml {
+    .tag .title, .pi, .doctype {
+      color: #c82829;
+    }
+  }
+  .html .doctype {
+    color: #c82829;
+  }
+  .css {
+    .id, .class, .pseudo {
+      color: #c82829;
+    }
+  }
+}
+
+.tomorrow-orange {
+  color: #f5871f;
+}
+
+pre {
+  .number, .preprocessor, .built_in, .literal, .params, .constant {
+    color: #f5871f;
+  }
+}
+
+.tomorrow-yellow {
+  color: #eab700;
+}
+
+pre {
+  .class, .ruby .class .title, .css .rules .attribute {
+    color: #eab700;
+  }
+}
+
+.tomorrow-green {
+  color: #718c00;
+}
+
+pre {
+  .string, .value, .inheritance, .header, .ruby .symbol, .xml .cdata {
+    color: #718c00;
+  }
+}
+
+.tomorrow-aqua, pre .css .hexcolor {
+  color: #3e999f;
+}
+
+.tomorrow-blue {
+  color: #4271ae;
+}
+
+pre {
+  .function {
+    color: #4271ae;
+  }
+  .python {
+    .decorator, .title {
+      color: #4271ae;
+    }
+  }
+  .ruby {
+    .function .title, .title .keyword {
+      color: #4271ae;
+    }
+  }
+  .perl .sub, .javascript .title, .coffeescript .title {
+    color: #4271ae;
+  }
+}
+
+.tomorrow-purple {
+  color: #8959a8;
+}
+
+pre {
+  .keyword, .javascript .function {
+    color: #8959a8;
+  }
+  code {
+    display: block;
+    background: white;
+    color: #4d4d4c;
+    padding: 0.5em;
+  }
+  .coffeescript .javascript, .javascript .xml, .tex .formula {
+    opacity: 0.5;
+  }
+  .xml {
+    .javascript, .vbscript, .css, .cdata {
+      opacity: 0.5;
+    }
+  }
+}

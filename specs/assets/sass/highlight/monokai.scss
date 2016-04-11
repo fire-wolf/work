@@ -1,0 +1,82 @@
+/*
+Monokai style - ported by Luigi Maselli - http://grigio.org
+*/
+
+pre {
+  code {
+    display: block;
+    padding: 0.5em;
+    background: #272822;
+  }
+  .tag {
+    color: #F92672;
+    .title {
+      color: #F92672;
+    }
+  }
+  .keyword, .literal, .change, .winutils, .flow, .lisp .title, .clojure .built_in, .nginx .title, .tex .special {
+    color: #F92672;
+  }
+  code {
+    color: #DDD;
+    .constant {
+      color: #66D9EF;
+    }
+  }
+  .class .title {
+    color: white;
+  }
+  .attribute {
+    color: #BF79DB;
+  }
+  .symbol {
+    color: #BF79DB;
+    .string {
+      color: #BF79DB;
+    }
+  }
+  .value, .regexp {
+    color: #BF79DB;
+  }
+  .tag .value, .string, .subst, .title, .haskell .type, .preprocessor, .ruby .class .parent, .built_in, .sql .aggregate {
+    color: #A6E22E;
+  }
+  .django {
+    .template_tag, .variable {
+      color: #A6E22E;
+    }
+  }
+  .smalltalk .class, .javadoc, .django .filter .argument {
+    color: #A6E22E;
+  }
+  .smalltalk {
+    .localvars, .array {
+      color: #A6E22E;
+    }
+  }
+  .attr_selector, .pseudo, .addition, .stream, .envvar {
+    color: #A6E22E;
+  }
+  .apache {
+    .tag, .cbracket {
+      color: #A6E22E;
+    }
+  }
+  .tex .command, .prompt {
+    color: #A6E22E;
+  }
+  .comment, .java .annotation, .python .decorator, .template_comment, .pi, .doctype, .deletion, .shebang, .apache .sqbracket, .tex .formula {
+    color: #75715E;
+  }
+  .keyword, .literal, .css .id, .phpdoc, .title, .haskell .type, .vbscript .built_in, .sql .aggregate, .rsl .built_in, .smalltalk .class, .diff .header, .chunk, .winutils, .bash .variable, .apache .tag, .tex .special, .request, .status {
+    font-weight: bold;
+  }
+  .coffeescript .javascript, .javascript .xml, .tex .formula {
+    opacity: 0.5;
+  }
+  .xml {
+    .javascript, .vbscript, .css, .cdata {
+      opacity: 0.5;
+    }
+  }
+}

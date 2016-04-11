@@ -1,0 +1,74 @@
+/*
+
+Dark style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiacs.Org>
+
+*/
+
+pre {
+  code {
+    display: block;
+    padding: 0.5em;
+    background: #444;
+  }
+  .keyword, .literal, .change, .winutils, .flow, .lisp .title, .clojure .built_in, .nginx .title, .tex .special {
+    color: white;
+  }
+  code, .subst {
+    color: #DDD;
+  }
+  .string, .title, .haskell .type, .ini .title, .tag .value, .css .rules .value, .preprocessor {
+    color: #D88;
+  }
+  .ruby {
+    .symbol {
+      color: #D88;
+      .string {
+        color: #D88;
+      }
+    }
+    .class .parent {
+      color: #D88;
+    }
+  }
+  .built_in, .sql .aggregate {
+    color: #D88;
+  }
+  .django {
+    .template_tag, .variable {
+      color: #D88;
+    }
+  }
+  .smalltalk .class, .javadoc, .ruby .string, .django .filter .argument {
+    color: #D88;
+  }
+  .smalltalk {
+    .localvars, .array {
+      color: #D88;
+    }
+  }
+  .attr_selector, .pseudo, .addition, .stream, .envvar {
+    color: #D88;
+  }
+  .apache {
+    .tag, .cbracket {
+      color: #D88;
+    }
+  }
+  .tex .command, .prompt {
+    color: #D88;
+  }
+  .comment, .java .annotation, .python .decorator, .template_comment, .pi, .doctype, .deletion, .shebang, .apache .sqbracket, .tex .formula {
+    color: #777;
+  }
+  .keyword, .literal, .title, .css .id, .phpdoc, .haskell .type, .vbscript .built_in, .sql .aggregate, .rsl .built_in, .smalltalk .class, .diff .header, .chunk, .winutils, .bash .variable, .apache .tag, .tex .special, .request, .status {
+    font-weight: bold;
+  }
+  .coffeescript .javascript, .javascript .xml, .tex .formula {
+    opacity: 0.5;
+  }
+  .xml {
+    .javascript, .vbscript, .css, .cdata {
+      opacity: 0.5;
+    }
+  }
+}

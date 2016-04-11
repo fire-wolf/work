@@ -1,0 +1,61 @@
+/*
+
+Pojoaque Style by Jason Tate
+http://web-cms-designs.com/ftopict-10-pojoaque-style-for-highlight-js-code-highlighter.html
+Based on Solarized Style from http://ethanschoonover.com/solarized
+
+*/
+
+pre {
+  code {
+    display: block;
+    padding: 0.5em;
+    color: #DCCF8F;
+    background: url(./pojoaque.jpg) repeat scroll left top #181914;
+  }
+  .comment, .template_comment, .diff .header, .doctype, .lisp .string, .javadoc {
+    color: #586e75;
+    font-style: italic;
+  }
+  .keyword, .css .rule .keyword, .winutils, .javascript .title, .method, .addition, .css .tag, .clojure .title, .nginx .title {
+    color: #B64926;
+  }
+  .number, .command, .string, .tag .value, .phpdoc, .tex .formula, .regexp, .hexcolor {
+    color: #468966;
+  }
+  .title, .localvars, .function .title, .chunk, .decorator, .built_in, .lisp .title, .clojure .built_in, .identifier, .id {
+    color: #FFB03B;
+  }
+  .attribute, .variable, .lisp .body, .smalltalk .number, .constant, .class .title, .parent, .haskell .type {
+    color: #b58900;
+  }
+  .css {
+    .attribute {
+      color: #b89859;
+    }
+    .number, .hexcolor {
+      color: #DCCF8F;
+    }
+    .class {
+      color: #d3a60c;
+    }
+  }
+  .preprocessor, .pi, .shebang {
+    color: #cb4b16;
+  }
+  .symbol {
+    color: #cb4b16;
+    .string {
+      color: #cb4b16;
+    }
+  }
+  .diff .change, .special, .attr_selector, .important, .subst, .cdata {
+    color: #cb4b16;
+  }
+  .deletion {
+    color: #dc322f;
+  }
+  .tex .formula {
+    background: #073642;
+  }
+}

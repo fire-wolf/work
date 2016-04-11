@@ -1,0 +1,93 @@
+/*
+
+FAR Style (c) MajestiC <majestic2k@gmail.com>
+
+*/
+
+pre {
+  code {
+    display: block;
+    padding: 0.5em;
+    background: #000080;
+    color: #0FF;
+  }
+  .subst {
+    color: #0FF;
+  }
+  .string, .ruby .string, .haskell .type, .tag .value {
+    color: #FF0;
+  }
+  .css .rules .value {
+    color: #FF0;
+    .number {
+      color: #FF0;
+    }
+  }
+  .preprocessor {
+    color: #FF0;
+  }
+  .ruby .symbol {
+    color: #FF0;
+    .string {
+      color: #FF0;
+    }
+  }
+  .built_in, .sql .aggregate {
+    color: #FF0;
+  }
+  .django {
+    .template_tag, .variable {
+      color: #FF0;
+    }
+  }
+  .smalltalk .class, .addition {
+    color: #FF0;
+  }
+  .apache {
+    .tag, .cbracket {
+      color: #FF0;
+    }
+  }
+  .tex .command, .clojure .title {
+    color: #FF0;
+  }
+  .keyword, .css .id, .title, .haskell .type, .vbscript .built_in, .sql .aggregate, .rsl .built_in, .smalltalk .class, .xml .tag .title, .winutils, .flow, .change, .envvar, .bash .variable, .tex .special, .clojure .built_in {
+    color: #FFF;
+  }
+  .comment, .phpdoc, .javadoc, .java .annotation, .template_comment, .deletion, .apache .sqbracket, .tex .formula {
+    color: #888;
+  }
+  .number, .date, .regexp, .literal {
+    color: #0F0;
+  }
+  .smalltalk {
+    .symbol, .char {
+      color: #0F0;
+    }
+  }
+  .clojure .attribute {
+    color: #0F0;
+  }
+  .python .decorator, .django .filter .argument {
+    color: #008080;
+  }
+  .smalltalk {
+    .localvars, .array {
+      color: #008080;
+    }
+  }
+  .attr_selector, .pseudo, .xml .pi, .diff .header, .chunk, .shebang, .nginx .built_in, .prompt {
+    color: #008080;
+  }
+  .keyword, .css .id, .title, .haskell .type, .vbscript .built_in, .sql .aggregate, .rsl .built_in, .smalltalk .class, .winutils, .flow, .apache .tag, .nginx .built_in {
+    font-weight: bold;
+  }
+  .tex {
+    .command, .special {
+      font-weight: bold;
+    }
+  }
+  .request, .status {
+    font-weight: bold;
+  }
+}

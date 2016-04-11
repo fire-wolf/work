@@ -1,0 +1,61 @@
+/*
+  IR_Black style (c) Vasily Mikhailitchenko <vaskas@programica.ru>
+*/
+
+pre {
+  code {
+    display: block;
+    padding: 0.5em;
+    background: #000;
+    color: #f8f8f8;
+  }
+  .shebang, .comment, .template_comment, .javadoc {
+    color: #7c7c7c;
+  }
+  .keyword, .tag, .tex .command, .request, .status, .clojure .attribute {
+    color: #96CBFE;
+  }
+  .sub .keyword, .method, .list .title, .nginx .title {
+    color: #FFFFB6;
+  }
+  .string, .tag .value, .cdata, .filter .argument, .attr_selector, .apache .cbracket, .date {
+    color: #A8FF60;
+  }
+  .subst {
+    color: #DAEFA3;
+  }
+  .regexp {
+    color: #E9C062;
+  }
+  .title, .sub .identifier, .pi, .decorator, .tex .special, .haskell .type, .constant, .smalltalk .class, .javadoctag, .yardoctag, .phpdoc, .nginx .built_in {
+    color: #FFFFB6;
+  }
+  .symbol, .ruby .symbol .string, .number, .variable, .vbscript, .literal {
+    color: #C6C5FE;
+  }
+  .css {
+    .tag {
+      color: #96CBFE;
+    }
+    .rules .property, .id {
+      color: #FFFFB6;
+    }
+    .class {
+      color: #FFF;
+    }
+  }
+  .hexcolor {
+    color: #C6C5FE;
+  }
+  .number {
+    color: #FF73FD;
+  }
+  .coffeescript .javascript, .javascript .xml, .tex .formula {
+    opacity: 0.7;
+  }
+  .xml {
+    .javascript, .vbscript, .css, .cdata {
+      opacity: 0.7;
+    }
+  }
+}

@@ -1,0 +1,75 @@
+/*
+
+Brown Paper style from goldblog.com.ua (c) Zaripov Yura <yur4ik7@ukr.net>
+
+*/
+
+pre {
+  code {
+    display: block;
+    padding: 0.5em;
+    background: #b7a68e url(./brown_papersq.png);
+  }
+  .keyword, .literal, .change, .winutils, .flow, .lisp .title, .clojure .built_in, .nginx .title, .tex .special, .request, .status {
+    color: #005599;
+    font-weight: bold;
+  }
+  code, .subst, .tag .keyword {
+    color: #363C69;
+  }
+  .string, .title, .haskell .type, .tag .value, .css .rules .value, .preprocessor {
+    color: #2C009F;
+  }
+  .ruby {
+    .symbol {
+      color: #2C009F;
+      .string {
+        color: #2C009F;
+      }
+    }
+    .class .parent {
+      color: #2C009F;
+    }
+  }
+  .built_in, .sql .aggregate {
+    color: #2C009F;
+  }
+  .django {
+    .template_tag, .variable {
+      color: #2C009F;
+    }
+  }
+  .smalltalk .class, .javadoc, .ruby .string, .django .filter .argument {
+    color: #2C009F;
+  }
+  .smalltalk {
+    .localvars, .array {
+      color: #2C009F;
+    }
+  }
+  .attr_selector, .pseudo, .addition, .stream, .envvar {
+    color: #2C009F;
+  }
+  .apache {
+    .tag, .cbracket {
+      color: #2C009F;
+    }
+  }
+  .tex .number {
+    color: #2C009F;
+  }
+  .comment, .java .annotation, .python .decorator, .template_comment, .pi, .doctype, .deletion, .shebang, .apache .sqbracket, .nginx .built_in, .tex .formula {
+    color: #802022;
+  }
+  .keyword, .literal, .css .id, .phpdoc, .title, .haskell .type, .vbscript .built_in, .sql .aggregate, .rsl .built_in, .smalltalk .class, .diff .header, .chunk, .winutils, .bash .variable, .apache .tag, .tex .command {
+    font-weight: bold;
+  }
+  .coffeescript .javascript, .javascript .xml, .tex .formula {
+    opacity: 0.8;
+  }
+  .xml {
+    .javascript, .vbscript, .css, .cdata {
+      opacity: 0.8;
+    }
+  }
+}

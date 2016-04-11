@@ -1,0 +1,79 @@
+/*
+Description: Magula style for highligh.js
+Author: Ruslan Keba <rukeba@gmail.com>
+Website: http://rukeba.com/
+Version: 1.0
+Date: 2009-01-03
+Music: Aphex Twin / Xtal
+*/
+
+pre {
+  code {
+    display: block;
+    padding: 0.5em;
+    background-color: #f4f4f4;
+    color: black;
+  }
+  .subst, .lisp .title, .clojure .built_in {
+    color: black;
+  }
+  .string, .title, .parent, .tag .value {
+    color: #050;
+  }
+  .rules .value {
+    color: #050;
+    .number {
+      color: #050;
+    }
+  }
+  .preprocessor {
+    color: #050;
+  }
+  .ruby .symbol {
+    color: #050;
+    .string {
+      color: #050;
+    }
+  }
+  .aggregate, .template_tag, .django .variable, .smalltalk .class, .addition, .flow, .stream, .bash .variable, .apache .cbracket {
+    color: #050;
+  }
+  .comment, .annotation, .template_comment, .diff .header, .chunk {
+    color: #777;
+  }
+  .number, .date, .regexp, .literal {
+    color: #800;
+  }
+  .smalltalk {
+    .symbol, .char {
+      color: #800;
+    }
+  }
+  .change, .tex .special {
+    color: #800;
+  }
+  .label, .javadoc, .ruby .string, .decorator, .filter .argument, .localvars, .array, .attr_selector, .pseudo, .pi, .doctype, .deletion, .envvar, .shebang, .apache .sqbracket, .nginx .built_in, .tex .formula, .prompt, .clojure .attribute {
+    color: #00e;
+  }
+  .keyword, .id, .phpdoc, .title, .built_in, .aggregate, .smalltalk .class, .winutils, .bash .variable, .apache .tag, .xml .tag, .tex .command, .request, .status {
+    font-weight: bold;
+    color: navy;
+  }
+  .nginx .built_in {
+    font-weight: normal;
+  }
+  .coffeescript .javascript, .javascript .xml, .tex .formula {
+    opacity: 0.5;
+  }
+  .xml {
+    .javascript, .vbscript, .css, .cdata {
+      opacity: 0.5;
+    }
+  }
+  .apache .tag {
+    font-weight: bold;
+    color: blue;
+  }
+}
+
+/* --- */

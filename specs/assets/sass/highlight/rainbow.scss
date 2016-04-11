@@ -1,0 +1,68 @@
+/*
+
+Style with support for rainbow parens
+
+*/
+
+pre {
+  ::-moz-selection, ::selection {
+    background: #FF5E99;
+    color: #fff;
+    text-shadow: none;
+  }
+  code {
+    display: block;
+    padding: 0.5em;
+    background: #474949;
+    color: #D1D9E1;
+  }
+  .body, .collection {
+    color: #D1D9E1;
+  }
+  .comment, .template_comment, .diff .header, .doctype, .lisp .string, .javadoc {
+    color: #969896;
+    font-style: italic;
+  }
+  .keyword, .clojure .attribute, .winutils, .javascript .title, .addition, .css .tag {
+    color: #cc99cc;
+  }
+  .number {
+    color: #f99157;
+  }
+  .command, .string, .tag .value, .phpdoc, .tex .formula, .regexp, .hexcolor {
+    color: #8abeb7;
+  }
+  .title, .localvars, .function .title, .chunk, .decorator, .built_in, .lisp .title, .identifier {
+    color: #b5bd68;
+  }
+  .class .keyword {
+    color: #f2777a;
+  }
+  .variable, .lisp .body, .smalltalk .number, .constant, .class .title, .parent, .haskell .label, .id, .lisp .title, .clojure .title .built_in {
+    color: #ffcc66;
+  }
+  .tag .title, .rules .property, .django .tag .keyword, .clojure .title .built_in {
+    font-weight: bold;
+  }
+  .attribute, .clojure .title {
+    color: #81a2be;
+  }
+  .preprocessor, .pi, .shebang {
+    color: #f99157;
+  }
+  .symbol {
+    color: #f99157;
+    .string {
+      color: #f99157;
+    }
+  }
+  .diff .change, .special, .attr_selector, .important, .subst, .cdata {
+    color: #f99157;
+  }
+  .deletion {
+    color: #dc322f;
+  }
+  .tex .formula {
+    background: #eee8d5;
+  }
+}

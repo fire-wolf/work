@@ -1,0 +1,65 @@
+/*
+
+Visual Studio-like style based on original C# coloring by Jason Diamond <jason@diamond.name>
+
+*/
+
+pre {
+  code {
+    display: block;
+    padding: 0.5em;
+  }
+  .comment, .annotation, .template_comment, .diff .header, .chunk, .apache .cbracket {
+    color: rgb(0, 128, 0);
+  }
+  .keyword, .id, .built_in, .smalltalk .class, .winutils, .bash .variable, .tex .command, .request, .status, .nginx .title {
+    color: rgb(0, 0, 255);
+  }
+  .xml .tag {
+    color: rgb(0, 0, 255);
+    .value {
+      color: rgb(0, 0, 255);
+    }
+  }
+  .string, .title, .parent, .tag .value {
+    color: rgb(163, 21, 21);
+  }
+  .rules .value {
+    color: rgb(163, 21, 21);
+    .number {
+      color: rgb(163, 21, 21);
+    }
+  }
+  .ruby .symbol {
+    color: rgb(163, 21, 21);
+    .string {
+      color: rgb(163, 21, 21);
+    }
+  }
+  .aggregate, .template_tag, .django .variable, .addition, .flow, .stream, .apache .tag, .date, .tex .formula {
+    color: rgb(163, 21, 21);
+  }
+  .ruby .string, .decorator, .filter .argument, .localvars, .array, .attr_selector, .pseudo, .pi, .doctype, .deletion, .envvar, .shebang, .preprocessor, .userType, .apache .sqbracket, .nginx .built_in, .tex .special, .prompt {
+    color: rgb(43, 145, 175);
+  }
+  .phpdoc, .javadoc, .xmlDocTag {
+    color: rgb(128, 128, 128);
+  }
+  .vhdl {
+    .typename {
+      font-weight: bold;
+    }
+    .string {
+      color: #666666;
+    }
+    .literal {
+      color: rgb(163, 21, 21);
+    }
+    .attribute {
+      color: #00B0E8;
+    }
+  }
+  .xml .attribute {
+    color: rgb(255, 0, 0);
+  }
+}

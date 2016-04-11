@@ -1,0 +1,31 @@
+/*
+
+Original style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiacs.Org>
+
+*/
+
+pre {
+  code {
+    display: block;
+    padding: 0.5em;
+    background: white;
+    color: black;
+  }
+  .string, .tag .value, .filter .argument, .addition, .change {
+    color: #888;
+  }
+  .apache {
+    .tag, .cbracket {
+      color: #888;
+    }
+  }
+  .nginx .built_in, .tex .formula {
+    color: #888;
+  }
+  .comment, .template_comment, .shebang, .doctype, .pi, .javadoc, .deletion, .apache .sqbracket {
+    color: #CCC;
+  }
+  .keyword, .tag .title, .ini .title, .lisp .title, .clojure .title, .http .title, .nginx .title, .css .tag, .winutils, .flow, .apache .tag, .tex .command, .request, .status {
+    font-weight: bold;
+  }
+}

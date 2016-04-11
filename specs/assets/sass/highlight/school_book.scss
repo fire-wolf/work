@@ -1,0 +1,79 @@
+/*
+
+School Book style from goldblog.com.ua (c) Zaripov Yura <yur4ik7@ukr.net>
+
+*/
+
+pre {
+  code {
+    display: block;
+    padding: 15px 0.5em 0.5em 30px;
+    font-size: 11px !important;
+    line-height: 16px !important;
+  }
+  background: #f6f6ae url(./school_book.png);
+  border-top: solid 2px #d2e8b9;
+  border-bottom: solid 1px #d2e8b9;
+  .keyword, .literal, .change, .winutils, .flow, .lisp .title, .clojure .built_in, .nginx .title, .tex .special {
+    color: #005599;
+    font-weight: bold;
+  }
+  code, .subst, .tag .keyword {
+    color: #3E5915;
+  }
+  .string, .title, .haskell .type, .tag .value, .css .rules .value, .preprocessor {
+    color: #2C009F;
+  }
+  .ruby {
+    .symbol {
+      color: #2C009F;
+      .string {
+        color: #2C009F;
+      }
+    }
+    .class .parent {
+      color: #2C009F;
+    }
+  }
+  .built_in, .sql .aggregate {
+    color: #2C009F;
+  }
+  .django {
+    .template_tag, .variable {
+      color: #2C009F;
+    }
+  }
+  .smalltalk .class, .javadoc, .ruby .string, .django .filter .argument {
+    color: #2C009F;
+  }
+  .smalltalk {
+    .localvars, .array {
+      color: #2C009F;
+    }
+  }
+  .attr_selector, .pseudo, .addition, .stream, .envvar {
+    color: #2C009F;
+  }
+  .apache {
+    .tag, .cbracket {
+      color: #2C009F;
+    }
+  }
+  .nginx .built_in, .tex .command {
+    color: #2C009F;
+  }
+  .comment, .java .annotation, .python .decorator, .template_comment, .pi, .doctype, .deletion, .shebang, .apache .sqbracket {
+    color: #E60415;
+  }
+  .keyword, .literal, .css .id, .phpdoc, .title, .haskell .type, .vbscript .built_in, .sql .aggregate, .rsl .built_in, .smalltalk .class, .xml .tag .title, .diff .header, .chunk, .winutils, .bash .variable, .apache .tag, .tex .command, .request, .status {
+    font-weight: bold;
+  }
+  .coffeescript .javascript, .javascript .xml, .tex .formula {
+    opacity: 0.5;
+  }
+  .xml {
+    .javascript, .vbscript, .css, .cdata {
+      opacity: 0.5;
+    }
+  }
+}

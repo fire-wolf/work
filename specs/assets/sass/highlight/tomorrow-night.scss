@@ -1,0 +1,118 @@
+/* Tomorrow Night Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+
+.tomorrow-comment {
+  color: #969896;
+}
+
+pre {
+  .comment, .title {
+    color: #969896;
+  }
+}
+
+.tomorrow-red {
+  color: #cc6666;
+}
+
+pre {
+  .variable, .attribute, .tag, .regexp, .ruby .constant {
+    color: #cc6666;
+  }
+  .xml {
+    .tag .title, .pi, .doctype {
+      color: #cc6666;
+    }
+  }
+  .html .doctype {
+    color: #cc6666;
+  }
+  .css {
+    .id, .class, .pseudo {
+      color: #cc6666;
+    }
+  }
+}
+
+.tomorrow-orange {
+  color: #de935f;
+}
+
+pre {
+  .number, .preprocessor, .built_in, .literal, .params, .constant {
+    color: #de935f;
+  }
+}
+
+.tomorrow-yellow {
+  color: #f0c674;
+}
+
+pre {
+  .class, .ruby .class .title, .css .rules .attribute {
+    color: #f0c674;
+  }
+}
+
+.tomorrow-green {
+  color: #b5bd68;
+}
+
+pre {
+  .string, .value, .inheritance, .header, .ruby .symbol, .xml .cdata {
+    color: #b5bd68;
+  }
+}
+
+.tomorrow-aqua, pre .css .hexcolor {
+  color: #8abeb7;
+}
+
+.tomorrow-blue {
+  color: #81a2be;
+}
+
+pre {
+  .function {
+    color: #81a2be;
+  }
+  .python {
+    .decorator, .title {
+      color: #81a2be;
+    }
+  }
+  .ruby {
+    .function .title, .title .keyword {
+      color: #81a2be;
+    }
+  }
+  .perl .sub, .javascript .title, .coffeescript .title {
+    color: #81a2be;
+  }
+}
+
+.tomorrow-purple {
+  color: #b294bb;
+}
+
+pre {
+  .keyword, .javascript .function {
+    color: #b294bb;
+  }
+  code {
+    display: block;
+    background: #1d1f21;
+    color: #c5c8c6;
+    padding: 0.5em;
+  }
+  .coffeescript .javascript, .javascript .xml, .tex .formula {
+    opacity: 0.5;
+  }
+  .xml {
+    .javascript, .vbscript, .css, .cdata {
+      opacity: 0.5;
+    }
+  }
+}

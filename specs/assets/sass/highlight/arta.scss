@@ -1,0 +1,91 @@
+/*
+Date: 17.V.2011
+Author: pumbur <pumbur@pumbur.net>
+*/
+
+pre {
+  code {
+    display: block;
+    padding: 0.5em;
+    background: #222;
+  }
+  .profile .header *, .ini .title, .nginx .title {
+    color: #fff;
+  }
+  .comment, .javadoc {
+    color: #444;
+  }
+  .preprocessor {
+    color: #444;
+    .title {
+      color: #444;
+    }
+  }
+  .shebang, .profile .summary, .diff, .pi, .doctype, .tag, .template_comment, .css .rules, .tex .special {
+    color: #444;
+  }
+  .string, .symbol, .diff .change, .regexp, .xml .attribute, .smalltalk .char, .xml .value, .ini .value, .clojure .attribute {
+    color: #ffcc33;
+  }
+  .number, .addition {
+    color: #00cc66;
+  }
+  .built_in, .literal, .vhdl .typename {
+    color: #32AAEE;
+  }
+  .go {
+    .constant, .typename {
+      color: #32AAEE;
+    }
+  }
+  .ini .keyword, .lua .title, .perl .variable, .php .variable, .mel .variable, .django .variable, .css .funtion, .smalltalk .method, .hexcolor, .important, .flow, .inheritance, .parser3 .variable {
+    color: #32AAEE;
+  }
+  .keyword, .tag .title {
+    color: #6644aa;
+  }
+  .css {
+    .tag, .class, .id, .pseudo, .attr_selector {
+      color: #6644aa;
+    }
+  }
+  .lisp .title, .clojure .built_in, .winutils, .tex .command, .request, .status {
+    color: #6644aa;
+  }
+  .title, .ruby .constant, .vala .constant, .parent, .deletion, .template_tag, .css .keyword, .objectivec .class .id, .smalltalk .class, .lisp .keyword, .apache .tag, .nginx .variable, .envvar, .bash .variable, .go .built_in, .vbscript .built_in, .lua .built_in, .rsl .built_in, .tail, .avrasm .label {
+    color: #bb1166;
+  }
+  .tex .formula {
+    color: #bb1166;
+    * {
+      color: #bb1166;
+    }
+  }
+  .yardoctag, .phpdoc, .profile .header, .ini .title, .apache .tag, .parser3 .title {
+    font-weight: bold;
+  }
+  .coffeescript .javascript, .javascript .xml, .tex .formula {
+    opacity: 0.6;
+  }
+  .xml {
+    .javascript, .vbscript, .css, .cdata {
+      opacity: 0.6;
+    }
+  }
+  code, .javascript, .css, .xml, .subst, .diff .chunk {
+    color: #aaa;
+  }
+  .css {
+    .value, .attribute {
+      color: #aaa;
+    }
+  }
+  .lisp {
+    .string, .number {
+      color: #aaa;
+    }
+  }
+  .tail .params, .container, .haskell *, .erlang *, .erlang_repl * {
+    color: #aaa;
+  }
+}
