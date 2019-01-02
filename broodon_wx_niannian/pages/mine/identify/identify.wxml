@@ -1,0 +1,47 @@
+<view wx:if="{{!isIdentify}}">
+  <view style='padding-top: 16rpx;'>
+    <view class="item">
+      <view class="name">
+        <text>姓名</text>
+        <input type='text' value="{{name}}" placeholder='请输入身份证姓名' placeholder-class='tip' bindinput="inputName"></input>
+      </view>
+    </view>
+    <view class="item">
+      <view class="name">
+        <text>身份证</text>
+        <input type='idcard' value="{{idCard}}" placeholder='请输入身份证号码' placeholder-class='tip' bindinput='inputidCard' maxlength="18"></input>
+      </view>
+    </view>
+    <view class="notice">
+      <image class="notice-img" src='{{yunMediaRoot}}niannianyun/wx/my/notice.png'></image>
+      <text>请填写您的真实信息，一经通过无法修改</text>
+    </view>
+  </view>
+  <view class="foot">
+    <view class="declare">完成实名认证后，您的账号将获得更完善的服务 念念科技不会在任何地方泄露您的个人信息</view>
+    <view class="confirm" bindtap='onConfirm'>确认</view>
+  </view>
+</view>
+
+<view wx:if="{{isIdentify}}">
+  <view class="pass">
+  <image src='{{yunMediaRoot}}niannianyun/wx/my/confirm.png'></image>
+  <view class="pass-font">您已通过实名认证</view>
+  </view>
+  <view class="item">
+    <view class="name">
+      <view class="person-msg">
+        <text class="left-msg">真实姓名</text>
+        <text class="right-msg">{{realName}}</text>
+      </view>
+    </view>
+  </view>
+  <view class="item">
+    <view class="name">
+      <view class="person-msg">
+        <text class="left-msg">身份证号码</text>
+        <text class="right-msg">{{realIDnumber}}</text>
+      </view>
+    </view>
+  </view>
+</view>

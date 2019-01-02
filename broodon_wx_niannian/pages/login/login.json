@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "telzone": "/component/telzone/telzone"
+  }
+}

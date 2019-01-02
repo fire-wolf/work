@@ -1,0 +1,10 @@
+{
+  "navigationBarTextStyle":"#ffffff",
+  "navigationBarBackgroundColor": "#a08888",
+  "navigationBarTitleText": "信函博览馆",
+  "usingComponents": {
+    "login": "/component/login/login",
+    "author": "/component/author/author"
+  }
+}
+

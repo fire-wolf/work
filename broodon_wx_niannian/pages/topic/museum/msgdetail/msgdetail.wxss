@@ -1,0 +1,150 @@
+.main{
+  height: 100%;
+}
+
+.main-scroll{
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.main-msg{
+  padding: 0 16rpx 20rpx;
+  background-color: #a08888;
+}
+.main-msg .msg-paper-top{
+  display: block;
+  width: 100%;
+  height: 46rpx;
+}
+.main-msg .msg-paper-bottom{
+  display: block;
+  width: 100%;
+  height: 120rpx;
+}
+.main-msg .msg-wrapper{
+  padding: 6rpx 12rpx;
+  background: #fff;
+}
+.main-msg .msg-wrapper .msg-mod{
+  padding: 0 20rpx 64rpx;
+  border:2rpx solid #EDDBD5;
+}
+
+.msg-mod .msg-title{
+  padding: 60rpx 0 48rpx;
+  text-align: center;
+  color: #3B3635;
+  font-size: 56rpx;
+  font-weight: 600;
+  background: url('https://appweb.niannian99.com/static/images/expro/t_0.png') no-repeat center bottom;
+  background-size: 164rpx 76rpx; 
+}
+.msg-mod .msg-title .msg-title-text{
+  display: inline-block;
+  text-align: left;
+}
+
+.msg-mod .msg-category{
+  padding-bottom: 20rpx;
+  text-align: right;
+}
+.msg-mod .msg-category text{
+  display: inline-block;
+  margin-left: 10rpx;
+  color: #C34B38;
+  font-size: 20rpx;
+}
+
+.msg-mod .video-view{
+  position: relative;
+  height:360rpx;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 4rpx;
+  background-size:100% auto;
+  background-color:#000;
+  cursor: pointer;
+}
+.msg-mod .video-view image{
+  position: absolute;
+  width:80rpx;
+  height:80rpx;
+  top: 136rpx;
+  left: 50%;
+  margin-left: -40rpx;
+}
+.msg-mod .audio-view{
+  position: relative;
+  height: 80rpx;
+  margin-top: 20rpx;
+  text-align: center;
+  line-height: 80rpx;
+  color: #C34B38;
+  font-size: 28rpx;
+  background:rgba(165,49,32,0.1);
+  border-radius:4rpx;
+}
+.msg-mod .audio-view image{
+  position: absolute;
+  width: 80rpx;
+  height: 80rpx;
+  top: 0;
+  left: 0;
+  cursor: pointer;
+}
+
+.msg-mod .msg-sub-title{
+  display: block;
+  width: 160rpx;
+  height: 50rpx;
+  margin: 86rpx auto 46rpx;
+}
+
+.msg-mod .msg-original-content,.msg-mod .msg-background-content{
+  color: #3B3635;
+  font-size: 26rpx;
+  text-align: justify;
+  line-height: 46rpx;
+}
+
+.msg-mod .msg-translation .msg-translation-title{
+  height: 36rpx;
+  margin-bottom: 12rpx;
+  color: #C34B38;
+  font-size: 26rpx;
+}
+.msg-mod .msg-translation .msg-translation-title .dot{
+  display: inline-block;
+  width: 16rpx;
+  height: 16rpx;
+  margin-right: 12rpx;
+  background: #AC4234;
+  vertical-align: middle;
+}
+.msg-mod .msg-translation .msg-translation-title text{
+  display: inline-block;
+  vertical-align: middle;
+}
+.msg-mod .msg-translation .msg-translation-cont{
+  color: #C34B38;
+  font-size: 22rpx;
+  line-height: 44rpx;
+  text-align: justify;
+}
+
+.msg-mod .msg-source{
+  height: 20rpx;
+  margin-top: 20rpx;
+  color: #C34B38;
+  font-size: 20rpx;
+  line-height: 20rpx;
+  text-align: right;
+}
+
+.msg-mod .icon-like{
+  display: block;
+  width: 86rpx;
+  height: 86rpx;
+  margin: 80rpx auto 0;
+}

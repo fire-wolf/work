@@ -1,0 +1,3 @@
+<view class='video-wrap'>
+  <video id="myVideo" src="{{video}}" objectFit="contain" autoplay controls></video>
+</view>

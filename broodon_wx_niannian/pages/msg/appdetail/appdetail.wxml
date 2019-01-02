@@ -1,0 +1,47 @@
+<!--我的感悟详情 fed feeding-detail-->
+<import src="../../../wxParse/wxParse.wxml"/> 
+
+<view style='position: fixed;top:0;width:100%;height:100%;'>
+  <view class='fed-wrap' wx:if='{{msgId != "systemMsg"}}'>
+    <view class="audio" bindtap="playBackgroundAudio" wx:if="{{isMusic}}">
+      <image class="icon {{isPlaying && isVoicePlaying == false ? 'rotate' : ''}}" src="{{isPlaying ? yunMediaRoot + 'niannianyun/wx/write/1.1/icon-music-play.png' : yunMediaRoot + 'niannianyun/wx/write/1.1/icon-music-close.png'}}" ></image>
+    </view>
+    <scroll-view scroll-y style='position:absolute;top:0;height:{{scrollViewHeight}};z-index:3;'>
+      <view class='fed-main' style='min-height:98%;background-color: {{msgConfig.backgroundColor}};background-image: url({{paperUrl[2]}}),url({{paperUrl[1]}});'>
+         <image class='bg-msg' mode='widthFix' src='{{paperUrl[0]}}'  style='border-radius:8rpx;'></image> 
+        <view class='fed-salutation' style='opacity:{{letter.title?1:0}};'>{{letter.title}}</view>
+
+        <view style='min-height:{{mainHeight * 0.6}}px;padding-bottom:90rpx;'>
+            <view class='fed-text'>
+              <view class='voice' wx:if='{{voice}}' style='background-image: url({{yunMediaRoot}}niannianyun/wx/write/1.1/bg-detail-voice.png);' >
+                <image class='handle-icon' bindtap="playAudio"  src='{{yunMediaRoot}}{{isVoicePlaying ?"niannianyun/wx/write/1.1/icon-voice-pause.png":"niannianyun/wx/write/1.1/icon-voice-play.png"}}'></image>
+                {{voiceCurrentTime}}
+              </view>
+              <view class='video' wx:if='{{video}}' style='background-image: url({{videoThumb}});'>
+                <image class='handle-icon' bindtap='onPlayVideo' src='{{yunMediaRoot}}niannianyun/wx/write/1.1/icon-video-play.png'></image>
+              </view>
+              <view class="content" style='padding-top:11rpx;'><template is="wxParse" data="{{wxParseData:content.nodes}}"/></view>
+            </view>
+            <view class='fed-signature' style='opacity:{{letter.author?1:0}};'>{{letter.author}}</view>
+            <view class='fed-time'>{{letter.createTime}}</view>
+        </view>
+        <!-- <image class='bg-msg bg-msg-bottom' mode='widthFix' src='{{paperUrl ? paperUrl[2] : msgConfig.paperBottom}}'></image>   -->
+      </view>
+    </scroll-view>
+
+    <view class='btn-app-view' wx:if='{{true}}'>
+      APP内查看
+      <button class='btn-open' open-type='launchApp' app-parameter='{{appParameter}}' binderror="launchAppError"></button>
+    </view>
+
+    <image class='fed-bottom-bg2 {{isIphoneX ?"fed-bottom-bg2-iphonex":""}}' mode='widthFix' src='{{yunMediaRoot}}niannianyun/wx/topic/letter/bg-envelope-bottom.png'></image>     
+    <view class='fed-bottom {{isIphoneX ?"fed-bottom-iphonex":""}}' bindtap='goEdit'>{{isSendUser ? '' : '回信'}}</view>
+  </view>
+
+  <!-- 官方图 -->
+  <scroll-view wx:else scroll-y style='height:100%;'>
+    <image class='img-introduce' wx:for='{{contImages}}' wx:key='introduceimg{{index}}' lazy-load src='{{item}}' mode='widthFix'></image>
+  </scroll-view>
+</view>
+
+

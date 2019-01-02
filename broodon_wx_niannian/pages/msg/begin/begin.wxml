@@ -1,0 +1,30 @@
+<view class="contain">
+  <view class="begin-item" style='background-image:url({{yunMediaRoot}}niannianyun/wx/msg/begin/bg1.png);'>
+    <button class="begin-item-btn" plain='true' open-type='getUserInfo'  bindgetuserinfo="getUserInfoFun"   data-type='media'></button>
+    <image src="{{yunMediaRoot}}niannianyun/wx/msg/begin/bi1.png"></image>
+    <view class="title">多媒体信</view>
+    <view class="desc">— 情感存储 科技传递 —</view>
+  </view> 
+  <view class="begin-item" style='background-image:url({{yunMediaRoot}}niannianyun/wx/msg/begin/bg3.png);'> 
+    <button class="begin-item-btn" plain='true' open-type='getUserInfo'   bindgetuserinfo="getUserInfoFun"  data-type='time'></button>
+    <image src="{{yunMediaRoot}}niannianyun/wx/msg/begin/bi3.png"></image>
+    <view class="title">时间信</view>
+    <view class="desc">— 定时发送 感动未来 —</view>
+  </view>
+  <view class="begin-item" style='background-image:url({{yunMediaRoot}}niannianyun/wx/msg/begin/bg4.png);' >
+    <button class="begin-item-btn" plain='true' open-type='getUserInfo'   bindgetuserinfo="getUserInfoFun"  data-type='map'></button>
+    <image src="{{yunMediaRoot}}niannianyun/wx/msg/begin/bi4.png"></image>
+    <view class="title">地点信</view>
+    <view class="desc">— 预设地点 收获惊喜 —</view>
+  </view> 
+  <view class="begin-item" style='background-image:url({{yunMediaRoot}}niannianyun/wx/msg/begin/bg2.png);'>
+    <button class="begin-item-btn" plain='true' open-type='getUserInfo' bindgetuserinfo="getUserInfoFun"   data-type='redpacket'></button>
+    <image src="{{yunMediaRoot}}niannianyun/wx/msg/begin/bi2.png"></image>
+    <view class="title">红包信</view>
+    <view class="desc">— 爱意关怀 红包送达 —</view>
+  </view>
+  <appfooter id="appfooter"
+    list="{{tabList}}" firstWrite="{{firstWrite}}" >
+  </appfooter> 
+</view>
+  

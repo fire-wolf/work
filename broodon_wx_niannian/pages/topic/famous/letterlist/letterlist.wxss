@@ -1,0 +1,176 @@
+
+.type-tab{
+  display: block;
+  position: fixed;
+  width: 100%;
+  height: 94rpx;
+  top: 0;
+  overflow: hidden;
+  background: #FAFAFA;
+  border-bottom: 1rpx solid #E5E5E5;
+  z-index: 10;
+}
+.type-tab .tab-send,.type-tab .tab-receive{
+  width: 170rpx;
+  height: 92rpx;
+  font-size: 30rpx;
+  color: #353535;
+  line-height: 80rpx;
+  text-align: center;
+  margin: 0 auto;
+  border-bottom: 6rpx solid #FAFAFA;
+}
+.type-tab .active{
+  color: #69BF30;
+  border-bottom: 6rpx solid #69BF30;
+}
+
+/* 信件列表 */
+.list{
+  position: fixed;
+  width: 100%;
+  /* top: 0; */
+  top: 94rpx; 
+  bottom: 0;
+  background: #fff;
+}
+.list .letter-list{
+  background: #fff;
+  padding-top:40rpx;
+  padding-bottom: 1rpx; 
+}
+.list .letter-list .list-item{
+  position: relative;
+  width: 750rpx;
+  height: 300rpx;
+  margin-bottom: 34rpx;
+  overflow-x: hidden; 
+}
+.list .letter-list .list-item:last-child{
+  margin-bottom: 0;
+}
+.list .letter-list .list-item::-webkit-scrollbar {
+    display: none;
+}
+.list .letter-list .list-item .item-main{
+  position: absolute;
+  float:left;
+  width:670rpx;
+  height: 300rpx;
+  margin:0 40rpx;
+  background-color:#f1e7d6;
+  background-repeat: no-repeat;
+  background-position: 12rpx bottom;
+  background-size: 198rpx 88rpx;
+  border-radius: 8rpx;
+  border:2rpx solid #d5c5aa;
+}
+.list .letter-list .list-item .item-main .frame-wrap{
+  margin: 30rpx;
+  overflow: hidden;
+}
+.list .letter-list .list-item .item-main .frame{
+  display: block;
+  float: left;
+  width: 22rpx;
+  height: 22rpx;
+  margin-right: 6rpx;
+  border:2rpx solid #d5c5aa;
+}
+.list .letter-list .list-item .item-main .stamp{
+  display: block;
+  position: absolute;
+  width: 100rpx;
+  height: 76rpx;
+  top: 40rpx;
+  right: 40rpx;
+}
+.list .letter-list .list-item .item-main .read-status{
+  display: block;
+  position: absolute;
+  width: 168rpx;
+  height: 54rpx;
+  top: 32rpx;
+  right: 110rpx;
+}
+.list .letter-list .list-item .item-main .title-wrap{
+  display: flex;
+  height: 45rpx;
+  color: #3B3635;
+  font-size: 40rpx;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  margin-top: 82rpx;
+}
+.list .letter-list .list-item .item-main .title{
+  max-width: 320rpx;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  margin-right: 30rpx;
+}
+.list .letter-list .list-item .item-main .signature{
+  text-align: right;
+  color: #9E938E;
+  font-size: 28rpx;
+  margin: 30rpx 40rpx 0 0;
+}
+.list .letter-list .list-item .item-main .time{
+  float: right;
+  color: #9E938E;
+  font-size: 24rpx;
+  margin-right: 40rpx;
+}
+
+.list .letter-list .list-item .remove{
+  float: right; 
+  width: 140rpx;
+  height: 300rpx;
+  font-size:36rpx;
+  color: #fff;
+  line-height: 300rpx;
+  text-align: center;
+  background: #F04F62;
+  border-radius: 12rpx 0 0 12rpx;
+}
+
+
+.list .loading{
+  text-align: center;
+  color:#BAB2AF;
+  font-size: 24rpx;
+  height: 70rpx;
+  line-height: 70rpx;
+  /* background: #fff;
+  background: #EFEFF4;  */
+}
+.list .loading image{
+  display:inline-block;
+  vertical-align:middle;
+  margin-right:16rpx;
+  width: 32rpx;
+  height: 30rpx;
+}
+
+.empty{
+  padding-top: 140rpx;
+}
+.empty image{
+  display: block;
+  width: 250rpx;
+  margin: 0rpx auto;
+}
+.empty .txt{
+  margin-bottom: 8rpx;
+  font-size: 28rpx;
+  color: #BAB3AF;
+  line-height: 40rpx;
+  text-align: center;
+}
+.empty .btn-write{
+  width:304rpx;
+  height:80rpx;
+  margin-top: 152rpx;
+  cursor: pointer;
+}

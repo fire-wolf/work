@@ -1,0 +1,268 @@
+page {
+  background-color: #f7f7f7;
+}
+
+.contain {
+  padding-top: 16rpx;
+}
+
+.contain .take-money {
+  padding-left: 32rpx;
+  background-color: #fff;
+  margin-bottom: 16rpx;
+}
+
+.contain .take-money .oper-money {
+  display: flex;
+  flex-direction: row;
+  padding: 27rpx 32rpx 28rpx 0;
+  border-bottom: solid 1rpx rgba(227, 234, 230, 1);
+}
+
+.contain .take-money .oper-money .dollar {
+  width: 36rpx;
+  height: 56rpx;
+  font-size: 40rpx;
+  font-weight: 600;
+  color: rgba(89, 83, 80, 1);
+  line-height: 56rpx;
+  margin: 14rpx 20rpx 0 0;
+}
+
+.contain .take-money .oper-money input {
+  width: 420rpx;
+  height: 84rpx;
+  font-size: 60rpx;
+  line-height: 84rpx;
+  margin-right: 84rpx;
+}
+
+.contain .take-money .oper-money input .money-number {
+  color: rgba(214, 208, 206, 1);
+}
+
+.contain .take-money .oper-money .take-all {
+  width: 125rpx;
+  height: 40rpx;
+  font-size: 28rpx;
+  color: rgba(121, 199, 62, 1);
+  line-height: 40rpx;
+  margin-top: 23rpx;
+  text-align: right;
+  border-left: solid 1rpx rgba(227, 234, 230, 1);
+}
+
+.contain .take-money .balance {
+  font-size: 24rpx;
+  height: 52rpx;
+  line-height: 52rpx;
+  color: rgba(89, 83, 80, 1); 
+}
+.contain .take-money .balance .question {
+  display:inline-block;
+  padding:0;
+  vertical-align:top;
+  line-height:52rpx;
+  font-size: 24rpx;
+}
+
+.contain .item {
+  width: 100%;
+  height: 112rpx;
+  padding-left: 32rpx;
+  background-color: #fff;
+}
+
+.contain .item .name {
+  position: relative;
+  border-bottom: solid 1rpx rgba(227, 234, 230, 1);
+  height: 112rpx;
+  padding: 33rpx 32rpx 0 0;
+}
+
+.contain .item .name text {
+  width: 64rpx;
+  height: 45rpx;
+  font-size: 32rpx;
+  color: rgba(89, 83, 80, 1);
+  line-height: 45rpx;
+}
+
+.contain .item .name input {
+  width: 550rpx;
+  position: absolute;
+  top: 33rpx;
+  left: 110rpx;
+}
+
+.contain .item .name input .tip {
+  color: rgba(214, 208, 206, 1);
+  font-size: 32rpx;
+}
+
+.contain .question {
+  padding: 16rpx 32rpx 0 0;
+  font-size: 28rpx;
+  color: rgba(121, 199, 62, 1);
+  text-align: right;
+}
+
+.foot {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  z-index: 3;
+}
+
+.foot .tip {
+  font-size: 24rpx;
+  color: rgba(158, 147, 142, 1);
+  text-align: center;
+  margin-bottom: 12rpx;
+}
+
+.foot .next {
+  width: 100%;
+  height: 100rpx;
+  background: linear-gradient(90deg, rgba(122, 221, 94, 1) 0%, rgba(79, 202, 124, 1) 100%);
+  text-align: center;
+  line-height: 100rpx;
+  font-size: 32rpx;
+  color: rgba(255, 255, 255, 1);
+}
+
+.foot .verify-container {
+  width: 100%;
+  height: 412rpx;
+  background-color: #fff;
+  position: relative;
+}
+
+.foot .verify-container .inner-head {
+  height: 96rpx;
+  width: 100%;
+  border-bottom: solid 1rpx rgba(227, 234, 230, 1);
+}
+
+.foot .verify-container .inner-head .verify-tip {
+  height: 96rpx;
+  font-size: 36rpx;
+  font-weight: 600;
+  color: rgba(89, 83, 80, 1);
+  line-height: 96rpx;
+  text-align: center;
+}
+
+.foot .verify-container .inner-head image {
+  width: 20rpx;
+  height: 20rpx;
+  position: absolute;
+  right: 38rpx;
+  top: 38rpx;
+}
+
+.foot .verify-container .send {
+  font-size: 28rpx;
+  color: rgba(158, 147, 142, 1);
+  /* margin: 79rpx 0 20rpx; */
+  /* padding-left: 74rpx; */
+  position: absolute;
+  top: 176rpx;
+  left: 74rpx;
+}
+
+.foot .verify-container .input-code {
+  display: flex;
+  flex-direction: row;
+  padding: 0 75rpx 0 74rpx;
+  margin-top:139rpx;
+}
+
+.foot .verify-container .input-code .box {
+  width: 410rpx;
+  height: 96rpx;
+  border-radius: 6rpx;
+  border: 1px solid #d6d0ce;
+}
+
+.foot .verify-container .input-code .box input {
+  width: 300rpx;
+  height: 40rpx;
+  margin: 21rpx 0 0 32rpx;
+}
+
+.foot .verify-container .input-code .box input .code-ph {
+  color: rgba(214, 208, 206, 1);
+  font-size: 32rpx;
+}
+
+.foot .verify-container .input-code .send-code {
+  width: 175rpx;
+  height: 96rpx;
+  border-radius: 6rpx;
+  border: 2rpx solid;
+  font-size: 28rpx;
+  color: rgba(89, 83, 80, 1);
+  text-align: center;
+  line-height: 96rpx;
+  margin-left: 16rpx;
+}
+
+.foot .verify-container .input-code .get-code {
+  width: 175rpx;
+  height: 96rpx;
+  background: rgba(238, 235, 233, 1);
+  border-radius: 6rpx;
+  font-size: 28rpx;
+  color: rgba(158, 147, 142, 1);
+  text-align: center;
+  line-height: 96rpx;
+  margin-left: 16rpx;
+}
+
+.background {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 1206rpx;
+  background: rgba(0, 0, 0, 1);
+  opacity: 0.1;
+  z-index: 2;
+}
+
+.success {
+  width: 100%;
+  height: 100%;
+  padding-top: 280rpx;
+  background-color: #fff;
+}
+
+.success image {
+  width: 193rpx;
+  height: 192rpx;
+  margin: 0 auto 32rpx;
+  display: block;
+}
+
+.success .success-font {
+  width: 403rpx;
+  height: 80rpx;
+  font-size: 28rpx;
+  color: rgba(89, 83, 80, 1);
+  line-height: 40rpx;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.success .confirm {
+  width: 100%;
+  height: 100rpx;
+  background: rgba(255, 255, 255, 1);
+  font-size: 32rpx;
+  color: rgba(89, 83, 80, 1);
+  text-align: center;
+  line-height: 100rpx;
+  position: fixed;
+  bottom: 0;
+  border-top: 1rpx solid #dfdfdf;
+}

@@ -1,0 +1,182 @@
+.msg-wrap{
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  overflow-y: scroll;
+  z-index: 1;
+  background:-webkit-linear-gradient(180deg,#DA4848,#B43232);
+  background:linear-gradient(180deg,#DA4848,#B43232); 
+}
+.msg-wrap .pyq-main{
+  width: 710rpx;
+  height: 1083rpx;
+  background: #fff;
+  margin: 0 auto;
+}
+.msg-wrap .pyq-main .canvas{
+  display: block;
+  position: relative;
+  width: 100%;
+  min-height: 1110rpx;
+  margin: 0 auto;
+  padding: 0 20rpx;
+  color: #330909;
+  background-repeat: no-repeat;
+  background-position: 0 -40rpx;
+  background-size: 100%;
+}
+.msg-wrap .pyq-main .canvas .cvs-hd{
+  position: relative;
+  height: 174rpx;
+  padding: 34rpx 0 20rpx 0;
+}
+.msg-wrap .pyq-main .canvas .cvs-hd .postmark{
+  display: block;
+  position: absolute;
+  width: 194rpx;
+  height: 113rpx;
+  right: 0;
+  top: 20rpx;
+}
+.msg-wrap .pyq-main .canvas .user-img{
+  float: left;
+  display: block;
+  width: 128rpx;
+  height: 128rpx;
+  margin-right: 20rpx;
+  z-index: 2;
+}
+.msg-wrap .pyq-main .canvas .share-username{
+  height:40rpx; 
+  margin: 4rpx 0 10rpx 0;
+  font-size:40rpx;
+  font-weight: bold;
+  color:#330909;
+  line-height:40rpx;
+}
+.msg-wrap .pyq-main .canvas .share-rank{
+  height:40rpx; 
+  font-size:28rpx;
+  font-weight: 500;
+  color:#330909;
+  line-height:40rpx;
+}
+.msg-wrap .pyq-main .canvas .share-msg-title{
+  height:28rpx; 
+  font-size:20rpx;
+  color:#8F4F4F;
+  line-height:28rpx;
+}
+
+.msg-wrap .pyq-main .canvas .cvs-bd {
+  position: relative;
+}
+.msg-wrap .pyq-main .canvas .cvs-bd .bg-img{
+  display: block;
+  width: 100%;
+  height: 860rpx;
+}
+.msg-wrap .pyq-main .canvas .cvs-bd .wxcode{
+  position: absolute;
+  right: 20rpx;
+  bottom: 20rpx;
+  width: 150rpx;
+  padding-bottom: 5rpx;
+  background: #6F031A;
+}
+.msg-wrap .pyq-main .canvas .qr-code{
+  display: block;
+  width: 150rpx;
+  height:150rpx;
+  padding-top: 10rpx; 
+  background: #fff;
+}
+.msg-wrap .pyq-main .canvas .qr-code image{
+  display: block;
+  width: 130rpx;
+  height:130rpx; 
+  margin: 0 auto;
+}
+.msg-wrap .pyq-main .canvas .tip-txt{
+  width: 100%;
+  padding-top: 5rpx;
+  font-size: 16rpx;
+  color: #FFDFB5;
+  text-align: center; 
+  line-height: 22rpx;
+}
+.msg-wrap .pyq-main .canvas .cvs-ft{
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  align-items: center;
+  height: 50rpx;
+  color: #D9BFC4;
+  font-size:16rpx;
+}
+.msg-wrap .pyq-main .canvas .cvs-ft image{
+  display: block;
+  width: 24rpx;
+  height: 24rpx;
+  margin-right: 10rpx;
+}
+
+
+#myCanvas-redMsg{
+  position: fixed;
+  left: 2000px; 
+  top: 0;
+  width: 750px;
+  height: 1128px; 
+  /* width: 1500px;
+  height: 2256px;  */
+  margin: 0 auto;
+  display: block;
+}
+
+
+.footer{
+  position: fixed; 
+  bottom: 0;
+  width: 100%;
+  background: #fff;
+}
+.footer .send,.footer .save{
+  position: relative;
+  float: left;
+  width: 50%;
+  height: 94rpx;
+  color: #C40002;
+  font-size: 28rpx;
+  line-height: 94rpx;
+  text-align: center;
+  background: #fff;
+}
+.footer .send-btn{
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  margin: 0;
+  padding: 0;
+  opacity: 0;
+  z-index: 10;
+}
+.footer-iphonex{
+  padding-bottom: 82rpx;
+}
+.footer .send::before{
+  content: '';
+  display: block;
+  width: 1px;
+  height: 40rpx;
+  position: absolute;
+  top: 27rpx;
+  right: 0;
+  background: #C40002;
+}

@@ -1,0 +1,9 @@
+<view class="contain">
+  <view class="redpacket-box" >
+    <view class="title">红包金额</view>
+    <input type="digit" value="{{inputVal}}" placeholder="请输入金额" bindfocus='inputFocus' bindinput="inputKey"  bindblur="inputBLur"  /> 
+  </view>
+  <view style="padding:0 32rpx;margin-top:224rpx;">
+    <button class="redpacket-btn" disabled="{{inputVal==''}}" type="default" bindtap='subFun'  plain='true'>确定</button>
+  </view>
+</view>

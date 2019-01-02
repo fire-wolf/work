@@ -1,0 +1,37 @@
+@import "../../pages/iconfonts.wxss";
+
+.zone-list{
+  position: fixed;
+  top:0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background:#fff;
+  z-index: 11;
+}
+.zone-list .zone-item{
+  position: relative;
+  padding:0 32rpx;
+  font-size: 40rpx;
+  width: 100%;
+  height: 100rpx;
+  line-height: 100rpx;
+  border-bottom:2rpx solid #e5e5e5;
+}
+.zone-list .zone-item.cur{
+  background:rgba(0,0,0,0.1);
+}
+.zone-list .zone-item span{ 
+  display: block;
+}
+.zone-list .zone-item .name{
+   float: left;
+  color:#333;
+}
+.zone-list .zone-item .number{ 
+   float: right;
+  color:#999;
+}
+.zone-list .zone-item.cur span{
+  color:#333 !important;
+}

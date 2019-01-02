@@ -1,0 +1,7 @@
+<scroll-view class="zone-list" scroll-y wx:if="{{isUserZone}}">
+  <view class="zone-item {{item.number==userTelZone?'cur':''}}" wx:for="{{zoneList}}" wx:key="" bindtap='onClickZone' data-num="{{item.number}}"  >
+     <span class="name">{{item.name}}</span>
+    <span class="number">{{item.number}}</span>  
+  </view>
+  
+</scroll-view>

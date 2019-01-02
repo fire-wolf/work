@@ -1,0 +1,39 @@
+
+<view class="msg-wrap">
+  <view class="pyq-main">
+    <view class='canvas'>
+      <view class="cvs-hd">
+        <image class='user-img' src='{{userImg}}'></image>
+        <view style="float: left;">
+          <view class='share-username'>{{nickName}}</view>
+          <view class='share-rank'>红色家书第 {{myRank}} 位传习者</view>
+          <view class='share-msg-title'>为您推荐{{letter.author}}家书《{{letter.title}}》</view>
+        </view>
+        <image class="postmark" mode="widthFix" src="{{yunMediaRoot}}niannianyun/wx/topic/red/1.5/icon-red-postmark.png"></image>
+      </view>
+      <view class="cvs-bd">
+        <image class="bg-img" mode="widthFix" src="{{yunMediaRoot}}niannianyun/wx/topic/red/1.5/share-redpyq-bg3.png"></image>
+        <view class="wxcode">
+          <view class="qr-code">
+            <image src='{{wxacodePath}}'></image>
+          </view>
+          <view class='tip-txt'>邀请好友参与</view>
+          <view class='tip-txt'>承续革命情怀</view>
+        </view>
+      </view>
+      <view class="cvs-ft">
+        <image src="{{yunMediaRoot}}niannianyun/wx/topic/red/1.5/red-logo.png"></image>
+        <view>寄真情  用念念</view>
+      </view>
+    </view>
+    <view style="height:84rpx;"></view>
+  </view>
+  <canvas id="myCanvas-redMsg" canvas-id="myCanvasRedMsg2" />
+
+  <view class="footer {{isIphoneX ?'footer-iphonex':''}}">
+    <button class="send-btn" open-type="share">发送</button>
+    <view class="send">发送好友</view>
+    <view class="save" bindtap="onSave">图片分享</view>
+  </view>
+
+</view>

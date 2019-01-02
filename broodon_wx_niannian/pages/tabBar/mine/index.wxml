@@ -1,0 +1,76 @@
+<!-- 我的 -->
+<scroll-view scroll-y style="padding-bottom:118rpx;">
+  <view class='my-cont'>
+    <view class="user-info">
+      <image class="user-image" src='{{userImage}}'></image>
+      <view>
+        <view class="user-name">{{nickName}}</view>
+        <navigator url='/pages/mine/download/download' open-type='navigateTo' hover-class='none'>
+          <view class="go-app">更多信函体验尽在念念APP</view>
+        </navigator>
+      </view>
+    </view>
+    <view class='letter-list'>
+      <view class='list-item' style='background-image:url("{{yunMediaRoot}}niannianyun/wx/write/1.1/icon-right.png")'>
+        <button wx:if="{{isLogin}}" class="list-item-btn" plain='true' bindtap='goList' data-type='common'></button>
+        <button wx:else class="list-item-btn" plain='true' open-type='getPhoneNumber' bindgetphonenumber='goList' data-type='common'></button>
+        <image src='{{yunMediaRoot}}niannianyun/wx/my/putong.png'></image>
+        <text style='font-size:32rpx;margin-left:-25rpx;'>普通信函</text>
+        <view class='dian' wx:if="{{commonCount > 0}}"></view>
+      </view>
+      <view class='list-item' style='background-image:url("{{yunMediaRoot}}niannianyun/wx/write/1.1/icon-right.png")'>
+        <button wx:if="{{isLogin}}" class="list-item-btn" plain='true' bindtap='goList' data-type='activity'></button>
+        <button wx:else class="list-item-btn" plain='true' open-type='getPhoneNumber' bindgetphonenumber='goList' data-type='activity'></button>
+        <image src='{{yunMediaRoot}}niannianyun/wx/my/huodong.png'></image>
+        <text style='font-size:32rpx;margin-left:-25rpx;'>活动信函</text>
+        <view class='dian' wx:if="{{activityCount > 0}}"></view>
+      </view>
+      <view style='width:750rpx;height:16rpx;margin-left:-32rpx;background:#EFEFF4;'></view>
+
+      <view class='list-item' style='background-image:url("{{yunMediaRoot}}niannianyun/wx/write/1.1/icon-right.png")'>
+        <button wx:if="{{isLogin}}" class="list-item-btn" plain='true' bindtap='goList' data-type='myactivity'></button>
+        <button wx:else class="list-item-btn" plain='true' open-type='getPhoneNumber' bindgetphonenumber='goList' data-type='myactivity'></button>
+        <image src='{{yunMediaRoot}}niannianyun/wx/my/icon_act1.png'></image>
+        <text style='font-size:32rpx;margin-left:-25rpx;'>我的活动</text>
+        <view class='dian' wx:if="{{activityCount > 0}}"></view>
+      </view>
+      <view class='list-item' style='background-image:url("{{yunMediaRoot}}niannianyun/wx/write/1.1/icon-right.png")'>
+        <button wx:if="{{isLogin}}" class="list-item-btn" plain='true' bindtap='goList' data-type='statistics'></button>
+        <button wx:else class="list-item-btn" plain='true' open-type='getPhoneNumber' bindgetphonenumber='goList' data-type='statistics'></button>
+        <image src='{{yunMediaRoot}}niannianyun/wx/my/icon_tj.png'></image>
+        <text style='font-size:32rpx;margin-left:-25rpx;'>活动统计</text>
+        <view class='dian' wx:if="{{activityCount > 0}}"></view>
+      </view>
+      <view style='width:750rpx;height:16rpx;margin-left:-32rpx;background:#EFEFF4;'></view>
+
+      <!-- <view class='list-item' style='background-image:url("{{yunMediaRoot}}niannianyun/wx/write/1.1/icon-right.png")'>
+        <button wx:if="{{isLogin}}" class="list-item-btn" plain='true' bindtap='goList' data-type='mypacket'></button>
+        <button wx:else class="list-item-btn" plain='true' open-type='getPhoneNumber' bindgetphonenumber='goList' data-type='mypacket'></button>
+        <image src='{{yunMediaRoot}}niannianyun/wx/my/qianbao.png'></image>
+        <text style='font-size:32rpx;margin-left:-25rpx;'>我的钱包</text>
+        <view class='dian' wx:if="{{activityCount > 0}}"></view>
+      </view> -->
+      <!-- <view class="identification" wx:if="{{!isIdentify}}">
+        <image src="{{yunMediaRoot}}niannianyun/wx/my/notice1.png"></image>
+        <button wx:if="{{isLogin}}" plain='true' bindtap='goList' data-type='identify'>点击这里</button>
+        <button wx:else plain='true' open-type='getPhoneNumber' bindgetphonenumber='goList' data-type='identify'>点击这里</button>
+        <text class='tip'>进行实名认证，解锁钱包功能</text>
+      </view> -->
+      <view style='width:750rpx;height:16rpx;margin-left:-32rpx;background:#EFEFF4;'></view>
+
+      <view class='list-item' bindtap='goDetail' data-id='systemMsg' style='background-image:url("{{yunMediaRoot}}niannianyun/wx/write/1.1/icon-right.png")'>
+        <image src='{{yunMediaRoot}}niannianyun/wx/my/shouce.png'></image>
+        <text style='font-size:32rpx;margin-left:-25rpx;'>使用手册</text>
+      </view>
+      <view class='list-item' style='background-image:url("{{yunMediaRoot}}niannianyun/wx/write/1.1/icon-right.png");border:0;'>
+        <image src='{{yunMediaRoot}}niannianyun/wx/my/kefu.png'></image>
+        <text style='font-size:32rpx;margin-left:-25rpx;'>联系客服</text>
+        <button class='btn-ustomer' open-type='contact'></button>
+      </view>
+    </view>
+  </view>
+</scroll-view>
+
+<login wx:if="{{isLogin}}" bind:onLogin="onLogin" />
+<appfooter id="appfooter" list="{{tabList}}" firstWrite="{{firstWrite}}">
+</appfooter>

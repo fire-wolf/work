@@ -1,0 +1,21 @@
+<scroll-view scroll-y bindscrolltolower="LoadMore" style='height:100%;'>
+  <image src='{{topic.topicBgImage}}' style='width:750rpx;height:400rpx;'></image>
+  <view class='topic-name'>
+    {{topic.topicName}}
+    <image src='/images/shape.png' class='shape-img' mode='widthFix'></image>
+  </view>
+  <view class='topic-intro'>{{topic.introduction}}</view>
+  <image src="{{isLike?'/images/like1.png':'/images/like.png'}}" class='like' bindtap='onLike'></image>
+  <view class='like-count'>{{topic.totalLike}}</view>
+  <view class='hr'></view>
+  <museumletter list="{{list}}"/>
+  <view class='loading' wx:if="{{isBottom}}">
+    <block wx:if="{{!isEnd}}">
+      <image class='loading-image' src="{{yunMediaRoot}}niannianyun/wx/images/loading.gif"></image>
+    </block>
+    {{isEnd?'到底了,没有数据了...':'加载更多数据...'}}
+  </view>
+</scroll-view>
+
+<!-- 获取微信授权 -->
+<author wx:if="{{!isAuthor}}" list="{{list}}" bind:authFun="getUserAuthor"></author>

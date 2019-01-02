@@ -1,0 +1,25 @@
+<!-- 底部tabBar -->
+<view class="tab-bar {{isIphoneX ?'tab-bar-iphonex':''}}" >
+  <view class='tab-item'  wx:for='{{list}}' wx:key='tabList{{index}}' style="background-image:url({{item.iconPath}});" > 
+    <!-- <view bindtap='go' data-info='{{item}}'>
+      <image class='icon-item' src='{{item.iconPath}}'></image>
+      <view class='tab-title {{item.isActive == true ? "active" : ""}}'>{{item.text}}</view>
+    </view> -->    
+      <button open-type='getUserInfo' bindgetuserinfo="go"  class='tan-item-btn {{item.isActive == true ? "active" : ""}}' plain='true' style="border:none;" data-info='{{item}}'>{{item.text}}</button>
+  </view>
+  <!-- <view class='begin-write' hidden='{{!firstWrite}}'>
+    <image mode='widthFix' src='../../images/letter/begin-write.png'></image>
+  </view> -->
+  <!-- <view class='tab-item'>
+    <navigator url='../../pages/write/write' open-type='navigateTo' hover-class="none">
+      <image class='icon-item' mode='widthFix' src='{{list[1].iconPath}}'></image>
+      <view class='tab-title'>{{list[1].text}}</view>
+    </navigator>
+  </view>
+  <view class='tab-item'>
+    <navigator url='../../pages/list/list' open-type='redirectTo' hover-class="none">
+      <image class='icon-item'  src='{{list[2].iconPath}}'></image>
+      <view class='tab-title'>{{list[2].text}}</view>
+    </navigator>
+  </view> -->
+</view>

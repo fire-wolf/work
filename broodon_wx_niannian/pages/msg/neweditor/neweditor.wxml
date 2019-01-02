@@ -1,0 +1,35 @@
+<!-- v1.1 写信编辑器-->
+<view class="editor" style="background-color:#F1F3F5;">
+  <view class="error-tip" hidden='{{errorHidden}}'>{{errorText}}</view>
+  <view style='position:absolute;top:20rpx;;height:{{scrollViewHeight}};padding:0 16rpx;z-index:3;overflow:scroll;'>
+    <view class="main-wrap" style="background-image: url({{paperUrl.paperImage[2]}}), url({{paperUrl.paperImage[1]}});margin-bottom:{{isIphoneX ? '45' : '0'}}rpx;">
+      <view class="audio" bindtap="playAudio" wx:if="{{isMusic}}">
+        <image class="icon {{isPlaying ? 'rotate' : ''}}" src="{{isPlaying ? yunMediaRoot+'niannianyun/wx/write/1.1/icon-music-play.png' : yunMediaRoot+'niannianyun/wx/write/1.1/icon-music-close.png'}}"></image>
+      </view>
+      <image class='bg-msg' src='{{paperUrl.paperImage[0]}}' style='border-radius:8rpx 8rpx 0 0;' mode='widthFix'></image>
+      <view class="main" style="min-height:{{mainHeight}};">
+        <input class="title" value="{{title}}" bindinput="onInputText" bindblur="onInputText" bindfocus="onInputFocus" data-type="title" placeholder="请输入称呼或标题" maxlength="30" placeholder-style="#D6D0CE" />
+        <view class="img-wrap" bindtap="onSelectImg">
+          <image class="msg-img" mode="widthFix" src="{{msgImg ? msgImg : addIcon}}" style="top:{{msgImg ? imgTop : 0}}px;"></image>
+        </view>
+        <textarea class="msg-cont" value="{{content}}" bindinput="onInputText" bindblur="onInputText" bindfocus="onInputFocus" data-type="content" placeholder="请输入信函内容（不超过2000字）" placeholder-style="#D6D0CE" maxlength="2000" ></textarea>
+        <input class="author" value="{{author}}" bindinput="onInputText" bindblur="onInputText" bindfocus="onInputFocus" data-type="author" placeholder="请输入署名" placeholder-style="#D6D0CE"  maxlength="20" />
+      </view>
+      
+    </view>
+  </view>
+  
+
+  <image class="bottom-bg {{isIphoneX ?'bottom-bg-btn-iphonex':''}}" mode='widthFix' src='{{yunMediaRoot}}niannianyun/wx/topic/letter/bg-envelope-bottom.png'></image>     
+  <view class="preview-btn {{isIphoneX ?'preview-btn-iphonex':''}}" bindtap="goPreview">
+    预览
+  </view>
+</view>
+
+
+
+
+
+
+
+

@@ -1,0 +1,14 @@
+
+<view class="main">
+   
+  <view style='position:fixed;width:100%;height:100%;background:#fff;' > 
+      <form bindsubmit='bindFormSubmit'>
+       <view style="padding:30rpx 30rpx 0;width:100%;height:{{mainHeight}}px;">
+       <textarea  class="txt-input" name="textarea" placeholder='请输入信函内容（不超过2000字）' style="width:100%;height:100%;text-align:justify;" maxlength='2000' value="{{txtData.text}}" bindconfirm="content" focus='{{focus}}'></textarea></view>
+       <button class='btn-submit' form-type='submit'>完成</button>
+      </form> 
+      <view class='footer'>
+        <view class='button'>完成</view>
+      </view>
+  </view>
+</view>

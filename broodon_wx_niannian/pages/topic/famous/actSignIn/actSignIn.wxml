@@ -1,0 +1,87 @@
+<wxs src="../../../module.wxs" module="tools" />
+<view class="main">
+  <view class="header-contain">
+    <view class="header-bg" style="background-image:url({{actDetail.activitiesImg}});"></view>
+    <view class="header-cont">
+        <view class="act-img">
+            <block wx:if="{{actDetail.activitiesType==1}}"><span>公开活动</span></block>
+            <block wx:if="{{actDetail.activitiesType==2}}"><span>内部活动</span></block>
+            <block wx:if="{{actDetail.activitiesType==3}}"><span>邀约活动</span></block>
+            <image mode='scaleToFill' wx:if='{{actDetail.activitiesImg}}' bindtap='onMaxImg' data-src='{{actDetail.activitiesImg}}' src='{{actDetail.activitiesImg}}'></image>
+        </view>
+          <view class="act-cont">  
+            <view class="title">{{actDetail.activitiesTitle}}</view>
+            <view class="time">活动时间  {{tools.formatTime2(actDetail.startDate,actDetail.endDate,"+day")}}</view>
+          </view> 
+    </view>
+  </view>
+  <view class="sign-cont">
+    <view class="sign-top " style="{{distanceType>=2?(distanceType==4?'height:390rpx;':'height:250rpx;'):''}}">
+      <view class="sign-top-item">
+        <block  wx:if="{{distanceType<=1}}" >
+          <span class="sign-icon"></span>开始时间  {{tools.formatTime(actDetail.startDate,"minute")}}
+        </block>
+        <block wx:else>
+          <span class="sign-icon cl-g"></span>
+          <view class="sign-top-cont">
+            <view>开始时间  {{tools.formatTime(actDetail.startDate,"minute")}}</view> 
+            <view style="font-size:36rpx;;color:#3A3B3A;line-height:50rpx;" wx:if="{{signInTime && signInTime>0}}">签到时间  {{tools.formatTime(signInTime,"minute")}}</view>
+            <view wx:else style="height:50rpx;" >   </view>
+            <view wx:if="{{checkInAddress && checkInAddress!=''}}">{{checkInAddress}}</view>
+            <view wx:else style="height:50rpx;">   </view>
+          </view>
+        </block>
+      </view>
+      <view class="sign-top-l" wx:if="{{distanceType>=2}}"></view>
+      <view class="sign-top-item" style="margin-top:80rpx;" wx:if="{{distanceType>=2}}">
+        <block wx:if="{{distanceType>=2 && distanceType<4}}">
+          <span class="sign-icon"></span>结束时间  {{tools.formatTime(actDetail.endDate,"minute")}}
+        </block>
+        <block wx:if="{{distanceType==4}}">
+            <span class="sign-icon cl-g"></span>
+            <view class="sign-top-cont">
+              <view>结束时间  {{tools.formatTime(actDetail.endDate,"minute")}}</view>
+              <view style="font-size:36rpx;;color:#3A3B3A;line-height:50rpx;" wx:if="{{signOutTime && signOutTime>0}}">签出时间  {{tools.formatTime(signOutTime,"minute")}}</view>
+              <view>{{checkOutAddress}}</view>
+            </view>
+        </block>
+      </view> 
+     
+    </view>
+    <view class="sign-distance" wx:if="{{(actDetail.businessStatus==12 || actDetail.businessStatus==14) && distanceType<4}}">
+      <block wx:if="{{distanceType<=1 && actDetail.businessStatus==12}}">
+        <button wx:if="{{distanceType==1}}" class="icon-sign ok" bindtap='goSign' data-type="signIn">签到<span>{{tools.formatTime(curTime,"time")}}</span></button>
+        <view wx:elif="{{signInTime && signInTime>0}}" class="icon-sign">签到<span>{{tools.formatTime(signInTime,"time")}}</span></view>
+        <view wx:else class="icon-sign">签到<span>{{tools.formatTime(curTime,"time")}}</span></view>
+        <view class="txt-sign" wx:if="{{distanceType}}">
+          <span class="icon" style="background-image:url({{yunMediaRoot}}niannianyun/wx/act/icon_ok.png)"></span>已经进入签到点 <button plain='true' class='btn-check-addr' bindtap='checkAddr'>{{actDetail.address}}</button>
+        </view>
+        <view class="txt-sign" wx:else>
+          <span class="icon" style="background-image:url({{yunMediaRoot}}niannianyun/wx/act/icon_warn.png)"></span>当前不在签到范围 <button plain='true' class='btn-check-addr' bindtap='checkAddr'>查看签到范围</button>
+        </view>
+      </block>
+      <block wx:if="{{distanceType>=2}}">
+        <button wx:if="{{distanceType==3}}" class="icon-sign out" bindtap='goSign' data-type="signOut">签出<span>{{tools.formatTime(curTime,"time")}}</span></button>
+        <view wx:elif="{{signOutTime && signOutTime>0}}" class="icon-sign">签出<span>{{tools.formatTime(signOutTime,"time")}}</span></view>
+        <view wx:else class="icon-sign">签出<span>{{tools.formatTime(curTime,"time")}}</span></view>
+         <view class="txt-sign" wx:if="{{distanceType==3}}">
+          <span class="icon" style="background-image:url({{yunMediaRoot}}niannianyun/wx/act/icon_ok.png)"></span>已经进入签出点 <button plain='true' class='btn-check-addr' bindtap='checkAddr'>{{actDetail.address}}</button>
+        </view>
+        <view class="txt-sign" wx:else>
+          <span class="icon" style="background-image:url({{yunMediaRoot}}niannianyun/wx/act/icon_warn.png)"></span>当前不在签出范围 <button plain='true' class='btn-check-addr' bindtap='checkAddr'>查看签出范围</button>
+        </view>
+      </block>
+    </view>
+  </view>
+  <view class="win-box" wx:if="{{isShowWin}}">
+    <view class="win-mask"></view>
+    <view class="win-cont">
+      <view class="win-icon" style="background-image:url({{winObj.iconImg}})"></view>
+      <view class="title">{{winObj.title}}</view>
+      <view class="desc" wx:if="{{winObj.desc && winObj.desc!=''}}">{{tools.formatTime(winObj.desc,"zh")}}</view>
+      <button class="btn-close" bindtap='closeWin' >我知道了</button>
+    </view>
+  </view>
+
+  <view class="time-box" wx:if="{{distanceTime && distanceTime!=''}}" style="height:{{distanceTimeHeight}}px;">累计活动时间：{{distanceTime}}</view>
+</view>

@@ -1,0 +1,89 @@
+<wxs src="../../../module.wxs" module="tools" />
+<import src="../../../../wxParse/wxParse.wxml"/> 
+<scroll-view class='detail-container' 
+    scroll-y 
+    bindscrolltolower="bindscrolltolower" 
+    enable-back-to-top="{{true}}"
+    lower-threshold="100" 
+  >
+  <view class="main"  wx:if="{{isLogin==true}}" >
+    <view class="header-contain">
+      <view class="header-bg" style="background-image:url({{actDetail.activitiesImg}});"></view>
+      <view class="header-cont">
+          <view class="act-img">
+              <block wx:if="{{actDetail.activitiesType==1}}"><span>公开活动</span></block>
+              <block wx:if="{{actDetail.activitiesType==2}}"><span>内部活动</span></block>
+              <block wx:if="{{actDetail.activitiesType==3}}"><span>邀约活动</span></block>
+              <image mode='scaleToFill' wx:if='{{actDetail.activitiesImg}}' bindtap='onMaxImg' data-src='{{actDetail.activitiesImg}}' src='{{actDetail.activitiesImg}}'></image>
+            </view>
+            <view class="act-cont">
+              <view class="title">{{actDetail.activitiesTitle}}</view>
+              <view class="personNum">活动名额  <block wx:if="{{actDetail.limitPerson==0}}">无限制</block><block wx:else>{{actDetail.enrollPerson || 0}}/{{actDetail.limitPerson}}</block></view>
+              <view class="time" wx:if="{{actDetail.businessStatus==9 || actDetail.businessStatus==10}}">报名截止日期  {{tools.formatTime(actDetail.enrollEndTime)}}</view>
+            </view>
+            <view class="act-state">
+              <span class="name cl-r" wx:if="{{actDetail.businessStatus==2}}" >{{actDetail.closeReason}}</span>
+              <span wx:else class="name {{actDetail.businessStatus=='13'?'cl-r':''}}">{{actDetail.statusName}}</span>
+              <block wx:if="{{actDetail.businessStatus==9 || (actDetail.businessStatus==11 && actDetail.activitiesType==3)}}">
+                <button type='default' plain='true' class='btn-signup detail' bindtap='onSignUp' data-type="signDetail" >已报名</button>
+              </block>
+              <block wx:if="{{actDetail.businessStatus==10}}">
+                <button type='default' plain='true' class='btn-signup ' bindtap='onSignUp' data-type="signup">报名</button>
+              </block>
+              <block wx:if="{{actDetail.businessStatus==12 && actDetail.enrollTime>0}}">
+                <button type='default' plain='true' class='btn-signup' bindtap='onSignUp' data-type="signin">签到</button>
+              </block>
+              <block wx:if="{{actDetail.businessStatus==14  && actDetail.enrollTime>0 }}">
+                <button type='default' plain='true' class='btn-signup out' bindtap='onSignUp' data-type="signout">签出</button>
+              </block>
+              <block wx:if="{{actDetail.businessStatus==15 || actDetail.businessStatus==13}}">
+                <button type='default' plain='true' class='btn-signup detail2' bindtap='onSignUp' data-type="detail">签到详情</button>
+              </block>
+
+            </view>
+            
+      </view>
+    </view>
+    <view class="content-contain">
+        <view class="act-taddr-box">
+          <view class="time"><span>活动时间</span><span class="detail">{{tools.formatTime2(actDetail.startDate,actDetail.endDate,"+day")}}</span></view>
+          <view class="addr"><span>活动地点</span><span class="detail">{{actDetail.address}}</span></view>
+          <button type="default" plain="true" bindtap='openLocaAddr' style="background-image:url({{yunMediaRoot}}niannianyun/wx/act/map.png)"></button>
+        </view>
+        <view class="tab-box">
+          <view class="tab-nav">
+            <view class="nav-item {{isAct?'active':''}}" catchtap='onChangeNav' data-type="detail">活动详情<span></span></view>
+            <view class="nav-item {{!isAct?'active':''}}" catchtap='onChangeNav' data-type="record">活动记录<span></span></view>
+          </view>
+          <view class="tab-cont {{!isAct?'tab-cont-record':''}}">
+            <template is="wxParse" wx:if="{{isAct}}" data="{{wxParseData:content.nodes}}"/>
+            <view wx:if="{{recordList.length>0 && !isAct}}" class='record-list' style="min-height:{{recordHeight}}px;" > 
+              <view class="record-item" wx:for="{{recordList}}"  wx:key=""
+                  data-item='{{item}}'>
+                <image mode='aspectFill' data-src='{{item.userHeadImg}}' src='{{tools.formatImg3(item.userHeadImg)}}' catchtap="onMaxImg" class="face"></image> 
+                  <view class="name">{{item.nickName}}</view> 
+                  <view class="time">{{tools.formatTime(item.createDate,"zh")}}</view>
+                  <view class="cont jRecordCont" data-index="{{index}}" ><text space="nbsp">{{item.recordTxt}}</text></view> 
+                  <view class="img-list" wx:if="{{item.recordImage!=''}}">
+                    <view class="img-item" wx:for="{{tools.imgToArry(item.recordImage)}}" wx:key="" wx:for-item="imgItem">
+                        <image mode='aspectFill' data-src='{{imgItem}}' data-list="{{tools.imgToArry(item.recordImage)}}" src='{{tools.formatImg3(imgItem)}}' catchtap="onMaxImg" ></image> 
+                    </view>
+                  </view>
+              </view>
+
+            </view>
+            <view class="no-record-list" wx:if="{{!isAct && recordList.length==0}}" style="height:{{recordHeight}}px">
+              <image mode='scaleToFill' src='{{yunMediaRoot}}niannianyun/wx/act/no_record.png'></image>
+              <view class="desc">暂无活动记录</view>
+            </view>
+            <button class="btn-record" wx:if="{{!isAct && actDetail.canPublishRecord}}"  bindtap="addRecord" plain='true' style="background-image:url({{yunMediaRoot}}niannianyun/wx/act/editor.png);"></button>
+          </view>
+        </view>
+    </view> 
+  </view>
+
+  <login wx:if="{{isLogin ==false}}" bind:onLogin="onLogin" />
+  <!-- 获取微信授权 -->
+  <author wx:if="{{!isAuthor}}" bind:authFun="getUserAuthor"></author>
+</scroll-view>
+ 

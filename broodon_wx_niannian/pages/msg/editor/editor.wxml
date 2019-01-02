@@ -1,0 +1,88 @@
+<!-- v1.6 写信编辑器-->
+<view class="editor" style="background-color:#fff;">
+  <view class="error-tip" hidden='{{errorHidden}}'>{{errorText}}</view>
+  <scroll-view deltaY="10" scroll-y  style='position:absolute;width:100%;top:20rpx;;width:{{scrollViewWidth}};height:{{scrollViewHeight}};padding:0 16rpx;z-index:3;'>
+    <view class="main-wrap" id="wrap" style="background-image: url({{paperUrl.paperImage[2]}}), url({{paperUrl.paperImage[1]}});margin-bottom:{{isIphoneX ? '45' : '0'}}rpx;overflow:auto;" >
+      <view class="audio" bindtap="playAudio" wx:if="{{isMusic}}">
+        <image class="icon {{isPlaying ? 'rotate' : ''}}" src="{{isPlaying ? yunMediaRoot+'niannianyun/wx/write/1.1/icon-music-play.png' : yunMediaRoot+'niannianyun/wx/write/1.1/icon-music-close.png'}}"></image>
+      </view>
+      <image class='bg-msg' src='{{paperUrl.paperImage[0]}}' style='border-radius:8rpx 8rpx 0 0;' mode='widthFix'></image>
+       
+      <view class="main" style="min-height:{{mainHeight}};">
+      
+        <input class="title" value="{{title}}" bindinput="onInputText" bindblur="onInputText" bindfocus="onInputFocus" data-type="title" placeholder="请输入称呼或标题" maxlength="30" placeholder-style="#D6D0CE" />
+        <view class="msg-list msg-{{itemSize}}" wx:for="{{msgList}}"  wx:key="msg_{{item.msgId}}" > 
+            <view class="editor-box" data-index="{{item.index}}">
+               <template is="editorTpl" data="{{item,yunMediaRoot,isVideo,isImg,isVoice,isText}}" />
+            </view>
+            <!-- <view  class="msg-box" hidden='{{!(item.type && item.type!="")}}' style="height:{{item.height+60}}rpx;"> -->
+            <view  class="msg-box" hidden='{{!(item.type && item.type!="")}}'>
+              <template is="msgTpl" data="{{item,yunMediaRoot,isVoicePlaying,clock,startVoice,msgList,isEditing}}" />
+            </view>
+        </view> 
+        
+        <view class="author-wrap">
+          <input class="author" value="{{author}}" bindinput="onInputText" bindblur="onInputText" bindfocus="onInputFocus" data-type="author" placeholder="请输入署名" placeholder-style="#D6D0CE"  maxlength="20" />
+        </view>
+        
+      </view> 
+    </view>
+  </scroll-view>
+  
+  <!--场景浮层-->
+  <msgType wx:if="{{isParam}}" map="{{map}}" curTime="{{curTime}}" redPacket="{{redPacket}}" isEditor="true" bind:changeMsgType="changeMsgType" ></msgType>
+
+
+  <!--更换信纸-->
+  <view class="top-changePaper" style="width:{{scrollViewWidth}}" bindtap='changeMsgType' data-type="paper">更换信纸</view>
+
+  <!--底部功能按钮层-->
+  <image class="bottom-bg {{isIphoneX ?'bottom-bg-btn-iphonex':''}}" mode='widthFix' src='{{yunMediaRoot}}niannianyun/wx/topic/letter/bg-envelope-bottom.png'></image>     
+  <view class="bottom-btn {{isIphoneX ?'bottom-btn-iphonex':''}}" style="">
+    <view class='more-btn' wx:if="{{msgList && msgList.length > 1}}" bindtap="showEditFun">{{isEditing ? '确认修改':'编辑'}}</view>
+    <!-- <view class='preview-btn' hidden="{{isEditing}}" bindtap="goSend" data-type="preview">预览</view> -->
+    <view class="send-btn {{!(msgList && msgList.length>1)?'disabled':''}}" hidden='{{isEditing}}'>
+    <button type='default' plain='true'   wx:if="{{!isLogin}}" open-type='getPhoneNumber' bindgetphonenumber='goSend'>下一步</button>
+    <button type='default'  wx:else     bindtap='goSend'>下一步</button>
+    </view>
+  </view>
+
+ 
+ </view>
+<!--编辑模板-->
+<template name="editorTpl">
+  <button type='default' plain='false' hover-class='none' class="{{item.isShow?'isOpen':''}}" bindtap='add' data-index="{{item.index}}"></button>
+  <view class="add-box" hidden="{{item.isShow}}" >
+    <view class="text"   bindtap="onSelect" wx:if="{{isText}}" data-index="{{item.index}}" data-type="text"><image src='{{yunMediaRoot}}niannianyun/wx/editor/icon_font.png' ></image>文字</view>
+    <view class="image"  bindtap="onSelect"  wx:if="{{isImg}}"  data-index="{{item.index}}"  data-type="image"><image src='{{yunMediaRoot}}niannianyun/wx/editor/icon_pic.png' ></image>图像</view>
+    <view class="voice"   bindtap="onSelect"  wx:if="{{isVoice}}"  data-index="{{item.index}}"  data-type="voice"><image src='{{yunMediaRoot}}niannianyun/wx/editor/icon_audio.png' ></image>音频</view>
+    <view class="video"   bindtap="onSelect" wx:if="{{isVideo}}"  data-index="{{item.index}}"  data-type="video"><image src='{{yunMediaRoot}}niannianyun/wx/editor/icon_video.png' ></image>视频</view>
+  </view>
+</template>
+
+<!--内容模板-->
+<template name="msgTpl">
+  <button type='default' plain='false' class='icon-up {{item.index == 0 ? "icon-up-disable":""}}' hover-class='none' bindtap='changeOrder' wx:if="{{msgList && msgList.length > 1 && isEditing}}" data-index="{{item.index}}"  data-type="{{item.type}}" data-ordertype='up'></button>
+  <button type='default' plain='false' class='icon-down {{msgList.length}} {{item.index == msgList.length - 2 ? "icon-down-disable":""}}' hover-class='none' bindtap='changeOrder' wx:if="{{msgList && msgList.length > 1 && isEditing}}" data-index="{{item.index}}"  data-type="{{item.type}}" data-ordertype='down'></button>
+  <button type='default' plain='false' hover-class='none' bindtap='deleteFun' wx:if="{{isEditing}}" data-index="{{item.index}}"  data-type="{{item.type}}" ></button>
+   
+  <block wx:if="{{item.type == 'images'}}">
+    <image src="{{item.images}}" bindload="imgLoad"  bindtap='onSelectEditor' data-index="{{item.index}}" data-type="image"  mode='widthFix' data-index='{{item.index}}'></image>
+  </block>
+  <view wx:if="{{item.type == 'text'}}" class='msg-box-text' style='word-break:break-all;' bindtap='onSelectEditor' data-index="{{item.index}}" data-type="text"><text space="ensp">{{item.text}}</text></view>
+
+<view wx:if="{{item.type == 'voice'}}" bindtap='onSelectEditor' data-index="{{item.index}}" data-type="voice">
+    <view class='voice-content'>
+      <view 
+      class='voice-content-icon' catchtap='playVoice' data-idx="{{item.index}}" data-path="{{item.tempFilePath}}" 
+      style="background-image:url('{{yunMediaRoot}}{{isVoicePlaying ?'niannianyun/wx/write/1.1/icon-voice-pause.png':'niannianyun/wx/write/1.1/icon-voice-play.png'}}');">
+      </view>
+      <!-- <image src="{{yunMediaRoot}}{{isVoicePlaying ?'niannianyun/wx/write/1.1/icon-voice-pause.png':'niannianyun/wx/write/1.1/icon-voice-play.png'}}" catchtap='playVoice' data-idx="{{item.index}}" data-path="{{item.tempFilePath}}"></image> -->
+      <text>00:{{startVoice?clock:item.curClock}}</text>
+    </view>
+  </view>
+  <view class='video-view' wx:if="{{item.type == 'video'}}" style="width:596rpx;height:596rpx;margin:0 auto;background-image:url('{{item.videoThumb}}');" bindtap='onSelectEditor' data-index="{{item.index}}" data-type="video">
+     <image src="{{yunMediaRoot}}niannianyun/wx/editor/video_begin.png"></image>
+  </view>
+</template>
+

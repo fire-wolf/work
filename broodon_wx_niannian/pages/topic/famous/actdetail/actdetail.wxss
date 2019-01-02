@@ -1,0 +1,318 @@
+/* @import "../../template/template.wxss"; */
+@import "../../../../wxParse/wxParse.wxss";
+page {
+  background-color: #fff;
+}
+
+.detail-container {
+  position: relative;
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+}
+
+.header-contain {
+  position: relative; 
+  margin: 0 auto; 
+  height: 348rpx;
+  overflow: hidden; 
+}
+.header-bg{
+   -webkit-filter: blur(20px);
+    filter: blur(20px);
+    background-repeat: repeat;
+    opacity: 0.4;
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    z-index:1;
+    background-size: 100%;
+}
+.header-cont{
+  position:relative;
+  top:0;
+  left:0; 
+  height:100%;
+  z-index:2;
+  background:rgba(0,0,0,0.4);
+  padding:24rpx 0 48rpx 32rpx;
+}
+
+.header-contain .act-img{
+  float: left;
+  position: relative;
+  width: 204rpx;
+  height: 276rpx;
+  border-radius: 8rpx;
+}
+.header-contain .act-img  image{
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 8rpx;
+}
+.header-contain .act-img span{
+  position: absolute;
+  top:0;
+  left:0;
+  display: inline-block;
+  font-size: 20rpx;
+  color: #fff;
+  text-align: center;
+  padding:0 8rpx;
+  height: 38rpx;
+  line-height: 38rpx;
+  border-radius: 8rpx 0 8rpx 0;
+  background: rgba(0,0,0,0.7);
+}
+.header-contain .act-cont{
+  float: left; 
+  margin-left: 24rpx;
+  width:456rpx;
+}
+.header-contain .act-cont .title{
+  margin-bottom:24rpx;
+  font-size: 36rpx;
+  line-height: 48rpx;
+  text-align: left;
+  color:#fff; 
+}
+.header-contain .act-cont .time,.header-contain .act-cont .personNum {
+  margin-bottom: 16rpx; 
+  font-size: 24rpx;
+  line-height: 26rpx;
+  color:#fff;
+  text-align: left;
+}
+.header-contain .act-state{
+  position: absolute;
+  bottom: 48rpx;
+  left:260rpx; 
+}
+.header-contain  .act-state .name{
+  display: inline-block;
+  margin-right: 20rpx;
+  font-size: 24rpx;
+  line-height: 48rpx;
+  color: #57C37D;
+  vertical-align: middle;
+}
+.header-contain .act-state .cl-r{
+  color: #FA563C;
+}
+.header-contain .btn-signup{
+  display: inline-block;
+  margin: 0;
+  border:none!important;
+  width: 160rpx;
+  height: 48rpx;
+  line-height: 48rpx;
+  text-align: center;
+  color:#fff !important;
+  font-size:24rpx;
+  vertical-align: middle;
+  border-radius: 6rpx;
+  background:linear-gradient(90deg,rgba(122,221,94,1),rgba(79,202,124,1));
+}
+.header-contain .btn-signup.out{
+  background:linear-gradient(90deg,#FD7A55,#FA553C);
+}
+.header-contain .btn-signup.detail{
+  background:none;
+  border:2rpx solid #fff !important;
+}
+.header-contain .btn-signup.detail2{
+  color:#707371!important;
+  border:2rpx solid #fff !important;
+  background:rgba(255, 255, 255, 0.4);
+}
+
+.content-contain .act-taddr-box{
+  position: relative;
+  padding:48rpx 32rpx 64rpx;
+  border-bottom:2rpx solid #ddd;
+  
+}
+.content-contain .act-taddr-box span{
+  float: left;
+  width: 128rpx;
+  display: block;
+  font-size:24rpx;
+  color:#707371;
+  line-height: 26rpx; 
+
+}
+.content-contain .act-taddr-box .time,.content-contain .act-taddr-box .addr{
+  
+  margin-bottom: 32rpx;
+ font-size: 28rpx;
+ line-height: 30rpx;
+ min-height: 30rpx;
+  width: 100%;
+  color:#171312;
+
+}
+.content-contain .act-taddr-box .addr{
+  margin-bottom: 0;
+}
+.content-contain .act-taddr-box .detail{
+  width: 480rpx;
+}
+.content-contain .act-taddr-box button{
+  position: absolute;
+  margin:0;
+  right: 32rpx;
+  top: 106rpx;
+  padding:0;
+  width: 72rpx;
+  height: 72rpx;
+  border:none!important;
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+.tab-box{
+  padding-top:16rpx;
+}
+.tab-box .tab-nav{
+  height: 64rpx;
+}
+.tab-box .tab-nav .nav-item{
+  float: left;
+  position: relative;
+  width: 50%;
+  text-align: center;
+  height: 100%;
+  line-height: 64rpx;
+  font-size: 26rpx;
+  color:#171312;
+}
+.tab-box .tab-nav .nav-item span{
+  display: none;
+}
+.tab-box .tab-nav .nav-item.active span{
+  position: absolute;
+  display: block;
+  bottom: 0;
+  left: 50%;
+  margin-left: -41rpx;
+  width: 82rpx;
+  height: 8rpx;
+  border-radius: 8rpx 8rpx  0 0;
+  background:#69bf30;
+}
+.tab-box .tab-cont{
+  padding:22rpx 32rpx 30rpx;
+}
+.tab-box .tab-cont-record{
+  padding:0;
+}
+.tab-box .tab-cont image{
+  display: block;
+  margin:20rpx auto;
+  border-radius: 8rpx;
+  max-width:100%;
+
+}
+.tab-box .record-list{
+  position: relative;
+  min-height: 500rpx;
+}
+.tab-box .record-list .record-item{
+  position: relative;
+  padding:48rpx 32rpx 48rpx 112rpx;
+  border-bottom:2rpx solid #E3EAE6;
+}
+.tab-box .record-list .record-item:last-child{
+  border-bottom: none;
+}
+.tab-box .record-list .record-item .face{
+  position: absolute;
+  margin:0;
+  top:48rpx;
+  left: 32rpx;
+  display: block;
+  width: 64rpx;
+  height: 64rpx;
+  border-radius: 100%;
+}
+.tab-box .record-list .record-item .name{
+  font-size: 28rpx;
+  line-height: 40rpx;
+  color: #3A3B3A;
+}
+.tab-box .record-list .record-item .time{
+  font-size: 24rpx;
+  line-height: 26rpx;
+  height: 26rpx;
+  color: #B3B9B5;
+}
+.tab-box .record-list .record-item .cont{
+  padding:22rpx 0 16rpx 0; 
+  font-size: 32rpx;
+  line-height: 44rpx;
+  color: #3A3B3A;  
+  overflow: hidden;
+}
+.tab-box .record-list .record-item .img-list{
+  margin-right: -14rpx;
+  max-height: 610rpx;
+  overflow: hidden;
+}
+.tab-box .record-list .record-item .img-list .img-item{
+  float: left;
+  width: 192rpx;
+  height: 194rpx;
+  margin-right: 14rpx;
+  margin-bottom: 14rpx;
+}
+.tab-box .record-list .record-item .img-list image{
+  display: block;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+} 
+.tab-box .no-record-list{
+  padding-top:84rpx;
+  padding-bottom:210rpx;
+}
+.tab-box .no-record-list image{
+  margin:0 auto;
+  width: 176rpx;
+  height: 176rpx;
+  display: block;
+}
+
+.tab-box .no-record-list .desc{
+  margin-top:74rpx;
+  font-size: 28rpx;
+  line-height: 40rpx;
+  color: #B3B9B5;
+  text-align: center;
+}
+
+.btn-check{
+  margin: 0;
+  padding:0;
+  text-align: right;
+  font-size: 28rpx;
+  height: 64rpx;
+  line-height: 64rpx;
+  color:#57C37D  !important;
+  border: none !important;
+  background: none;
+
+}
+.tab-box  .btn-record{
+  position: fixed;
+  margin:0;
+  right: 48rpx;
+  bottom: 10rpx;
+  width:134rpx;
+  height: 154rpx;
+  border: none !important; 
+  background-size: 100%;
+  background-repeat: no-repeat;
+  z-index:10;
+}

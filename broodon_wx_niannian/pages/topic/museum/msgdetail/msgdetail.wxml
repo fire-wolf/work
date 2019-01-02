@@ -1,0 +1,53 @@
+<import src="../../../../wxParse/wxParse.wxml" />
+
+<view class='main'>
+  <scroll-view class='main-scroll' scroll-y bindscroll='bindscroll'>
+    <view class='main-msg'>
+      <image class='msg-paper-top' src='../../../images/museum/bg_1.png'></image>
+      <view class='msg-wrapper'>
+        <view class='msg-mod'>
+          <view class='msg-title'>
+            <text class='msg-title-text'>{{msgDetail.title}}</text>
+          </view>
+          <view class='msg-category'>
+            <text wx:for='{{labelNameArry}}' wx:key='labelNameArry{{index}}'>{{item}}</text>
+          </view>
+          <view class='video-view' wx:if='{{msgDetail.video}}' bindtap='playVideo' style='background-image:url("{{videoThumb}}");'>
+            <image src='{{yunMediaRoot}}niannianyun/wx/editor/video_begin.png'></image>
+          </view>
+          <view class='audio-view' wx:if='{{msgDetail.voice}}'>
+            <image bindtap='playAudio' src="{{isVoicePlaying ? '../../../images/museum/icon_museum_pause.png' : '../../../images/museum/icon_museum_play.png'}}"></image>
+            <text>{{voiceCurrentTime}}</text>
+          </view>
+          <view class='msg-original'>
+            <image class='msg-sub-title' mode='widthFix' src='../../../images/museum/t_2.png'></image>
+            <view class='msg-original-content'>
+              <template is="wxParse" data="{{wxParseData:msgOriginal.nodes}}" />
+            </view>
+          </view>
+          <view class='msg-translation' wx:if='{{msgDetail.contentTranslate}}'>
+            <view class='msg-translation-title'>
+              <view class='dot'></view>
+              <text>译文</text>
+            </view>
+            <view class='msg-translation-cont'>
+              <template is="wxParse" data="{{wxParseData:contentTranslate.nodes}}" />
+            </view>
+          </view>
+          <view class='msg-background'>
+            <image class='msg-sub-title' mode='widthFix' src='../../../images/museum/t_1.png'></image>
+            <view class='msg-background-content'>
+              <template is="wxParse" data="{{wxParseData:msgBg.nodes}}" />
+            </view>
+          </view>
+          <view class='msg-source'><text>来源：　{{msgDetail.msgSource}}</text></view>
+          <image class='icon-like' bindtap='onMsgLike' src='{{msgDetail.isLike == 1 ? "../../../images/museum/icon_like_0.png" : "../../../images/museum/icon_like_1.png"}}'></image>
+        </view>
+      </view>
+      <image class='msg-paper-bottom' src='../../../images/museum/bg_2.png'></image>
+    </view>
+  </scroll-view>
+  <login wx:if="{{!isLogin}}" bind:onLogin="onLogin" />
+  <!-- 用户授权 -->
+  <author wx:if="{{!isAuthor}}" bind:authFun="getUserAuthor"></author>
+</view>

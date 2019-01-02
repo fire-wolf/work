@@ -1,0 +1,16 @@
+<wxs src="../../../module.wxs" module="tools" />
+
+<block wx:for="{{list}}" wx:key="{{index}}">
+  <view class="letter {{model?'style1':'style2'}}">
+    <view style='margin:8rpx 0;width:474rpx;'>
+      <view class='letter-title omit' style='-webkit-line-clamp:1;'>{{item.title}}</view>
+      <view class='letter-msg omit'>{{item.msgAbstract}}</view>
+      <view class='letter-label'>
+        <text wx:for="{{item.labelNameArry}}" wx:key="{{index}}">{{item}}　</text>
+      </view>
+    </view>
+    <view class='letter-image'>
+      <image src='{{tools.formatImg3(item.image)}}' style='width:100%' mode='widthFix'></image>
+    </view>
+  </view>
+</block>

@@ -1,0 +1,81 @@
+.box{
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 101;
+  background:rgba(0,0,0,0.5);
+}
+.box .cover{
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+}
+.box-main{
+  position: absolute;
+  top: 360rpx;
+  left: 14%;
+  width: 72%;
+  height: 360rpx;
+  background: rgba(252,252,252,1);
+  -webkit-border-radius: 24rpx;
+  border-radius: 24rpx;
+}
+.box-main .title{
+  margin: 40rpx 0 60rpx 0;
+  color: #030303;
+  font-size: 34rpx;
+  line-height: 36rpx;
+  text-align: center;
+}
+.box-main .content{
+  width: 480rpx;
+  margin: 0 auto;
+  font-size:26rpx;
+  color:#030303;
+  text-align: center;
+  line-height:32rpx;
+}
+.box-main .foot{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 88rpx;
+  display: flex;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+.box-main .foot .item{
+  flex: 1;
+  height: 100%;
+  color: #69BF30;
+  line-height: 88rpx;
+  text-align: center;
+}
+.box-main .line{
+  position: absolute;
+  width: 100%;
+  height: 2rpx;
+  bottom: 89rpx;
+  left: 0;
+  background: rgba(77,77,77,0.78);
+  z-index: 2;
+  transform: scaleY(0.2);
+}
+.box-main .vertical-line{
+  position: absolute;
+  width: 2rpx;
+  height: 88rpx;
+  bottom: 0rpx;
+  left: 50%;
+  background: rgba(77,77,77,0.78);
+  z-index: 2;
+  transform: scaleX(0.2);
+}

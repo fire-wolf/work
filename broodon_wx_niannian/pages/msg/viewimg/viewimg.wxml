@@ -1,0 +1,9 @@
+<view class="viewimg">
+  <image class="img" mode="widthFix" src="{{msgImg}}">
+  </image>
+  <view class="open"></view>
+</view>
+<view class="foot">
+  <view class="change" bindtap="onChangeImg">更换</view>
+  <view class="remove" bindtap="onRemoveImg">删除</view>
+</view>

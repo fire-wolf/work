@@ -1,0 +1,8 @@
+<view class="wrap"  hidden="{{isLogin}}">
+  <view class="main">
+    <view class="tips-title">需要授权之后才能操作呢</view>
+    <button wx:if="{{canIUse}}" class="btn-author" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">获取微信授权</button>
+    <view wx:else  class="tips-title">请升级微信版本</view>
+  </view>
+    
+</view> 

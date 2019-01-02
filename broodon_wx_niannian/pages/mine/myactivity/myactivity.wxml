@@ -1,0 +1,46 @@
+<wxs src="../../module.wxs" module="tools" />
+<scroll-view class="contain" bindscrolltolower="loadMore" scroll-y >
+  <view class="list-item" wx:for="{{activityList}}" wx:key="activity{{index}}">
+    <view class="act-face" bindtap='onClickSign' data-type="actDetail"  data-id="{{item.activitiesId}}">
+      <view class="activity-type" wx:if="{{item.activitiesType}}">
+        <block wx:if="{{item.activitiesType==1}}">公开活动</block>
+        <block wx:if="{{item.activitiesType==2}}">内部活动</block>
+        <block wx:if="{{item.activitiesType==3}}">邀约活动</block>
+      </view>
+      <image class="activity-img" src="{{item.activitiesImg}}"></image>
+    </view>
+    <view class="right-side">
+      <view class="act-info" bindtap='onClickSign' data-id="{{item.activitiesId}}" data-type="actDetail">
+        <view class="topic">{{item.activitiesTitle}}</view>
+        <view class="tip" style='margin-top:16rpx;'>
+          <image src='{{yunMediaRoot}}niannianyun/wx/my/time.png'></image>
+          <view class="detail">{{tools.formatTime2(item.startDate,item.endDate,"+day")}}</view>
+        </view>
+        <view class="tip">
+          <image src='{{yunMediaRoot}}niannianyun/wx/my/address.png'></image>
+          <view class="detail">{{item.address}}</view>
+        </view>
+      </view>
+      <view class="state">
+        <view class="sign-in" wx:if="{{item.businessStatus=='12' && item.enrollTime>0}}" bindtap='onClickSign' data-type="signin"  data-item="{{item}}">签到</view>
+        <view class="sign-in sign-out"  wx:elif="{{item.businessStatus=='14' && item.enrollTime>0}}" bindtap='onClickSign' data-type="signout"  data-item="{{item}}">签出</view>
+        <view class="sign-detail" wx:elif="{{item.businessStatus==15}}" bindtap='onClickSign' data-type="signDetail" data-item="{{item}}">签到详情</view>
+         <view class="sign-detail" wx:elif="{{item.businessStatus==9 || (item.businessStatus==11 && item.activitiesType==3)}}"    data-item="{{item}}">已报名</view>
+          <!-- <view class="sign-detail" wx:elif="{{item.businessStatus==2}}" bindtap='onClickSign' data-type="signDetail" data-item="{{item}}">活动关闭</view> -->
+         <!-- <view class="sign-detail" wx:else bindtap='onClickSign' data-type="actDetail" data-id="{{item.activitiesId}}">活动详情</view> -->
+        <view class="action" style='color:rgba(250,86,60,1);' wx:if="{{item.businessStatus==2 && item.closeReason}}">{{item.closeReason}}</view>
+        <view class="activity-state">{{item.statusName}}</view>
+      </view>
+    </view>
+  </view>
+   <view class="no-record-list" wx:if="{{ activityList.length==0}}" style="margin-left:-32rpx;width: 100%;">
+      <image mode='scaleToFill' src='{{yunMediaRoot}}niannianyun/wx/act/no_record.png'></image>
+      <view class="desc">暂无活动记录</view>
+    </view>
+  <view class='loading' wx:if="{{isBottom}}" style="margin-left:-32rpx;width: 100%;">
+      <block wx:if="{{!isEnd}}">
+        <image class='loading-image' src="{{yunMediaRoot}}niannianyun/wx/images/loading.gif"></image>
+      </block>
+      {{isEnd?'到底了,没有数据了...':'加载更多数据...'}}
+  </view>
+</scroll-view>

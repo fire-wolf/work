@@ -1,0 +1,14 @@
+
+  <view class='box'>
+    <view class='cover'></view>
+    <view class='box-main'>
+      <view class='title'>提示</view>
+      <view class='content'>{{content}}</view>
+      <view class='line'></view>
+      <view class='vertical-line'></view>
+      <view class='foot'>
+        <view class='item'>{{cancelText}}</view>
+        <view class='item'>{{confirmText}}</view>
+      </view>
+    </view>
+  </view>

@@ -1,0 +1,296 @@
+/* 我的感悟详情 */
+.fed-wrap{
+  position: relative;
+  min-height: 100%;
+  background-image:url(https://file.niannian99.com/niannianyun/wx/topic/letter/bg-envelope-bottom.png);
+  background-color: #F1F3F5;
+  background-repeat: no-repeat;
+  background-position: left bottom;
+  background-size: 100%;
+  text-align:left;
+}
+.fed-wrap .audio{
+  position: absolute;
+  top: 104rpx;
+  right: 32rpx;
+  padding: 15rpx;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 50%;
+  z-index: 10;
+}
+.fed-wrap .audio .icon{
+  display: block;
+  width: 38rpx;
+  height: 38rpx;
+}
+.rotate{
+  -webkit-animation: playRotate 3s linear infinite;
+  animation: playRotate 3s linear infinite;
+}
+
+@-webkit-keyframes playRotate{
+  0% {transform:rotateZ(0deg);}
+  25% {transform:rotateZ(90deg);}
+  50% {transform:rotateZ(180deg);}
+  75% {transform:rotateZ(270deg);}
+  100% {transform:rotateZ(360deg);}
+}
+@keyframes playRotate{
+  0% {transform:rotateZ(0deg);}
+  25% {transform:rotateZ(90deg);}
+  50% {transform:rotateZ(180deg);}
+  75% {transform:rotateZ(270deg);}
+  100% {transform:rotateZ(360deg);}
+}
+
+.fed-main{
+  position: absolute;
+  width: 716rpx;
+  margin: 23rpx 17rpx 0;
+  border:1px solid #DBCFC4; 
+  background-color: #F7F6F2;
+  background-repeat:  no-repeat, repeat;
+  background-position: left bottom, center;
+  background-size: 100%,cover;
+  border-radius: 8rpx;
+  overflow-x:hidden;
+  z-index: 3;
+}
+
+.fed-main .bg-msg{
+  display: block;
+  width: 100%;
+}
+.fed-main .fed-salutation{
+  color: #595350;
+  font-size: 32rpx; 
+  font-weight: bold;
+  line-height:45rpx; 
+  min-height:45rpx;
+  padding-left: 31rpx;
+  padding-right:20rpx;
+}
+
+.fed-main .fed-text{
+  width: 101%;
+  color: #3B3635;
+  font-size: 28rpx; 
+  line-height:1.5em;
+  min-height: 400rpx;
+  padding:17rpx 31rpx 0 31rpx;
+}
+.fed-main .fed-text image{
+  max-width: 100%;
+  margin:10rpx 0;
+  border-radius:8rpx;
+}
+
+.fed-main .fed-text .msg-img{
+  display: block;
+  width: 100%;
+  border-radius:8rpx;
+  margin: 42rpx auto 12rpx auto;
+}
+.fed-main .fed-text .voice{
+  position: relative;
+  width: 100%;
+  height: 96rpx;
+  text-align: center;
+  line-height: 96rpx;
+  color: #BB867C;
+  font-size: 28rpx;
+  margin: 20rpx auto;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100%;
+}
+.fed-main .fed-text .voice .handle-icon{
+  position: absolute;
+  width: 48rpx;
+  height: 48rpx;
+  left: 32rpx;
+  top: 15rpx;
+}
+.fed-main .fed-text .video{
+  position: relative;
+  width: 100%;
+  height: 368rpx;
+  margin:10rpx 0;
+  border-radius: 8rpx;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+.fed-main .fed-text .video .handle-icon{
+  position: absolute;
+  width: 72rpx;
+  height: 72rpx;
+  left: 50%;
+  top: 50%;
+  margin: -36rpx 0 0 -36rpx;
+  z-index: 6;
+}
+
+
+
+.fed-main .fed-signature{
+  text-align: right;
+  height:45rpx; 
+  /* font-size:32rpx;
+  color:#595350; */
+  line-height:45rpx;
+  margin: 50rpx 40rpx 4rpx 0;
+}
+.fed-main .fed-time{
+  text-align: right;
+  height:33rpx; 
+  font-size:24rpx;
+  color:#595350;
+  line-height:1.5em;
+  padding-right: 40rpx;
+}
+
+.fed-wrap .fed-bottom-bg2{
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  z-index: 2;
+}
+.fed-wrap .fed-bottom-bg2-iphonex{
+  padding-bottom:68rpx !important;
+}
+.fed-wrap .fed-bottom{
+  position: fixed;
+  width: 100%;
+  height: 96rpx;
+  bottom: 0;
+  left: 0;
+  color: #8B572A;
+  font-size: 32rpx;
+  font-weight: bold;
+  line-height: 96rpx;
+  text-align: center;
+  background: #EFDCC4;
+  z-index: 5;
+}
+.fed-wrap .fed-bottom-iphonex{
+  height:164rpx;
+  padding-bottom:68rpx !important;
+}
+
+.btn-app-view{
+  position: absolute;
+  top: 50%;
+  right: 0;
+  width: 160rpx;
+  height: 48rpx;
+  text-align: center;
+  line-height: 48rpx;
+  font-size:24rpx;
+  color: #fff;
+  background:rgba(0,0,0,0.2);
+  border-radius: 70rpx 0px 0px 70rpx ; 
+  z-index: 10;
+}
+.btn-app-view .btn-open{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  padding: 0;
+  margin: 0;
+  opacity: 0;
+}
+
+.img-introduce{
+  display: block;
+  width: 100%;
+  height: 1000rpx;
+}
+
+
+
+.video-wrap{
+  position: fixed;
+  display: flex;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  -webkit-align-items: center;
+  align-items: center;
+}
+.video-wrap .cover{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  background: rgba(0, 0, 0, 1);
+}
+video{
+  position: absolute;
+  top: 10%;
+  left: 0;
+  width: 100%;
+  height: 70%;
+}
+
+.audio-wrap{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  background: rgba(0, 0, 0, 0.4);
+}
+.audio-wrap .audio-main{
+  position: absolute;
+  left: 55rpx;
+  top: 350rpx;
+  width:639rpx;
+  height:313rpx;
+  background: #fff;
+  border-radius:16rpx;
+}
+.audio-wrap .audio-main .audio-hd{
+  width: 608rpx;
+  height: 84rpx;
+  color: #4D4D4D;
+  font-size:34rpx;
+  line-height: 84rpx;
+  margin: 0 auto;
+  padding-left: 44rpx;
+  border-bottom: 1rpx solid #E5E5E5;
+}
+.audio-wrap .audio-main .voice{
+  position: relative;
+  width: 480rpx;
+  height: 71rpx;
+  text-align: center;
+  line-height: 71rpx;
+  color: #BB867C;
+  font-size: 28rpx;
+  margin: 78rpx auto;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100%;
+}
+.audio-wrap .audio-main .voice .handle-icon{
+  position: absolute;
+  width: 48rpx;
+  height: 48rpx;
+  left: 16rpx;
+  top: 15rpx;
+}
+.audio-wrap .audio-main .icon-close{
+  display: block;
+  position: absolute;
+  right: 29rpx;
+  top: 12rpx;
+  width: 60rpx;
+  height: 60rpx;
+}

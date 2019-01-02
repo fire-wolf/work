@@ -1,0 +1,35 @@
+.main-wrap{
+  height: 100%;
+  background:rgba(255,255,255,1) linear-gradient(180deg,#FFFAF1,#FFF8EB);
+}
+.main{
+  width: 100%;
+  height: 100%;
+  padding-top: 170rpx;
+  background-repeat: no-repeat,repeat;
+  background-size: 100%;
+}
+.main .banner{
+  display: block;
+  width:542rpx;
+  height:800rpx;
+  background: #fff;
+  box-shadow:0px 4px 20px 0px rgba(0,0,0,0.1);
+  border-radius:6px;
+  margin: 0 auto 30rpx;
+  opacity: 0;
+}
+.main .btn-write{
+  display: block;
+  width:446rpx;
+  height:94rpx;
+  line-height: 94rpx;
+  margin: 0 auto;
+  color: #fff;
+  font-size: 32rpx;
+  font-weight: 700;
+  text-align: center;
+  background: #69BF30;
+  border-radius: 47rpx;
+  border: 0;
+}

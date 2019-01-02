@@ -1,0 +1,21 @@
+<!-- 编辑感悟 -->
+<view class='error-tip' hidden='{{errorHidden}}'>{{errorText}}</view>
+<view class='feeling-cont' style='background-color: {{msgConfig.backgroundColor}};'>
+  <image class='red-letter' src='{{msgConfig.paperTop}}' mode='widthFix' style='height:120rpx;'></image>
+  <view class='cont-main'>
+    <view class="section">
+      <input class='feeling-salutation' bindinput='bindSalutationInput' bindfocus="bindFous" bindconfirm="handleTextFocus" placeholder='输入称呼或者标题' placeholder-style="color:#D6D0CE;" maxlength='30' confirm-type='done' auto-focus/>
+    </view>
+    <view class="section">
+      <textarea class='feeling-text' bindinput="bindTextAreaInput" bindfocus="bindFous" focus="{{isTextFocus}}"  placeholder="输入信函文字（最多2000字）" placeholder-style="color:#D6D0CE;" show-confirm-bar='{{true}}' maxlength='2000' />
+    </view>
+    <view>
+      <input maxlength="20" name="author" value="{{author}}" placeholder="输入署名" class="feeling-signature"  bindinput='bindAuthorInput' placeholder-style="color:#D6D0CE;font-weight:bold;" />
+    </view>
+  </view>
+  <image class='red-letter' src='{{msgConfig.paperBottom}}' mode='widthFix'  style='height:160rpx;'></image>
+</view>
+
+<view class="feeling-footer {{isIphoneX ?'feeling-footer-iphonex':''}}">
+  <view class='next-btn active' bindtap='bindConfirm'>完成</view>
+</view>

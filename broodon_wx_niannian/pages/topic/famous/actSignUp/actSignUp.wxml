@@ -1,0 +1,38 @@
+<wxs src="../../../module.wxs" module="tools" />
+<import src="../../../../wxParse/wxParse.wxml"/> 
+ 
+  <view class="main"   >
+    <view class="header-contain">
+      <view class="header-cont">
+          <view class="act-img">
+              <block wx:if="{{actDetail.activitiesType==1}}"><span>公开活动</span></block>
+              <block wx:if="{{actDetail.activitiesType==2}}"><span>内部活动</span></block>
+              <block wx:if="{{actDetail.activitiesType==3}}"><span>邀约活动</span></block>
+              <image mode='scaleToFill' wx:if='{{actDetail.activitiesImg}}' bindtap='onMaxImg' data-src='{{actDetail.activitiesImg}}' src='{{actDetail.activitiesImg}}'></image>
+            </view>
+            <view class="act-cont">
+              <view class="title">{{actDetail.activitiesTitle}}</view> 
+              <view class="time">时间  {{tools.formatTime2(actDetail.startDate,actDetail.endDate,"+day")}}</view>
+              <view class="addr">地址  {{actDetail.address}}</view>
+            </view>
+             
+      </view>
+    </view>
+    <view class="content-contain">
+    <form bindsubmit="signSubmit" report-submit="true">
+         <view class='signup-box'>
+            <view class="title"><span></span>填写报名信息</view>
+            <view class="form">
+              <view class="form-item"><label>我的姓名：</label><input type="text" placeholder='请输入姓名' maxlength="10" value="{{userName}}" bindblur='onInputBlur' data-type="name" /></view>
+              <view class="form-item"><label>联系电话：</label><input type="number"  disabled='{{isUpdate}}' placeholder='请输入联系电话' value="{{userTel}}" bindblur='onInputBlur' data-type="tel" /></view>
+              <block wx:if="{{enrollInfo && enrollInfo.length>0}}">
+              <view class="form-item" wx:for="{{enrollInfo}}" wx:key="">
+              <label>{{item.name}}：</label>
+              <input type="text"   placeholder='请输入{{item.name}}' value="" bindblur='onInputBlur' name="filed" id="filed_{{index}}" value="{{item.value}}" data-type="filed" /></view>
+              </block>
+            </view> 
+         </view>
+         <button  plain='true' class="btn-signup"  disabled="{{userTel==''|| userName==''}}" formType='submit'>{{btnSubName}}</button>
+    </form>
+    </view> 
+  </view> 

@@ -1,0 +1,110 @@
+{
+  "pages": [ 
+    
+    "pages/msg/begin/begin",
+    "pages/find/find",
+    "pages/find/view/view", 
+    
+    "pages/login/login",
+    "pages/guide/guide", 
+    "pages/msg/index/index",
+    "pages/msg/neweditor/neweditor",
+    "pages/msg/preview/preview",
+    "pages/msg/viewimg/viewimg",
+    "pages/msg/createimg/createimg",
+    "pages/msg/appdetail/appdetail",
+    "pages/msg/video/video",
+    "pages/msg/editor/editor",
+    "pages/msg/editor/text/text",
+    "pages/msg/editor/image/image",
+    "pages/msg/editor/voice/voice",
+    "pages/msg/editor/video/video",
+    "pages/msg/webview/webview",
+    
+    "pages/msg/begin/timeletter/timeletter",
+    "pages/msg/begin/redpacket/redpacket",
+    "pages/msg/msgdetail/msgdetail",
+   
+    "pages/nk/index/index",
+    "pages/nk/list/list",
+    "pages/nk/comment/comment",
+    "pages/nk/comeditor/comeditor",
+    "pages/report/report",
+    
+    "pages/topicBar/famous/index",
+    "pages/topicBar/museum/index",
+    "pages/topicBar/redmsg/index",
+
+    "pages/tabBar/mine/index"
+
+
+    
+  ],
+  "subPackages": [
+    {
+      "root":"pages/mine/",
+      "pages":[
+        "download/download",
+        "list/list",
+        "mypacket/mypacket",
+        "identify/identify",
+        "takemoney/takemoney",
+        "takemoney/moneyinfo/moneyinfo",
+        "record/record",
+        "myactivity/myactivity",
+        "statistics/statistics"
+      ]
+    },
+    {
+      "root": "pages/topic/famous/",
+      "pages":[
+        "search/search",
+        "detail/detail",
+        "actdetail/actdetail",
+        "actSignUp/actSignUp",
+        "actSignIn/actSignIn",
+        "record/record",
+        "morecomment/morecomment",
+        "letterlist/letterlist",
+        "introduce/introduce",
+        "comeditor/comeditor"
+      ]
+    },{
+      "root": "pages/topic/museum/",
+      "pages":[
+        "theme/theme",
+        "list/list",
+        "msgdetail/msgdetail",
+        "view/view",
+        "topic/topic"
+      ]
+    },{
+      "root":"pages/topic/redmsg/",
+      "pages":[ 
+        "msgdetail/msgdetail",
+        "createimg/createimg",
+        "editor/editor",
+        "preview/preview",
+        "introduce/introduce"
+      ]
+    },{
+      "root": "pages/topic/bej48/",
+      "pages":[
+        "list/list",
+        "detail/detail",
+        "editor/editor",
+        "preview/preview",
+        "introduce/introduce"
+      ]
+    }
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "念念",
+    "navigationBarTextStyle": "black",
+    "enablePullDownRefresh": false,
+    "onReachBottom": true
+  },
+  "component": true
+}

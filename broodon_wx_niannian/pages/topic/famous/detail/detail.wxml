@@ -1,0 +1,160 @@
+<!-- <import src='../template/template.wxml' /> -->
+<wxs src="../../../module.wxs" module="tools" />
+
+<scroll-view class='detail-container' 
+    scroll-y 
+    bindscrolltolower="bindscrolltolower" 
+    enable-back-to-top="{{true}}"
+    lower-threshold="100"
+    scroll-top="{{scrollTop}}"
+  >
+  
+  <view class="main" wx:if="{{isLogin}}" >
+    <!-- <image src='/images/famous/bg_xiangqing_2.png' class='background-image' mode='widthFix'></image>   -->
+      <view class='position {{isIphoneX ? "position-x":""}}' >
+        <!--  -->
+        <view class='head-container' style=" ">
+          <view class="header-bg" style="background-image:url({{tools.formatImg(famousInfo.famousHeardUrl)}});"> 
+          </view>
+          <view style="position:relative;top:0;left:0;width100%;height:100%;z-index:2;background:rgba(0,0,0,0.4);padding:48rpx 32rpx 40rpx;">
+            <view class='avatar-name-follow' bindtap='toDetailMsg'>
+              <view class='avatar'>
+                <image mode='scaleToFill' src='{{famousInfo.famousHeardUrl}}'  ></image>
+              </view>
+              <view class='name-follow'>
+                <view class="title {{name<=8?'B-name':'S-name'}}">{{famousInfo.famousName}}</view>
+                <!-- <text class='intro'>{{famousInfo.famousIndustry ? famousInfo.famousIndustry : ''}}</text> -->
+                <text class='detailed-intro' space="ensp">{{introceTxt}}</text>
+                <view class="detail-txt" wx:if="{{famousInfo.famousIntroduce && famousInfo.famousIntroduce!='' && famousInfo.famousIntroduce.length>28}}">详细资料 ></view>
+              </view>
+            </view>
+            
+            <view class='letter-operation'>
+              <!-- <view  class='box-image' catchtap='toLetterBox'>
+                <image src='{{yunMediaRoot}}niannianyun/wx/act/icon_s_letter.png'></image>
+                <view class='dot' wx:if='{{famousInfo.unReadCount > 0}}'></view>
+              </view>
+              <view style='margin-top:-1rpx;'>
+                <image src='{{yunMediaRoot}}niannianyun/wx/act/icon_letter.png' bindtap=''></image>
+              </view> -->
+              <view class="letter-item" catchtap='toLetterBox'>
+                <image src='{{yunMediaRoot}}niannianyun/wx/famous/zs.png' ></image>
+                <text>专属信箱</text>
+              </view>
+              <view class="letter-item" catchtap='toWrite'>
+                <image src='{{yunMediaRoot}}niannianyun/wx/famous/msg.png' ></image>
+                <text>向ta写信</text>
+              </view>
+              <view class="icon-l"></view>
+            </view>
+          </view>
+          
+        </view>
+
+        <!-- <view class='triangle'></view> -->
+        <view wx:if='{{topicInfo.content}}' hidden='{{!isSayShow}}'>
+          <view class='main-container'> 
+            <template is="navTpl" data="{{actList,isSayShow}}" />
+           
+            <text class='topic-content'>{{topicInfo.content}}</text>
+            <image class='topic-image' mode='widthFix' wx:if='{{topicInfo.imgUrl}}' data-src='{{tools.formatImg2(topicInfo.imgUrl)}}' src='{{tools.formatImg2(topicInfo.imgUrl)}}' catchtap="onMaxImg" ></image>
+            <view class='like-comment'>
+              <view class='comment'>
+                <view class='image-box'>
+                  <image src='{{yunMediaRoot}}niannianyun/wx/famous/tansuo.png' class='comment-image'></image>
+                </view>
+                <view class='number-font'>{{topicInfo.commentNums}}</view>
+                <!-- <image src='https://file.niannian99.com/niannianyun/wx/my/icon-right.png' class='right'></image> -->
+              </view>
+              <view class='like'>
+                <view class='image-box'>
+                  <image bindtap='onTopicLike' src='{{yunMediaRoot + (topicInfo.like ? "niannianyun/wx/famous/like1.png":"niannianyun/wx/famous/like.png")}}' class='like-image'></image>
+                </view>
+                <view class='number-font'>{{topicInfo.upNums}}</view>
+              </view>
+            </view>
+            <!-- <view class='hr'></view> -->
+          </view>
+          <view class='type-tab' >
+            <view style='float: left;width: 50%;' catchtap='onChangeType' data-type="all">
+              <view class="tab-all {{handleType == 'all'?'active':''}}">全部评论<span></span></view>
+            </view>
+            <view style='float: left;width: 50%;' catchtap='onChangeType' data-type="my">
+              <view class="tab-my {{handleType != 'all'?'active':''}}">与我相关<span></span></view>
+            </view>
+          </view>
+          <comment 
+            commentList="{{commentList}}" 
+            userId="{{userId}}" 
+            commentContent="{{commentContent}}" 
+            isInputComment="{{isInputComment}}" 
+            isCommentFocus="{{isCommentFocus}}" 
+            bind:resetData="resetData"              
+            bind:replyCommentFun="replyCommentFun" 
+            bind:commentInput="commentInput" 
+            bind:createComment="createComment"    
+            bind:showCommentTextarea="showCommentTextarea"
+            >
+          </comment>
+        </view>
+        <view wx:if='{{actList && actList.length>0}}'  hidden='{{isSayShow}}'>
+             <view class='main-container act-container'> 
+                <template is="navTpl" data="{{actList,isSayShow,topicInfo}}" /> 
+                <view wx:for="{{actList}}" 
+                  data-index="{{index}}" 
+                  wx:key="actList{{index}}"
+                  catchtap='goActDetail' 
+                  data-item='{{item}}' class="act-item">
+                  <view class="act-item-box">
+                    <view class="act-img">
+                      <block wx:if="{{item.activitiesType==1}}"><span>公开活动</span></block>
+                      <block wx:if="{{item.activitiesType==2}}"><span>内部活动</span></block>
+                      <block wx:if="{{item.activitiesType==3}}"><span>邀约活动</span></block>
+                      <image mode='scaleToFill' wx:if='{{item.activitiesImg}}' src='{{item.activitiesImg}}'></image>
+                    </view>
+                    <view class="act-cont">
+                      <view class="title">{{item.activitiesTitle}}</view>
+                      <view class="time"><image src='{{yunMediaRoot}}niannianyun/wx/my/time.png'></image>{{tools.formatTime2(item.startDate,item.endDate,"+day")}}</view>
+                      <view class="addr"><image src='{{yunMediaRoot}}niannianyun/wx/my/address.png'></image>{{item.address}}</view>
+                    </view>
+                    <view class="act-font">
+                      <span>{{item.enrollPerson}}人参与</span>
+                      <span class='{{item.businessStatus=="13"?"cl-r":""}}'>{{item.statusName}}</span>
+                    </view>
+                  </view>
+                </view>
+              </view>
+        </view> 
+      </view>
+  </view>
+
+  <login wx:if="{{isLogin ==false}}" bind:onLogin="onLogin" />
+  <!-- 获取微信授权 -->
+  <author wx:if="{{!isAuthor}}" bind:authFun="getUserAuthor"></author>
+</scroll-view>
+
+<!-- <view class='response-container' wx:if="{{false}}">
+          <block wx:for="{{commentList}}" data-index="{{index}}" wx:key="commentList{{index}}">
+            <template is="wordsLeave" data="{{item:item,index:index}}" />
+          </block>
+        </view> -->
+<!-- <template is="commentBar" data="{{isInputComment: isInputComment,isCommentFocus:isCommentFocus}}" /> -->
+
+<template name="navTpl">
+ <block wx:if="{{actList && actList.length>0 && topicInfo.content!=''}}">
+      <view class='type-tab no-border' >
+        <view style='float: left;width: 50%;' catchtap='onChangeType' data-type="say">
+          <view class="tab-all {{isSayShow?'active':''}}">今日话题<span></span></view>
+        </view>
+        <view style='float: left;width: 50%;' catchtap='onChangeType' data-type="act">
+          <view class="tab-my {{!isSayShow?'active':''}}">活动<span></span></view>
+        </view>
+      </view>
+</block>
+<block wx:elif="{{topicInfo.content!=''}}">
+  <text class='topic'>今日话题</text>            
+</block>
+<block wx:else="{{actList && actList.length>0}}">
+  <text class='topic' style="padding-left:32rpx;font-size:30rpx;line-height:80rpx;">活动</text>            
+</block>
+</template>

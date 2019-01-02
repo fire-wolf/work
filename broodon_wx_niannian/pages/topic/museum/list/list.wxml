@@ -1,0 +1,33 @@
+<wxs src="../../../module.wxs" module="tools" />
+<view>
+  <image src="{{pagePicture}}" mode='widthFix' style="width:100%;display:block;"></image>
+  <view class='toall'>
+    <view style='display:flex;flex-direction:row;'>
+      <view class='red'></view>
+      <view class='toall-title'>信函主题</view>
+    </view>
+    <view style='display:flex;flex-direction:row;'>
+      <view class='toall-btn'>更多主题</view>
+      <image src='/images/right.png' style='width:32rpx;height:32rpx;'></image>
+    </view>
+  </view>
+  <scroll-view class='topics' scroll-x>
+    <block wx:for="{{topics}}" wx:key="{{index}}">
+      <view class='topic' style='background-image:url({{item.topicBgImage}})' bindtap='toTopicDetail' data-index="{{index}}">
+        <view class='topic-name'>{{item.topicName}}</view>
+        <view class='topic-like'>{{item.totalLike}}人喜欢/{{item.totalMsg}}封馆藏</view>
+      </view>
+    </block>
+  </scroll-view>
+  <view class='toall'>
+    <view style='display:flex;flex-direction:row;'>
+      <view class='red'></view>
+      <view class='toall-title'>精品馆藏</view>
+    </view>
+    <view style='display:flex;flex-direction:row;'>
+      <view class='toall-btn'>全部馆藏</view>
+      <image src='/images/right.png' style='width:32rpx;height:32rpx;'></image>
+    </view>
+  </view>
+  <museumletter list="{{collections}}" model="{{1}}"/>
+</view>

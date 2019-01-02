@@ -1,0 +1,45 @@
+.contain{
+  position: fixed;
+  padding-top:60rpx;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  z-index: 1;
+}
+.begin-item{
+  float: left;
+  padding-top:20rpx;
+  padding-bottom: 20rpx;
+  position: relative;
+  width: 50%;
+  height: 515rpx;
+  color:#fff;
+  text-align: center;
+  background-repeat: no-repeat;
+  background-size: 100% 515rpx;
+}
+.begin-item  .begin-item-btn{
+  position: absolute;
+  top:0;
+  left:0;
+  width: 100%;
+  height: 100%;
+  border: none!important;
+  margin:0;
+  padding:0;
+  z-index: 2;
+}
+.begin-item image{
+  margin:143rpx auto 7rpx;
+  width: 89rpx;
+  height: 89rpx;  
+}
+.begin-item .title{
+  margin:0 auto 89rpx;
+  font-size: 24rpx;
+  line-height: 28rpx;
+  
+}
+.begin-item .desc{
+  font-size:22rpx;
+}

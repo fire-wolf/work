@@ -1,0 +1,7 @@
+<!--二维码传播 扫码引导页  file.niannian99.com/niannianyun/wx/1528769832012.png-->
+<view class="main-wrap">
+   <view class="main"  style="background-image: url('//file.niannian99.com/niannianyun/wx/guide.png'),url('//file.niannian99.com/niannianyun/wx/bg_guide.png');"> 
+    <image class="banner" src=""></image>
+    <view class="btn-write" bindtap="goWtite">进入写信</view>
+  </view>
+</view>

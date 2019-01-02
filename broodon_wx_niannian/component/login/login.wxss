@@ -1,0 +1,155 @@
+@import "../../pages/iconfonts.wxss";
+
+.wrap {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width:100%;
+  height:100%;
+  background:#fff;
+  z-index: 10;
+} 
+ .wrap>image{
+   width:100%;
+   height:100%;
+ }
+.wrap .welcome{ 
+    margin: 0 auto;
+    width: 570rpx;
+    margin-top: 140rpx; 
+}
+ .wrap .welcome-logo image{
+    display: block; 
+    margin:0 auto;
+    width:99rpx;
+    height:99rpx;  
+} 
+.wrap .welcome-logo2 image{
+    display: block; 
+    margin:0 auto;
+    width:393rpx;
+} 
+.error-tips{
+  position: absolute;
+  top:0;
+  width: 100%;
+  height: 70rpx;
+  line-height: 70rpx;
+  text-align: center;
+  font-size: 30rpx;
+  color: #fff; 
+  background: #E64340;
+
+}
+.wrap .welcome-logo text{
+  display: block;
+  color:#69BF30;
+  font-size:34rpx;
+  text-align: center;
+  margin:26rpx auto 0;
+}
+
+.user-box{
+  margin-top: 100rpx;
+}
+ 
+.user-box .form-item{
+  position: relative;
+  height: 92rpx;
+  line-height: 92rpx;
+  border-bottom: 1rpx solid #D6D0CE;
+}
+.user-box .form-item:last-child{
+  border-bottom: none;
+  height: auto;
+}
+.user-box .form-item label,.user-box .form-item input{
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+}
+.user-box .form-item label{
+  margin-right: 36rpx;
+}
+.user-box .form-item button{
+  margin: 0; 
+} 
+ 
+
+.user-box .smsCode{ 
+   width:210rpx;
+   margin-left: 20rpx;
+}
+.user-box .jSmsCode{
+  position: absolute;
+  right: 0;
+  display: inline-block;
+  vertical-align: middle; 
+   color:#69BF30;
+   font-size:34rpx;
+   background:#fff;
+   border-color:#fff;
+}
+
+.user-box .form-item .jSubmit{
+  background:#69BF30;
+  margin-top:161rpx;
+  height:94rpx;
+  color:#fff;
+  font-size: 36rpx;
+  font-weight: 700;
+  line-height:94rpx;
+  text-align: center;
+  border: 0;
+  outline: none;
+  border-radius:12rpx;
+}
+.user-box .form-item .disabled{
+  background: #C3E8AB !important;
+}
+
+.authorize{
+  width: 100%;
+  height: 100%;
+  background: #EFEFF4;
+}
+
+.authorize image{
+  display: block;
+  margin: 0 auto;
+  padding-top: 160rpx;
+  width: 198rpx;
+  height: 208rpx;
+}
+
+.authorize label{
+  display: block;
+  margin: 40rpx auto 168rpx;
+  font-size: 28rpx;
+  line-height: 40rpx;
+  text-align: center;
+  color: #595350;
+}
+
+.authorize button{
+  margin: 0 auto;
+  width: 600rpx;
+  height: 94rpx;
+  line-height: 94rpx;
+  font-size: 36rpx;
+  color: #fff;
+  background: #69BF30;
+}
+
+.btn-userZone{
+  margin-right: 20rpx;
+  padding:0 10rpx;
+  display: inline-block;
+  height: 92rpx;
+  line-height: 92rpx;
+  vertical-align: middle;
+  text-align: center;
+  background: none; 
+  border: none!important;
+}

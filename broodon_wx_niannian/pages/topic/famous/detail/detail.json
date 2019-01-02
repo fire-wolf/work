@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "comment": "/component/comment/comment",
+    "login": "/component/login/login",
+    "author": "/component/author/author"
+  }
+}

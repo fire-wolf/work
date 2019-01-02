@@ -1,0 +1,11 @@
+
+<view class="main">
+  <view style='position:fixed;width:100%;height:100%;background:#fff;' >
+    <view class="comment-form">
+       <view style="padding:30rpx 30rpx 0;width:100%;height:{{mainHeight}}rpx;">
+          <textarea bindinput="onChangeVal" class="txt-input"  placeholder='我想说...' maxlength='300' value="{{txtValue}}" bindconfirm="onComment"></textarea>
+       </view>
+       <button bindtap='sendComm'>发布</button>
+    </view>
+  </view>
+</view>

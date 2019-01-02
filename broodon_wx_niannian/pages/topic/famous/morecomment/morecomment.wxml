@@ -1,0 +1,54 @@
+<!-- 更多评论页面 -->
+<view class='main-container {{isIphoneX ? "main-container-x":""}}'>
+  <view class='comment-main'>
+    <view class='header comment-main-header'> 
+      <view class='image-wrapper'><image src='{{commentInfo.userImage}}' mode='widthFix'></image></view>
+      <view class='user-name'>{{commentInfo.userNicename}}</view>
+      <image bindtap='onLike' src='{{yunMediaRoot + (commentInfo.like ? "niannianyun/wx/famous/like1.png": "niannianyun/wx/famous/like.png")}}' class='like-image'></image>
+    </view>
+    <view class='comment-content'>{{commentInfo.commentContent}}</view>
+    <view class='main-bottom'>
+      <view class='left'>{{commentInfo.formatTime}}</view>
+      <view class='right' catchtap='removeComment' data-commentid='{{commentInfo.commentId}}' data-userid='{{commentInfo.userId}}' data-index='{{-1}}'>{{userId == commentInfo.userId ? '删除' : '举报'}}</view>
+    </view>
+  </view>
+  <view class='space'></view>
+
+  <view class='comment-sub'>
+    <view class='comment-list'>
+      <view class='comment-item' wx:if='{{commentInfo.childList}}' wx:for='{{commentInfo.childList}}' wx:for-item='replyItem' wx:for-index='replyIndex' wx:key='replyItem{{index}}'>
+        <view class='header'> 
+          <view class='image-wrapper'  catchtap='onClickComment' data-item='{{replyItem}}'><image src='{{replyItem.userImage}}' mode='widthFix'></image></view>
+          <view class='user-name'  catchtap='onClickComment' data-item='{{replyItem}}'>
+            {{replyItem.userNicename}}
+            <text class='reply' wx:if="{{replyItem.commentPid != commentInfo.commentId}}">回复</text> 
+            <text wx:if="{{replyItem.commentPid != commentInfo.commentId}}">{{replyItem.replyNicename}}</text>
+          </view>
+        </view>
+        <view class='comment-content' catchtap='onClickComment' data-item='{{replyItem}}'>{{replyItem.commentContent}}</view>
+        <view class='main-bottom'>
+          <view class='left'>{{replyItem.formatTime}}</view>
+          <view class='right' catchtap='removeComment' data-commentid='{{replyItem.commentId}}' data-userid='{{replyItem.userId}}' data-index='{{replyIndex}}'>{{userId == replyItem.userId ? '删除' : '举报'}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class='empty' wx:if='{{!commentInfo.childList || commentInfo.childList.length == 0}}'>
+      <image src='{{yunMediaRoot}}niannianyun/wx/famous/comment_empty.png' />
+      <view class='words'>暂无评论，快来抢沙发吧…</view>
+  </view>
+
+  <view class='comment-bar-wrap'>
+      <view class='comment-bar {{isIphoneX ? "comment-bar-x":""}}' bindtap='onClickCommentBtn' hidden="{{isInputComment}}">
+        <view class='comment-box'>
+          <image src='{{yunMediaRoot}}niannianyun/wx/famous/xiepinglun.png'></image>
+          <input type='text' placeholder='发表评论' disabled='{{true}}' cursor-spacing="{{0}}" placeholder-class='comment-placeholder' />
+        </view>
+      </view>
+      <view class='input-comment' hidden="{{isInputComment == false}}">
+        <input class='textarea' value='{{commentContent}}' focus='{{isCommentFocus}}' bindinput='commentInput' bindblur="commentBlur" bindconfirm="createComment" placeholder="{{placeholder}}" cursor-spacing="{{60}}" maxlength="{{200}}" />
+        <view class='send-btn' bindtap='createComment'>发布</view>
+      </view>
+    </view>
+</view>

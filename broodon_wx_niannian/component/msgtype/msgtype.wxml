@@ -1,0 +1,83 @@
+  <!--场景浮层-->
+ <view  class="param-box {{redPacketBox?'redpacket-box':''}}" style="width:{{scrollViewWidth}};{{!isEditor?'bottom:94rpx;':''}}{{(redPacketBox && !isRedOpen)?'background-image:url('+redPacketBox.imgUrl+');':''}} {{isIphoneX?'bottom:164rpx;':''}}">
+    <view wx:if="{{redPacket && redPacket>0}}" class="param-item" bindtap="changeMsgType" data-type="redPacket" style="background-image:url({{yunMediaRoot}}niannianyun/wx/msg/begin/icon_redpacket.png);">
+      含红包金额<span class="num">¥{{redPacket}}</span>元<span wx:if="{{isEditor}}" class="right"></span>
+    </view> 
+    <view class="param-item red-open" wx:if="{{redPacketBox}}"> 
+      <view wx:if="{{(redPacketBox.isReceive || redPacketBox.isSendUser) && redPacketBox.isLogin && redPacketBox.redPacketStatus<2}}" style="position: absolute;top: 58px;width: 100%;">{{redPacketBox.redPacket}}</view>
+      <button bindtap='openRedPacket' plain='true' data-type="show"></button>
+    </view>
+    <view wx:if="{{map}}" class="param-item map-item" bindtap="changeMsgType" data-type="map" style="background-image:url({{yunMediaRoot}}niannianyun/wx/msg/begin/icon_map.png);{{!isEditor?'padding-right:10rpx;':'font-size:24rpx;'}}">
+      <block wx:if="{{!isReceive}}">
+        对方将在<span class="txt">{{map.address}}1公里范围内</span>收到信函<span wx:if="{{isEditor}}" class="right"></span>
+      </block>
+      <block wx:else>
+        您在<span class="txt">{{map.address}}</span>收到此封信函
+      </block>
+    </view>
+    <view wx:if="{{curTime}}" class="param-item" bindtap="changeMsgType" data-type="time" style="background-image:url({{yunMediaRoot}}niannianyun/wx/msg/begin/icon_time.png);padding-right:0;">
+      <block wx:if="{{!isReceive}}">
+        我们将于<span class="txt">{{curTime.timeStr}}</span>为您发送此信函<span wx:if="{{isEditor}}" class="right" style="right:0;"></span>
+      </block>
+      <block wx:else>
+        您在<span class="txt">{{curTime.timeStr}}</span>收到此封信函
+      </block>
+    </view>
+  </view>
+
+<!-- 红包展示动效 -->
+  <view class="redpacket-max-box {{redPacketBox.redPacketStatus==1?'open':(redPacketBox.redPacketStatus==2?'tui':'')}}"   wx:if="{{redPacketBox &&  isRedOpen}}" >
+    <view class="star-box">
+      <span class="star" style="top:382rpx;right:51rpx;width:43rpx;height:50rpx;background-size:43rpx 50rpx;background-image:url({{yunMediaRoot}}niannianyun/wx/act/msg/icon_r_star.png);"></span>
+      <span class="star" style="top:838rpx;left:86rpx;width:30rpx;height:35rpx;background-size:30rpx 35rpx;background-image:url({{yunMediaRoot}}niannianyun/wx/act/msg/icon_r_star.png);"></span>
+      <span class="star" style="top:984rpx;right:123rpx;width:71rpx;height:82rpx;background-size:71rpx 82rpx;background-image:url({{yunMediaRoot}}niannianyun/wx/act/msg/icon_r_star.png);"></span>
+    </view> 
+    <view class="cont"> 
+      <view class="cont-info" >
+        <block wx:if="{{redPacketBox.isReceive || redPacketBox.isSendUser}}">
+          <block wx:if="{{redPacketBox.redPacketStatus==1}}"> 
+              <view class="bg" style="background-image:url({{yunMediaRoot}}niannianyun/wx/act/msg/icon_r_bg1.png);"></view>
+              <view class="header" style="background-image:url({{yunMediaRoot}}niannianyun/wx/act/msg/red_header1.png);" ></view>  
+          </block>
+          <block wx:else>
+            <view class="bg" style="background-image:url({{yunMediaRoot}}niannianyun/wx/act/msg/icon_r_bg.png);"></view>
+            <view class="header" style="background-image:url({{yunMediaRoot}}niannianyun/wx/act/msg/red_header.png);" ></view> 
+          </block>
+        </block>
+        <block wx:elif="{{redPacketBox.redPacketStatus==2}}">
+
+          <view class="bg" style="background-image:url({{yunMediaRoot}}niannianyun/wx/act/msg/icon_r_bg.png);"></view>
+          <view class="header" style="background-image:url({{yunMediaRoot}}niannianyun/wx/act/msg/red_header.png);width:504rpx;height:247rpx;" ></view>  
+        </block>
+        <block wx:else>
+          <view class="bg" style="background-image:url({{yunMediaRoot}}niannianyun/wx/act/msg/icon_r_bg.png);"></view>
+          <view class="header" style="background-image:url({{yunMediaRoot}}niannianyun/wx/act/msg/red_header.png);" ></view>  
+        </block>
+        
+        <view class="user-info" style="{{(redPacketBox.redPacketStatus==0 || redPacketBox.redPacketStatus==2) && redPacketBox.isSendUser?'top:170rpx;':''}}">
+          <image src="{{redPacketBox.sendUserImage}}"></image>
+          <view class="name">{{redPacketBox.sendUserNicename}}</view>
+          <view class="desc">的信函红包</view>
+           <view class="money" wx:if="{{redPacketBox.redPacketStatus==0 && redPacketBox.isSendUser}}">{{redPacketBox.redPacket}}<span>元</span></view>
+          <view class="money" wx:elif="{{(redPacketBox.redPacketStatus==1 || redPacketBox.redPacketStatus==2) && (redPacketBox.isReceive || redPacketBox.isSendUser)}}">{{redPacketBox.redPacket}}<span>元</span></view>
+          <view class="money" wx:elif="{{redPacketBox.redPacketStatus==1}}" style="font-size:36rpx;margin-top:68rpx;">来晚了,红包被领完</view>
+          <view class="money" wx:if="{{redPacketBox.redPacketStatus==1 && redPacketBox.isSendUser}}" style="font-size:40rpx;">对方已领取</view>
+        </view>
+        <view class="time-info"  wx:if="{{redPacketBox.redPacketStatus>=1 && (redPacketBox.openRedPacketTime || redPacketBox.backRedPacketTime)}}">
+          <block wx:if="{{redPacketBox.redPacketStatus==1 && redPacketBox.isReceive}}">已存入我的钱包<text/>{{redPacketBox.openRedPacketTime}}</block>
+          <block wx:elif="{{redPacketBox.redPacketStatus==1 && redPacketBox.isSendUser}}">{{redPacketBox.openRedPacketTime}}</block>
+          <block wx:elif="{{redPacketBox.redPacketStatus==2}}">超过24小时未领取，已退回<text/>{{redPacketBox.backRedPacketTime}}</block> 
+        </view>
+        <view  class="time-info" wx:elif="{{redPacketBox.redPacketStatus==0 && redPacketBox.isSendUser}}" style="bottom:55rpx;">等待对方领取</view>
+        <view class="icon-tui" wx:if="{{redPacketBox.redPacketStatus==2}}" style="background-image:url({{yunMediaRoot}}niannianyun/wx/act/msg/icon_r_tui.png"></view>
+         <block wx:if="{{redPacketBox.isLogin}}">
+         <button  bindtap='openRedPacket' wx:if="{{redPacketBox.redPacketStatus==0 && !redPacketBox.isSendUser}}" class="btn btn-open" plain='true' data-type='open'  style="background-image:url({{yunMediaRoot}}niannianyun/wx/act/msg/icon_r_open.png)"></button>
+         </block>
+         <block wx:else>
+            <button  bindgetphonenumber='openRedPacket' wx:if="{{redPacketBox.redPacketStatus==0 && !redPacketBox.isSendUser}}" class="btn btn-open" plain='true' data-type='open' open-type='getPhoneNumber'  style="background-image:url({{yunMediaRoot}}niannianyun/wx/act/msg/icon_r_open.png)"></button>
+         </block>
+         <button plain='true' class='btn btn-close' bindtap='openRedPacket' data-type="close" style="background-image:url({{yunMediaRoot}}niannianyun/wx/act/msg/icon_r_close.png)"></button> 
+      </view> 
+    </view>
+
+  </view>

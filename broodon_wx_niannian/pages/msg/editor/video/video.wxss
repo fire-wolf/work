@@ -1,0 +1,49 @@
+.video-wrap{
+  display: flex;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  background: rgba(255, 255, 255, 1);
+}
+video{
+  position: absolute;
+  top: 27%;
+  left: 0;
+  width: 100%;
+  height: 422rpx;
+  border-radius: 4rpx;
+}
+
+.tab-bottom{
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 96rpx;
+  border-top:1px solid #D6D0CE;
+  line-height: 96rpx;
+  z-index: 10;
+}
+.tab-bottom button{
+  margin: 0;
+  padding:0;
+  display: inline-block;
+  width: 50%;
+  font-size: 36rpx;
+  color: #595350;
+  height: 100%;
+  border:none !important;
+  line-height: 96rpx;
+  background:none;
+}
+.tab-bottom button.change{
+  text-align: left;
+  text-indent:32rpx; 
+}
+.tab-bottom button.delete{
+  text-align: right;
+  color: #FA5252;
+  
+}
+.tab-bottom button.delete text{
+  padding-right:32rpx; 
+}

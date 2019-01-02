@@ -1,0 +1,9 @@
+<view class='main'>
+  <view class='theme-list'>
+    <view class='theme-item' wx:for='{{themeList}}' wx:key='themeList{{index}}' style="background-image:url('{{item.topicBgImage}}');">
+      <view class='theme-item-title'>{{item.topicName}}</view>
+      <view class='theme-item-data'>{{item.totalLike}}人喜欢 / {{item.totalMsg}}封馆藏</view>
+      <!-- <image class='theme-item-image' src='https://file.niannian99.com/niannianyun/wx/topic/red/1.5/r_banner.png' mode='widthFix'></image> -->
+    </view>
+  </view>
+</view>

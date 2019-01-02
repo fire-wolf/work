@@ -1,0 +1,18 @@
+<!-- 预览感悟 -->
+<view style='position:fixed; width:100%; height:100%;background-color:#EFEFF4;overflow-y:scroll;'>
+  <view class='prefeeling-cont'>
+    <view style='border-radius: 12rpx;background: {{msgConfig.backgroundColor}};border:1px solid #DBCFC4;'>
+      <image class='red-letter' src='{{msgConfig.paperTop}}' mode='widthFix' style='height:120rpx;'></image>
+      <view class='cont-main'>
+        <view class='feeling-salutation'>{{letter.title}}</view>
+        <view class='feeling-text'>
+          <text>{{letter.content}}</text>
+        </view>
+        <view class='feeling-signature'>{{letter.author}}</view>
+      </view>
+      <image class='red-letter' src='{{msgConfig.paperBottom}}' mode='widthFix' style='height:160rpx;'></image>
+    </view>
+    <button class='complete-btn' bindtap='saveFeeling'>完成</button>
+    <view class='tip-text' hidden='{{true}}'>点击右上角图标可分享给微信好友</view>
+  </view>
+</view>

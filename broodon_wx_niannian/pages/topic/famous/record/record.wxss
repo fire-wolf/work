@@ -1,0 +1,77 @@
+.main{
+  position: relative;
+  padding-top:34rpx;
+  height: 100%; 
+  background: #fff; 
+}
+.txt-box,.img-box{
+  padding:0 32rpx;
+  margin-bottom: 100rpx;
+}
+.txt-box textarea{
+  width:100%;
+  height:400rpx;
+  color:#3A3B3A;
+  font-size: 32rpx;
+  line-height: 44rpx;
+}
+.img-box{
+  margin-right: -16rpx;
+  padding-bottom:100rpx; 
+  height: 828rpx;
+  background: #fff;
+}
+.img-box::after{
+  overflow: hidden;
+}
+.img-box .img-item{
+  float: left;
+  position: relative;
+  margin-bottom: 32rpx;
+  width: 218rpx;
+  height: 212rpx;
+  margin-right: 16rpx;
+  border-radius: 8rpx;
+}
+.img-box .img-item image{
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.img-box .img-item .btn-delImg{
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  top:-40rpx;
+  right: -10rpx;
+  width: 40rpx;
+  height: 40rpx;
+  border: none!important;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  z-index: 2;
+}
+.img-box .btn-img{
+  margin: 0;
+  padding: 0;
+  border:2rpx dotted #666;
+  background-repeat: no-repeat;
+  background-size:100%;
+}
+.btn-record{
+  position: fixed;
+  bottom: 0;
+  left:0;
+  width: 100%;
+  height: 100rpx;
+  border:none !important;
+  text-align: center;
+  color: #fff !important;
+  border-radius: 0;
+  margin: 0;
+  background:linear-gradient(90deg,rgba(122,221,94,1),rgba(79,202,124,1));
+}
+button.btn-record[disabled]{
+  background: #E3EAE6;
+  color:#B3B9B5 !important;
+}

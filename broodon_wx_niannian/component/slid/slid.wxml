@@ -1,0 +1,24 @@
+<view>
+  <swiper class="swiper"
+    vertical="{{true}}"
+    bindchange="onSwiperChange"
+    bindanimationfinish="onAtionFinish"
+    style="height:{{swiperHeight}}px;"
+  >
+    <block wx:for="{{imgUrls}}" wx:key="imgUrls{{index}}">
+      <swiper-item>
+        <image 
+          src="{{item}}" 
+          class="slide-image"
+          data-index="{{index}}" 
+          bindtouchmove="onMove" 
+          bindtouchstart="onMoveStart"
+          bindtouchend="onMoveEnd"
+          
+          style="transform: scale({{index == currentIndex ? scale:original}})!important;" 
+         />
+         <!-- animation="{{index == currentIndex ? animationData : animationData2}}" -->
+      </swiper-item>
+    </block>
+  </swiper>
+</view>

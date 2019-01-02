@@ -1,0 +1,91 @@
+ <import src="../../../wxParse/wxParse.wxml"/>  
+
+<view class="main">
+  <scroll-view class="open-box" scroll-y="true" hidden='{{isOpen}}'>
+    <view class="content" >
+        <image src='https://file.niannian99.com/niannianyun/wx/nk/icon_sun.png' class="icon-sun"></image>
+        <image src="{{nkBannerImg}}" hidden='{{!nkBannerImg}}' mode="widthFix" style='margin:0 auto;display:block;width:100%;height:{{bannerImgHeight}}px' bindload="imageLoad" ></image>
+        
+        <view style="position:relative;width:100%;height:1020rpx;background:url('https://file.niannian99.com/niannianyun/wx/nk/d_img1.png') no-repeat center bottom;background-color:#fff;background-size:750rpx 1020rpx;"> 
+          <button bindtap='onJoin' hover-class="none" style="position:absolute;bottom:414rpx;left:50%;margin-left:-237rpx;">进入</button>
+        </view>
+    </view>
+  </scroll-view>
+  <view class="msg-box" hidden='{{!isOpen}}'>
+    <block wx:if="{{isStatus=='used'}}">
+      <image src="https://file.niannian99.com/niannianyun/wx/nk/d_no.png" style="margin:370rpx auto 30rpx;display:block;width:246rpx;height:154rpx;"></image>
+      <view>本祝福卡已被xxx编辑了</view>
+      <view>请换一张扫描</view>
+    </block>
+    <block wx:if="{{isStatus=='notBegin'}}">
+      <image src="https://file.niannian99.com/niannianyun/wx/nk/d_no1.png" style="margin:370rpx auto 30rpx;display:block;width:248rpx;height:150rpx;"></image>
+      <view>您来早了</view>
+      <view>活动还未开始</view>
+    </block>
+    <block wx:if="{{isStatus=='closed'}}">
+      <image src="https://file.niannian99.com/niannianyun/wx/nk/d_no.png" style="margin:370rpx auto 30rpx;display:block;width:246rpx;height:154rpx;"></image>
+      <view>您来晚了</view>
+      <view>活动已结束</view>
+    </block>
+    <view class="nk-box" wx:if="{{isStatus=='show'}}" style='position:fixed; width:100%; height:100%;background-color:#F1F3F5;'>
+    <view class='fed-wrap'>
+    
+    <scroll-view scroll-y style='position:absolute;top:0;height:{{scrollViewHeight}};z-index:3;'>
+      <view class='fed-main' style='padding-bottom:150rpx;min-height:98%;background-image: url({{paperUrl[2]}}),url({{paperUrl[1]}});'>
+        <view class="audio" bindtap="playBackgroundAudio" wx:if="{{msgCurData.musicUrl}}">
+          <image class="icon {{isPlaying ? 'rotate' : ''}}" src="{{isPlaying ? yunMediaRoot + 'niannianyun/wx/write/1.1/icon-music-play.png' : yunMediaRoot + 'niannianyun/wx/write/1.1/icon-music-close.png'}}" ></image>
+        </view>
+         <image class='bg-msg' mode='widthFix' src='{{paperUrl[0]}}'  style='border-radius:8rpx;'></image> 
+        <view class='fed-salutation' wx:if="{{msgCurData.title}}" style=''>{{msgCurData.title}}</view>
+        <view style='min-height:{{mainHeight * 0.6}}px;padding-bottom:90rpx;'>
+            <view class='fed-text' style=''>
+              <template is="wxParse" data="{{wxParseData:content.nodes}}"/> 
+            </view>
+            <view class='fed-signature' wx:if="{{msgCurData.author}}"  style=''>{{msgCurData.author}}</view>
+            <view class='fed-time' style=''>{{msgCurData.createTime}}</view>
+        </view>
+      </view>
+    </scroll-view>
+
+    <image wx:if="{{}}" class='fed-bottom-bg2 {{isIphoneX ?"fed-bottom-bg2-iphonex":""}}' mode='widthFix' src='{{yunMediaRoot}}niannianyun/wx/topic/letter/bg-envelope-bottom.png'></image>     
+
+    <view class='fed-bottom {{isIphoneX ?"fed-bottom-iphonex":""}}' bindtap='goEdit'></view> 
+
+    <view class="video-wrap" hidden="{{isVideoPlaying == false}}">
+      <view class="cover" bindtap="pauseVideo"></view>
+      <video id="myVideo" src="{{msgCurData.video}}" objectFit="cover" controls>
+      </video>
+    </view>
+
+    <view class="audio-wrap" hidden="{{isVoiceHidden}}">
+      <view class="audio-main">
+        <view class="audio-hd">
+          语音播放
+        </view>
+        <view class='voice' wx:if='{{msgCurData.voice}}' style='background-image: url({{yunMediaRoot}}niannianyun/wx/write/1.1/bg-detail-voice.png);' >
+          <image class='handle-icon' bindtap="playAudio"  src='{{yunMediaRoot}}{{isVoicePlaying ?"niannianyun/wx/write/1.1/icon-voice-pause.png":"niannianyun/wx/write/1.1/icon-voice-play.png"}}'></image>
+          {{voiceCurrentTime}}
+        </view> 
+        <image class="icon-close" bindtap="onHiddenVoice" src="../../../images/letter/icon-close2.png"></image>
+      </view>
+    </view>
+  </view> 
+      
+  <image class="bottom-bg {{isIphoneX ?'bottom-bg-iphonex':''}}" mode='widthFix' src='{{yunMediaRoot}}niannianyun/wx/topic/letter/bg-envelope-bottom.png'></image>
+
+  <view class="btn-warp {{isIphoneX ?'btn-warp-iphonex':''}}"> 
+    <view class='btn' bindtap='sendComm' wx:if="{{isCommList}}" data-attr="list">查看评论</view>
+    <view  class="btn {{!isCommList ?'btn-right':''}}" bindtap='sendComm' data-attr="editor">评论</view>
+    <view class='right-border' wx:if="{{isCommList}}"></view>
+  </view>
+
+     </view>
+  </view>
+  <view class="post" bindtap="onClosePost" hidden="{{isHiddenPost}}">
+    <view class="post-cont"></view>
+    <view class="btn-open">打开</view>
+  </view>
+
+  <!-- 获取微信授权 -->
+  <author wx:if="{{!isAuthor}}" bind:authFun="getUserAuthor"></author>
+</view>

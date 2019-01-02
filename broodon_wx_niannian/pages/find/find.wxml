@@ -1,0 +1,92 @@
+<view class="container">
+  <view class="page-body"> 
+      <view class="page-section  article-mod">
+          <scroll-view deltaY="10" scroll-y style="height: {{secondHt}}px;" scroll-top="{{scrollTop}}"  bindscrolltolower="bindDownLoad" bindscroll="scroll" lower-threshold="{{5}}" enable-back-to-top  >
+
+          <view class="page-section  swiper">
+            <swiper bindchange="traceEvent"   circular="{{circular}}"  autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+              <!-- <block wx:for="{{bannerList}}"  wx:key="bannerId" wx:for-index="idx" >
+                <swiper-item class="swiper-item">
+                  <image src="{{item.imgUrl}}" class="slide-image"  bindtap="openView" id="banner_{{idx}}"  /> 
+              </swiper-item>
+              </block> -->
+             
+               <swiper-item class="swiper-item">
+                  <block wx:if="{{isLogin}}">
+                   <button  class='btn-userInfo' plain='true' bindtap='getUserInfoFun' data-url='/pages/topic/redmsg/introduce/introduce' style="height:100%;">  
+                  <image src="https://file.niannian99.com/niannianyun/wx/topic/red/1.5/r_banner.png" class="slide-image"   id="banner_208"  /> 
+                   </button>
+                   </block>
+                   <block>
+                  <button  class='btn-userInfo' open-type='getPhoneNumber'  plain='true' bindgetphonenumber='getUserInfoFun' data-url='/pages/topic/redmsg/introduce/introduce' style="height:100%;">  
+                  <image src="https://file.niannian99.com/niannianyun/wx/topic/red/1.5/r_banner.png" class="slide-image"   id="banner_208"  /> 
+                   </button>
+                   </block>
+
+              </swiper-item>
+            </swiper>
+          </view>
+
+          <!-- <view class="famous">
+            <view class="title">经典栏目</view>
+            <view class="famous-box">
+            <block wx:if="{{isLogin}}">
+            <button   class='btn-userInfo' plain='true' bindtap="getUserInfoFun" data-url='/pages/topicBar/famous/index' hover-class='none'>
+              <image class="banner-image" mode="widthFix" src="https://file.niannian99.com/niannianyun/wx/banner/banner_f.png" />
+            </button>
+            <button   class='btn-userInfo' plain='true' bindtap="getUserInfoFun" data-url='/pages/topicBar/museum/index' hover-class='none'>
+              <image class="banner-image" mode="widthFix" src="https://file.niannian99.com/niannianyun/wx/banner/banner_s.png" />
+            </button>
+            </block>
+            <block wx:else>
+              <button   class='btn-userInfo' plain='true' open-type='getPhoneNumber'   bindgetphonenumber="getUserInfoFun" data-url='/pages/topicBar/famous/index' hover-class='none'>
+              <image class="banner-image" mode="widthFix" src="https://file.niannian99.com/niannianyun/wx/banner/banner_f.png" />
+            </button>
+            <button   class='btn-userInfo' plain='true' open-type='getPhoneNumber'   bindgetphonenumber="getUserInfoFun" data-url='/pages/topicBar/museum/index' hover-class='none'>
+              <image class="banner-image" mode="widthFix" src="https://file.niannian99.com/niannianyun/wx/banner/banner_s.png" />
+            </button>
+            </block>
+             
+            </view>
+           
+          </view> -->
+          <view class="famous">
+            <view class="title">经典栏目</view>
+            <block wx:if="{{isLogin}}">
+            <button   class='btn-userInfo' plain='true' bindtap="getUserInfoFun" data-url='/pages/topicBar/famous/index' hover-class='none'>
+              <image class="banner-image" mode="widthFix" src="https://file.niannian99.com/niannianyun/wx/famous/famous_banner.png" />
+            </button>
+            </block>
+            <block wx:else>
+              <button   class='btn-userInfo' plain='true' open-type='getPhoneNumber'   bindgetphonenumber="getUserInfoFun" data-url='/pages/topicBar/famous/index' hover-class='none'>
+              <image class="banner-image" mode="widthFix" src="https://file.niannian99.com/niannianyun/wx/famous/famous_banner.png" />
+            </button>
+            </block>
+          </view>
+          
+          <!-- <view class="letter-title">书信精选</view> -->
+          <block wx:for="{{articleList}}"  wx:key="article_{{item.articleId}}" >
+          <view class="item-box {{item.class}}"  bindtap="openView" id="article_{{item.articleId}}" >
+            <strong>{{item.title}}</strong>
+            <span class="author">文/{{item.userNickName}}</span>
+            <block  wx:if="{{item.image && item.image!=''}}"><image src="{{item.image}}" class="item-box-image" mode="aspectFill"    /></block>
+            <span class="cont">{{item.content}}</span> 
+          </view>
+          </block>
+          <view class="loading" hidden="{{hidden}}"><block wx:if="{{isLoading}}" ><image src="https://file.niannian99.cn/niannianyun/wx/images/loading.gif" /></block>{{loadingTxt}}</view> 
+        </scroll-view> 
+          
+      </view> 
+  </view>
+
+  <view class="find-push" wx:if="{{findPushShow}}">
+    <view class="cont">
+      <image class="close" bindtap="onCloseFindPush" src="../../images/letter/icon-close.png" mode="widthFix"></image>
+      <image class="img" bindtap="goPush" src="{{findPushImage}}" mode="widthFix"></image>
+    </view>
+  </view>
+
+  <appfooter id="appfooter"
+    list="{{tabList}}" firstWrite="{{firstWrite}}">
+  </appfooter> 
+</view>

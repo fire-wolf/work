@@ -1,0 +1,29 @@
+<wxs src="../../../module.wxs" module="tools" />
+
+<view class='famous-container'>
+  <view class='head-container'>
+    <view class='search-bar'>
+      <icon type='search' size='14' color='#a39894' style='margin:auto 0;color:#a39894;'></icon>
+      <input type='text' placeholder='搜索' placeholder-class='placeholder' class='search' bindfocus='onFocus' bindinput="onInput" value="{{keyWord}}" focus="{{true}}"></input>
+      <icon type="clear" wx:if="{{keyWord}}" bindtap="clearValue" size="14" style='margin:auto 20rpx;'/>
+    </view>
+    <view class='cancel' bindtap='cancel'>取消</view>
+  </view>
+
+  <view class='focus-container'>
+    <view class='focus-hot' style="visibility: {{isSearch ? 'hidden' : 'visible'}};">热门推荐</view>
+    <block wx:for="{{famousList}}" wx:if="{{famousList}}" wx:key="famousList{{index}}">
+      <view class='search-result' bindtap="toFamousDetail" data-companyid="{{item.companyId}}">
+        <view  class='avatar'>
+          <image src='{{tools.formatImg(item.famousHeardUrl)}}' mode='widthFix'></image>
+        </view>
+        <text>{{item.famousName}}</text>
+      </view>
+    </block>
+  </view>
+
+  <view class='empty-container' wx:if="{{isSearch && famousList.length == 0}}">
+      <image src='{{yunMediaRoot}}niannianyun/wx/write/1.1/bg-empty.png' mode='widthFix'></image>
+      <text>您搜索的用户暂时还未入住哦</text>
+    </view>
+</view>

@@ -1,0 +1,83 @@
+.tab-bar{
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 98rpx; 
+  /* overflow: hidden; */
+  background: #fff;
+  border-top: 1px solid #CCD7E2;
+  z-index:19;
+}
+.tab-bar-iphonex{
+  height: 168rpx !important;
+}
+.tab-bar .begin-write{
+  position: absolute;
+  top: -90rpx;
+  left: 50%;
+  margin-left: -89rpx;
+  width:178rpx;
+  height:88rpx; 
+  color: #595350;
+  font-size: 24rpx;
+  text-align: center;
+  line-height: 88rpx;
+  /* background:#DFFFC0;
+  border-radius: 5rpx 5rpx 5rpx 0px ; 
+  border: 1rpx solid #69BF30; */
+  animation: move 1.8s ease infinite;
+}
+.tab-bar .begin-write image{
+  display: block;
+  width: 100%;
+}
+
+@-webkit-keyframes move{
+  0% {top: -90rpx}
+  50% {top: -110rpx}
+  100% {top: -90rpx}
+}
+@keyframes move{
+  0% {top: -90rpx}
+  50% {top: -110rpx}
+  100% {top: -90rpx}
+}
+
+.tab-bar .tab-item{
+  display: block;
+  float: left;
+  width: 33%;
+  padding: 10rpx 0 3rpx 0;
+  height: 100%;
+  text-align: center;
+  background-repeat:no-repeat;
+  background-size:54rpx;
+  background-position: center 5rpx;
+}
+.tab-bar .tab-item .icon-item {
+  display: block;
+  width: 54rpx;
+  height: 54rpx;
+  margin: 0 auto;
+}
+.tab-bar .tab-item .tab-title{
+  color: #7F8389;
+  font-size: 20rpx;
+  padding-top: 3rpx;
+  height:28rpx; 
+  line-height: 28rpx;
+}
+.tab-bar .tab-item .tab-title.active{
+  color: #308E04;
+}
+.tab-bar .tab-item button{
+  margin-top:0;
+  margin-bottom:0;
+  padding-top:40rpx; 
+  color: #7F8389;
+  font-size: 20rpx;
+  overflow: hidden;
+}
+.tab-bar .tab-item button.active{
+  color: #308E04;
+}

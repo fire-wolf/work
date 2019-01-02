@@ -1,0 +1,49 @@
+<view wx:if="{{!success}}">
+  <view class="contain">
+    <view class="take-money">
+      <view class="oper-money">
+        <view class="dollar">￥</view>
+        <input type='digit' placeholder='请输入提现金额' placeholder-class='money-number' bindblur='inputBlur' value="{{money}}" bindinput="keepPoint"></input>
+        <view class='take-all' bindtap='takeAll'>全部提现</view>
+      </view>
+      <view class="balance">钱包余额￥{{balance}}<block wx:if="{{curBalance && curBalance>0}}">，实际到账￥{{curBalance}}元，详情请见<view class="question" bindtap='openStatement'  >提现说明</view></block></view>
+    </view>
+    <view class="item">
+      <view class="name">
+        <text>姓名</text>
+        <input type='text' value="{{accountName}}" placeholder='请输入支付宝姓名' placeholder-class='tip' bindinput='inputName'></input>
+      </view>
+    </view>
+    <view class="item">
+      <view class="name">
+        <text>账号</text>
+        <input type='text' value="{{accountNumber}}" placeholder='请输入支付宝账号' placeholder-class='tip' bindinput='inputAccount'></input>
+      </view>
+    </view>
+    <view class="question" bindtap='openStatement'>提现遇到问题？</view>
+  </view>
+  <view class="foot">
+    <view class="verify-container" wx:if="{{isOpen}}">
+      <view class="inner-head">
+        <view class="verify-tip">输入短信验证码</view>
+        <image src='{{yunMediaRoot}}niannianyun/wx/my/cancel.png' bindtap='onCancel'></image>
+      </view>
+      <view class="send" wx:if="{{isSendCode}}">念念已向{{userTel}}发送了一个验证码</view>
+      <view class="input-code">
+        <view class="box">
+          <input type='text' placeholder='请输入验证码' placeholder-class='code-ph' value="{{smsCode}}" bindinput='inputCode' maxlength='6'></input>
+        </view>
+        <view class="send-code" bindtap='onSendCode' wx:if="{{!isSendCode}}">发送验证码</view>
+        <view class="get-code" wx:if="{{isSendCode}}">{{time}}s后重发</view>
+      </view>
+    </view>
+    <view class="tip" wx:if="{{!isOpen}}">提现金额不得低于￥100，预计1-3天到账</view>
+    <view class="next" bindtap="onNextStep">{{confirm}}</view>
+  </view>
+  <view class="background" wx:if="{{isOpen}}"></view>
+</view>
+<view class="success" wx:if="{{success}}">
+  <image src='{{yunMediaRoot}}niannianyun/wx/my/confirm.png'></image>
+  <view class="success-font">已收到您的提现申请，我们将在3个工作日内完成提现工作</view>
+  <view class="confirm" bindtap='toMyPacket'>确定</view>
+</view>

@@ -1,0 +1,3 @@
+<view class="in-doubt" >
+  <image src='{{yunMediaRoot}}niannianyun/wx/my/shuoming.png' catchtap='closeStatement'></image>
+</view>

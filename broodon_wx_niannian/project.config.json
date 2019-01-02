@@ -1,0 +1,188 @@
+{
+	"description": "项目配置文件。",
+	"setting": {
+		"urlCheck": false,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true
+	},
+	"compileType": "miniprogram",
+	"libVersion": "1.9.0",
+	"appid": "wxc511f716c3e38ab0",
+	"projectname": "%E5%BF%B5%E5%BF%B5",
+	"isGameTourist": false,
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": 17,
+			"list": [
+				{
+					"id": 1,
+					"name": "分享消息",
+					"pathName": "pages/msg/msgdetail/msgdetail",
+					"query": "msgId=6069624",
+					"scene": "1012"
+				},
+				{
+					"id": 2,
+					"name": "念卡",
+					"pathName": "pages/nk/index/index",
+					"query": "cardUuid=69062808509480986",
+					"scene": "1011"
+				},
+				{
+					"id": 3,
+					"name": "念卡评论",
+					"pathName": "pages/nk/comment/comment",
+					"query": "msgId=5748559&userId=847&type=editor",
+					"scene": "1011"
+				},
+				{
+					"id": 4,
+					"name": "编辑器",
+					"pathName": "pages/msg/editor/editor",
+					"query": "",
+					"scene": "1008"
+				},
+				{
+					"id": 5,
+					"name": "扫码拉新",
+					"pathName": "pages/guide/guide",
+					"query": "inviteActiviName=wxapp&inviteUserId=2562303",
+					"scene": "1011"
+				},
+				{
+					"id": 6,
+					"name": "写信预览",
+					"pathName": "pages/msg/preview/preview",
+					"query": "",
+					"scene": "1011"
+				},
+				{
+					"id": 7,
+					"name": "写信页面最新",
+					"pathName": "pages/msg/begin/begin",
+					"query": "",
+					"scene": "1011"
+				},
+				{
+					"id": 10,
+					"name": "定时",
+					"pathName": "pages/msg/begin/begin",
+					"query": "",
+					"scene": "1011"
+				},
+				{
+					"id": -1,
+					"name": "编辑器初始页",
+					"pathName": "pages/msg/begin/begin",
+					"query": "",
+					"scene": "1012"
+				},
+				{
+					"id": 12,
+					"name": "红包页面金额",
+					"pathName": "pages/msg/begin/redpacket/redpacket",
+					"query": "",
+					"scene": "1012"
+				},
+				{
+					"id": 10,
+					"name": "编辑器红包信函",
+					"pathName": "pages/msg/editor/editor",
+					"query": "redPacket=0.1",
+					"scene": "1012"
+				},
+				{
+					"id": 11,
+					"name": "名家名企详情页",
+					"pathName": "pages/topic/famous/detail/detail",
+					"query": "companyId=104",
+					"scene": "1011"
+				},
+				{
+					"id": -1,
+					"name": "我的页面",
+					"pathName": "pages/tabBar/mine/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "活动统计页面",
+					"pathName": "pages/mine/statistics/statistics",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "我的活动列表页面",
+					"pathName": "pages/mine/myactivity/myactivity",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "信函预览页面",
+					"pathName": "pages/msg/preview/preview",
+					"query": ""
+				},
+				{
+					"id": 18,
+					"name": "活动详情页面",
+					"pathName": "pages/topic/famous/actdetail/actdetail",
+					"query": "actId=69",
+					"scene": "1012"
+				},
+				{
+					"id": 17,
+					"name": "看信页面",
+					"pathName": "pages/msg/msgdetail/msgdetail",
+					"query": "msgId=6505597",
+					"scene": "1012"
+				},
+				{
+					"id": -1,
+					"name": "时间设定信函",
+					"pathName": "pages/msg/begin/timeletter/timeletter",
+					"query": "msgId=6391631",
+					"scene": "1012"
+				},
+				{
+					"id": 19,
+					"name": "活动记录页面",
+					"pathName": "pages/topic/famous/record/record",
+					"query": "",
+					"scene": "1011"
+				},
+				{
+					"id": -1,
+					"name": "登录页面开发",
+					"pathName": "pages/login/login",
+					"query": "msgId=6406578",
+					"scene": "1012"
+				},
+				{
+					"id": -1,
+					"name": "探索页面",
+					"pathName": "pages/find/find",
+					"query": "companyId=93",
+					"scene": "1011"
+				}
+			]
+		}
+	}
+}

@@ -1,0 +1,48 @@
+<!-- 红色家书首页 -->
+<view class='redmsg-wrap'>
+  <!-- <image class='insignia' mode='widthFix' src='{{yunMediaRoot}}niannianyun/wx/letter/insignia.png'></image>
+  <view class='rank' hidden='{{!myRank}}'>恭喜您成为红色基因第 <text class='rank-num'>{{myRank}}</text> 位传习者</view>
+   -->
+  <view class='slide-txt'>滑动阅览更多先烈家书</view>
+  <view class='redmsd-main'>
+    <swiper
+      autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" current="0"
+      previous-margin="50rpx" next-margin="50rpx" bindchange="changeSwiper" 
+    >
+      <block wx:for="{{msgList}}" wx:key="resmsg{{index}}">
+        <swiper-item>
+          <view 
+            class='letter-item {{index == currentIndex ? "current" : ""}} {{index == preIndex ? "previous" : ""}}' 
+            id='{{item.id}}'
+            bindtap='goDetail' 
+            data-idx='{{index}}'
+            bindtouchmove='touchMove'
+            style='float:{{index == currentIndex - 1 ? "right" : "none"}};'
+          >
+            <view class='cover-msg'><image mode="widthFix" wx:if='{{index > currentIndex - 3 && index < currentIndex + 3 }}' src='{{item.coverUrl}}'></image> </view>
+            <view class='item-bottom'>
+              <view class='title'>{{item.title}}</view>
+              <view class='content'><text>{{item.desCont}}</text></view>
+              <view class='author'>-{{item.subtitle}}-</view>
+            </view>
+          </view>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+  <view class='alert-box' hidden='{{boxHidden}}'>
+    <image class='bg-light' bindtap='onHiddenBox' mode='widthFix' src='{{yunMediaRoot}}niannianyun/wx/letter/bg-light.png'></image>
+    <view class='box-main'>
+      <image class='insignia-2' mode='widthFix' src='{{yunMediaRoot}}niannianyun/wx/letter/insignia2.png'></image>
+      <view class='box-congratulate'>恭喜您成为红色基因传习者！</view>
+      <view class='box-rank'>全球第 {{myRank}} 位</view>
+      <view class='box-btn' bindtap='onHiddenBox'>阅读红色基因</view>
+      <image class='box-close' bindtap='onHiddenBox' src='{{yunMediaRoot}}niannianyun/wx/letter/icon-close.png'></image>
+      <view class='logo'>
+        <image class='icon-logo' src='{{yunMediaRoot}}niannianyun/wx/topic/letter/logo.png'></image>
+        <view class='name'>念念</view>
+        <view class='slogan'>寄真情·用念念</view>
+      </view>
+    </view>
+  </view>
+</view>

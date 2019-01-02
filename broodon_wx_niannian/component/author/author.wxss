@@ -1,0 +1,34 @@
+@import "../../pages/iconfonts.wxss";
+
+.wrap {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.4);
+  z-index: 1000;
+} 
+.wrap .main{
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  padding: 32rpx 0 100rpx;
+  background: #fff;
+}
+.wrap .tips-title{
+  text-align: center;
+  color: #9f9f9f;
+  font-size: 32rpx;
+}
+.wrap .btn-author{
+  display: block;
+  width: 91.6%;
+  height: 94rpx;
+  margin: 60rpx auto 0;
+  color: #fff;
+  font-size: 36rpx;
+  background: #69BF30;
+}

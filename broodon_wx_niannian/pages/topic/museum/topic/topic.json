@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "author": "../../../../../component/author/author",
+    "museumletter":"../component/museumletter/museumletter"
+  }
+}

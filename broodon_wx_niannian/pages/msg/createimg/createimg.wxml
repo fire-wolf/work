@@ -1,0 +1,16 @@
+<view class="share-pyq">
+  <view class='pyq-main'>
+    <view class='canvas'>
+      <image class='bg-share-pyq' src='{{yunMediaRoot}}niannianyun/wx/topic/letter/bg-pengyouquan.png'></image>
+      <view class='share-username'>{{nickName}}</view>
+      <image class='qr-code' src='{{wxacodePath}}'></image>
+    </view>
+    <view class='have-save'>
+      <text>可将图片分享至</text>
+    </view>
+
+    <view class='save-btn' bindtap='beginSave'>保存图片</view>
+  </view>
+
+  <canvas id="myCanvas" canvas-id="myCanvas-msg"/>
+</view>

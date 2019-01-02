@@ -1,0 +1,19 @@
+<view class="main">
+  <view style='position:fixed;width:100%;height:100%;background:#fff;top:0;left:0;'>
+    <view style="padding:30rpx 30rpx 0;width:100%;">
+      <image src="{{isPlay?voiceImg:images}}" bindtap='change' class='images'></image>
+      <image src='/images/progress-bar.png' class='progress-image' style="width: 212rpx;height:212rpx;" wx:if="{{playStatus && !voiceData.curTime}}"></image>
+      <canvas class="progress-image" style="z-index:-1;" canvas-id="canvasArcCir" wx:if="{{playStatus && !voiceData.curTime}}">
+      </canvas>
+      <view class='time'>{{clock?clock:'00:00'}}</view>
+    </view>
+    <view class="tips-box" wx:if="{{tip}}">
+      <view class='tips-click'>点击按钮即可录音</view>
+      <view class='tips-know' bindtap='tips'>知道了</view>
+    </view>
+    <view class="tab-bottom">
+      <view class='change' bindtap='restart' style="{{(voiceData.tempFilePath||voiceData.voice)?'color:#595350;':''}}">重录</view>
+      <view class='delete' bindtap='finish' style="{{(voiceData.tempFilePath||voiceData.voice)?'color:#69bf30;':''}}">完成</view>
+    </view>
+  </view>
+</view>

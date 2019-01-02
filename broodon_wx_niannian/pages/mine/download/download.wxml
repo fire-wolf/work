@@ -1,0 +1,13 @@
+<!-- 念念下载 -->
+<view class='down-wrap' style=''>
+  <scroll-view scroll-y style="height:100%;padding-bottom:{{isIphoneX ?'82rpx':'0'}}">
+      <image class='img-introduce' wx:for='{{images}}' wx:key='downimg{{index}}' lazy-load src='{{item}}' mode='widthFix'></image>
+      <!-- <image class='img-introduce' lazy-load src='{{yunMediaRoot}}niannianyun/wx/download/d1.png' mode='widthFix' style='height:600rpx;'></image>
+    <image class='img-introduce' lazy-load src='{{yunMediaRoot}}niannianyun/wx/download/d2.png' mode='widthFix'></image>
+    <image class='img-introduce' lazy-load src='{{yunMediaRoot}}niannianyun/wx/download/d3.png' mode='widthFix'></image>
+    <image class='img-introduce' lazy-load src='{{yunMediaRoot}}niannianyun/wx/download/d4.png' mode='widthFix'></image> -->
+  
+  </scroll-view>
+  <button class="share-btn {{isIphoneX ?'share-btn-iphonex':''}}" open-type="share">分享给好友</button>
+</view>
+

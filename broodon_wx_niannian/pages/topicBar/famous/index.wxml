@@ -1,0 +1,27 @@
+<wxs src="../../module.wxs" module="tools" />
+
+<view class='famous-container'>
+  <view class='head-container'>
+    <view class='search-bar' bindtap='toSearch'>
+      <icon type='search' size='14' color='#a39894' style='margin:auto 0;color:#a39894;'></icon>
+      <input type='text' placeholder='搜索' placeholder-class='placeholder' class='search' disabled='{{true}}' value="{{input}}"></input>
+    </view>
+    <view class='cancel' wx:if="{{isFocus}}" bindtap='cancel'>取消</view>
+  </view>
+
+  <view>
+    <view class='hot'>{{title}}</view>
+    <block wx:for="{{famousList}}" wx:key="famousList{{index}}">
+      <view class='inner-container' bindtap='toFamousDetail' data-companyid="{{item.companyId}}">
+        <view class='famous-image'>
+          <image mode='widthFix' src='{{tools.formatImg(item.famousHeardUrl)}}'></image>
+        </view>
+        
+        <view class='name-intro'>
+          <text class='name'>{{item.famousName}}</text>
+          <text class='intro'>{{item.famousIndustry}}</text>
+        </view>
+      </view>
+    </block>
+  </view>
+</view>

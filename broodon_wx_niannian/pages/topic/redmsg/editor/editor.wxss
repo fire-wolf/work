@@ -1,0 +1,82 @@
+
+
+.feeling-cont{
+  width: 95.4%;
+  margin: 20rpx auto;
+  background: #fff;
+  border-radius: 8rpx;
+  border:1px solid #DBCFC4;
+}
+.feeling-cont .red-letter{
+  display:block;
+  width: 100%;
+  border-radius: 8rpx 8rpx 0 0;
+}
+.feeling-cont .cont-main{
+  width: 91.3%;
+  margin: 0 auto;
+}
+.feeling-cont .cont-main .feeling-salutation{
+  font-weight: bold;
+}
+.feeling-cont .cont-main .feeling-salutation,.feeling-cont .cont-main .feeling-signature{
+  color: #595350;
+  font-size: 32rpx;
+  line-height:45rpx;
+  height:45rpx;
+}
+.feeling-cont .cont-main .feeling-signature{
+  text-align: right;
+  margin-bottom: 60rpx;
+}
+.feeling-cont .cont-main .feeling-text{
+  width: 100%;
+  color: #3B3635;
+  font-size: 28rpx;
+  line-height:50rpx;
+  min-height: 700rpx;
+  padding-top:17rpx;
+}
+
+/* 底部 */
+.feeling-footer{
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  padding: 16rpx 40rpx 16rpx 16rpx;
+  overflow: hidden;
+  background: #FFFFFF;
+  border-top: 1px solid #BAB2AF;
+}
+.feeling-footer-iphonex{
+  padding-bottom:82rpx !important;
+}
+.feeling-footer .icon-down{
+  float: left;
+  width: 48rpx;
+  height: 48rpx;
+}
+.feeling-footer .next-btn{
+  float: right;
+  color: #D6D0CE;
+  font-size: 36rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+}
+.feeling-footer .next-btn.active{
+  color: #69BF30;
+}
+
+.error-tip{
+  position: fixed;
+  width: 100%;
+  height: 70rpx;
+  left: 0;
+  top: 0;
+  color: #fff;
+  font-size: 30rpx;
+  text-align: center;
+  line-height: 70rpx;
+  background: #E64340;
+  z-index: 100;
+}

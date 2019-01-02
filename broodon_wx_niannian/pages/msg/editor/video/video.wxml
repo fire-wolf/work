@@ -1,0 +1,16 @@
+<view class='video-wrap'>
+  <video 
+    id="myVideo" 
+    src="{{videoData.video}}" 
+    poster="{{videoData.videoThumb}}" 
+    style="height:{{videoHeight}};top: {{videoTop}};bottom: {{videoBottom}};"
+    objectFit="contain" 
+    autoplay 
+    controls
+  >
+  </video>
+  <view class="tab-bottom">
+    <button type='default' plain='false' hover-class='none' class='change' bindtap='changeFun'>更换</button>
+    <button type='default' plain='false' hover-class='none' class='delete' bindtap='deleteFun'><text>删除</text></button>
+  </view>
+</view>

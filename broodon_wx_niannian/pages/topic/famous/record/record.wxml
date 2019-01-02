@@ -1,0 +1,16 @@
+<wxs src="../../../module.wxs" module="tools" />
+<view class="main clear">
+<form bindsubmit="onSubmit" report-submit="true">
+  <view class='txt-box'>
+    <textarea placeholder='说点什么吧...' placeholder-style="color:#BAB2AF;" maxlength="500" bindblur='onTxtBlur'></textarea>
+  </view>
+  <view class="img-box">
+    <view class="img-item" wx:for="{{arryImg}}" wx:key="">
+       <image mode='aspectFill' src='{{tools.formatImg2(item)}}'></image>
+       <button  plain='true' class="btn-delImg" style="background-image:url({{yunMediaRoot}}niannianyun/wx/act/delImg.png)" bindtap='removeImg' data-index="{{index}}"></button>
+    </view>
+    <button  class="btn-img img-item" plain='true' hidden='{{arryImg.length>=9}}' bindtap='onSelectImg' style="background-image:url({{yunMediaRoot}}niannianyun/wx/act/addImg.png)"></button>
+  </view>
+  <button class="btn-record" disabled='{{txtVal==""}}' formType='submit'>发布</button>
+  </form>
+</view>

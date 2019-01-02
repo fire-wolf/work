@@ -1,0 +1,58 @@
+.topic-name {
+  font-size: 48rpx;
+  font-weight: 600;
+  color: rgba(59, 54, 53, 1);
+  text-align: center;
+  margin-bottom: 64rpx;
+  margin-top: 80rpx;
+  position: relative;
+}
+
+.shape-img {
+  position: absolute;
+  width: 144rpx;
+  left: 50%;
+  margin-left: -79rpx;
+  top: 53rpx;
+}
+
+.topic-intro {
+  font-size: 24rpx;
+  color: rgba(59, 54, 53, 1);
+  width: 602rpx;
+  margin: 0 auto 64rpx;
+}
+
+.like {
+  display: block;
+  width: 86rpx;
+  height: 86rpx;
+  margin: 0 auto 12rpx;
+}
+
+.like-count {
+  font-size: 20rpx;
+  color: rgba(202, 145, 128, 1);
+  text-align: center;
+  margin-bottom: 72rpx;
+}
+
+.hr {
+  box-shadow: 0rpx 1rpx 0rpx 0rpx rgb(212, 210, 208);
+  height: 1rpx;
+}
+
+.loading {
+  background: #fff;
+  font-size: 24rpx;
+  display: flex;
+  flex-direction: row;
+  line-height: 50rpx;
+  padding-left: 250rpx;
+}
+
+.loading-image {
+  display: block;
+  width: 50rpx;
+  height: 50rpx;
+}

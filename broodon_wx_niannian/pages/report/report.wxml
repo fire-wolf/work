@@ -1,0 +1,15 @@
+<view class='offense-container'>
+  <view class='font-text'>请选择举报原因</view>
+  <view class='main-container'>
+    <block wx:for="{{reasonsList}}" wx:key="reasons{{index}}">
+      <view class='reason' bindtap='onChoose' data-index="{{index}}">
+        <text>{{item.name}}</text>
+        <icon class='icon' wx:if="{{item.isChoose}}" type="success_no_circle" size="16" color="rgba(105,191,48,1)"/>
+      </view>
+    </block>
+    <view class='textarea-wrapper' wx:if="{{isQita}}">
+      <textarea bindinput='onInputRemark' maxlength='100' placeholder='请输入(限100字以内)' placeholder-style='{color:rgba(158,147,142,1)}'></textarea>
+    </view>
+  </view>
+  <view class='btn-submit' bindtap='onSubmit'>确定</view>
+</view>

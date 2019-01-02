@@ -1,0 +1,28 @@
+<import src="../../../../wxParse/wxParse.wxml" />
+<wxs src="../../../module.wxs" module="tools" />
+
+<view class='main' style="background-image: url('https://file.niannian99.com/niannianyun/wx/famous/bg_xiangqing.png');">
+  <!-- <image src='/images/famous/bg_xiangqing_2.png' mode='widthFix' class='background-image'></image> -->
+  <view class='position'>
+    <view class='avatar-image'>
+      <image src='{{tools.formatImg(famousInfo.famousHeardUrl)}}' mode='widthFix'></image>
+    </view>
+    
+    <view class='head-container'>
+      <view class="{{famousInfo.famousName.length<=8?'B-name':'S-name'}}">{{famousInfo.famousName}}</view>
+      <view class='intro'>{{famousInfo.famousIndustry ? famousInfo.famousIndustry : ''}}</view>
+      <view class='detailed-intro'><text space="ensp">{{famousInfo.famousIntroduce ? famousInfo.famousIntroduce : ''}}</text></view>
+    </view>
+    
+    <view class='story-container-wrapper' style=''>
+      <view class='story-container' wx:if='{{famousInfo.famousRemark}}'>
+        <template is="wxParse" data="{{wxParseData:content.nodes}}" />
+      </view>
+      <view class='empty' wx:if='{{!famousInfo.famousRemark}}'>
+          <image src='{{yunMediaRoot}}niannianyun/wx/famous/comment_empty.png' />
+          <view class='words'>暂无更多详情…</view>
+      </view>
+    </view>
+    
+  </view>
+</view>

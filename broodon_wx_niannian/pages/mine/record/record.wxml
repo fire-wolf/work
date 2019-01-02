@@ -1,0 +1,51 @@
+<scroll-view scroll-y style='height:100%;' >
+  <view style='height:100%;'>
+    <view class="month-info">
+      <image  class="calendar" src='{{yunMediaRoot}}niannianyun/wx/my/rili.png' bindtap='openSelector'></image>
+      <view class="month">{{time == curDate?"本月":time}}</view>
+      <view class="money-change" wx:if="{{recordType=='trade'}}">收入 ￥{{income?income:'0.00'}}　支出 ￥{{pay?pay:'0.00'}}</view>
+       <view class="money-change" wx:else>提现 ￥{{pay?pay:'0.00'}}</view>
+    </view>
+    <view class="record-info" wx:for="{{records}}" wx:key="">
+      <image src="{{yunMediaRoot}}niannianyun/wx/my/tixian.png" wx:if="{{recordType == 'withdraw'}}"></image>
+      <image src="{{item.changeType=='R' || item.changeType == 'T'?yunMediaRoot+'niannianyun/wx/my/tuikuan.png':yunMediaRoot+'niannianyun/wx/my/hongbao.png'}}" wx:else></image>
+      <view class="record"> 
+        <view class="type" wx:if="{{recordType=='trade'}}">{{item.remark}}</view> 
+        <view class="type" wx:else>零钱提现-到支付宝</view> 
+        <view class="time">{{item.createTime}}</view>
+      </view>
+      <view class="money {{recordType=='withdraw'?'withdraw':''}}" style="{{item.changeType == 'R' ||item.changeType == 'T'?'color:rgba(250,82,82,1);':''}}"><block wx:if="{{recordType == 'trade'}}">{{item.changeType == "R" || item.changeType == "T" ?"-":"+"}}</block>{{item.changeMoney}}</view>
+      <view class="money-status {{item.status==1?'ok':''}}" wx:if="{{recordType=='withdraw'}}">
+        <block wx:if="{{item.status==0}}">审核中</block>
+        <block wx:elif="{{item.status==1}}">完成</block>
+        <block wx:elif="{{item.status==2}}"><span style="color:#f00;">拒绝</span></block>
+      </view>
+  </view> 
+   <view class="no-record" wx:if="{{!records}}">
+      <image src="{{yunMediaRoot}}niannianyun/wx/my/wujiaoyi.png"></image>
+      <view wx:if="{{recordType == 'trade'}}" class="none">暂无交易明细</view>
+      <view wx:else class="none">暂无提现明细</view>
+    </view>
+    <view class='loading' wx:if="{{isBottom}}">
+      <block wx:if="{{!isEnd}}">
+        <image class='loading-image' src="{{yunMediaRoot}}niannianyun/wx/images/loading.gif"></image>
+      </block>
+      {{isEnd?'到底了,没有数据了...':'加载更多数据...'}}
+    </view>
+  </view>
+</scroll-view>
+<view class="calendar-selector" wx:if="{{isOpenSelector}}">
+  <view class='operation'>
+    <view class="cancel" bindtap='onCancel'>取消</view>
+    <view class="confirm" bindtap='onConfirm'>确定</view>
+  </view>
+  <picker-view indicator-style="height: 50px;" style="width: 100%; height: 500rpx;text-align:center;" value="{{curValue}}" bindchange="onCalendar">
+    <picker-view-column>
+      <view wx:for="{{years}}" wx:key="{{years}}" style="line-height: 100rpx">{{item}}年</view>
+    </picker-view-column>
+    <picker-view-column>
+      <view wx:for="{{months}}" wx:key="{{months}}" style="line-height: 100rpx">{{item}}月</view>
+    </picker-view-column>
+  </picker-view>
+</view>
+<view class="background" wx:if="{{isOpenSelector}}" bindtap='onCancel'></view>

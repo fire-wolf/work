@@ -1,0 +1,27 @@
+<view>
+  <view class="identification" wx:if="{{!isIdentify}}">
+    <image src="{{yunMediaRoot}}niannianyun/wx/my/notice1.png"></image>
+    <button plain='true' bindtap='toIdentify'>点击这里</button>
+    <text class='tip'>进行实名认证，解锁钱包功能</text>
+  </view>
+  <view class="head">
+    <view class="balance">账户余额(元)</view>
+    <view class="money">{{balance?balance:'0.00'}}</view>
+    <!-- <view class="put-money" bindtap='toTakeMoney'>提现</view> -->
+  </view>
+
+  <view class="item" style='margin-top:16rpx;'>
+    <view class="inner" bindtap='toRecord' data-type="trade">
+      <image class="date-img" src='{{yunMediaRoot}}niannianyun/wx/my/money.png'></image>
+      <text>交易记录</text>
+      <image class="right" src='{{yunMediaRoot}}niannianyun/wx/write/1.1/icon-right.png'></image>
+    </view>
+  </view>
+  <!-- <view class="item">
+    <view class="inner" bindtap='toRecord' data-type="withdraw">
+      <image class="date-img" src='{{yunMediaRoot}}niannianyun/wx/my/jilu.png'></image>
+      <text>提现记录</text>
+      <image class="right" src='{{yunMediaRoot}}niannianyun/wx/write/1.1/icon-right.png'></image>
+    </view>
+  </view> -->
+</view>

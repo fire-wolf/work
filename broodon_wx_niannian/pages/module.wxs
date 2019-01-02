@@ -1,0 +1,106 @@
+var formatImg = function (img) {
+  if (getRegExp('^niannianyun|^\/niannianyun').test(img)) {
+    img = 'https://file.niannian99.com/' + img.replace(getRegExp('^\/'), "");
+  }
+  if ((img && img.indexOf('og0bztn1p') > -1) || (img && img.indexOf('file.niannian99') > -1)) {
+    return img + '?imageView2/1/w/400/h/400';
+  } else {
+    return img;
+  }
+}
+
+var formatImg2 = function (img) {
+  if (getRegExp('^niannianyun|^\/niannianyun').test(img)) {
+    img = 'https://file.niannian99.com/' + img.replace(getRegExp('^\/'), "");
+  }
+  if ((img && img.indexOf('og0bztn1p') > -1) || (img && img.indexOf('file.niannian99') > -1)) {
+    return img + '?imageView2/1/w/446/h/218';
+  } else {
+    return img;
+  }
+}
+
+var formatImg3 = function (img) {
+  if (getRegExp('^niannianyun|^\/niannianyun').test(img)) {
+    img = 'https://file.niannian99.com/' + img.replace(getRegExp('^\/'), "");
+  }
+  if ((img && img.indexOf('og0bztn1p') > -1) || (img && img.indexOf('file.niannian99') > -1)) {
+    return img + '?imageView2/1/w/200/h/200';
+  } else {
+    return img;
+  }
+}
+var formatNumber = function(n) {
+  n = n.toString()
+  return n[1] ? n : '0' + n
+}
+var formatTime = function(time,type){
+   if(time && time>0){ 
+     time = parseInt(time);
+     var date = getDate(time),
+     year = date.getFullYear(),
+      month = date.getMonth() + 1,
+      day = date.getDate(),
+      hour = date.getHours(),
+      minute = date.getMinutes(),
+      second = date.getSeconds(),dateStr = '';
+
+      if(type=='zh'){
+        dateStr = year + '年' + month + '月' + day + '日' + ' ' + formatNumber(hour) + ':' + formatNumber(minute); 
+      }else{
+        dateStr = year + '-' + month + '-' + day + ' ' + formatNumber(hour) + ':' + formatNumber(minute); 
+      }  
+     if (type == '+day'){
+      switch(date.getDay()){
+        case 0: dateStr += ' 周日'; break;
+        case 1: dateStr += ' 星期一'; break;
+        case 2: dateStr += ' 星期二'; break;
+        case 3: dateStr += ' 星期三'; break;
+        case 4: dateStr += ' 星期四'; break;
+        case 5: dateStr += ' 星期五'; break;
+        case 6: dateStr += ' 周六'; break;
+      }
+     } else if (type =='minute'){
+       dateStr = formatNumber(hour) + ':' + formatNumber(minute);
+     }else if(type == 'time'){
+       dateStr = formatNumber(hour) + ':' + formatNumber(minute) + ':' + formatNumber(second);
+     }
+     return dateStr;
+   }else{
+     return time;
+   }
+}
+var formatTime2 = function (time1, time2,type){
+   
+  var t1 = formatTime(time1, type), t2 = formatTime(time2, type); 
+  if(t1 && t2){
+    return t1.split(' ')[0] + ' ' + t1.split(' ')[1] + '  至  ' + t2.split(' ')[0] + ' ' + t2.split(' ')[1] + '    ' + t1.split(' ')[2];
+  }else{
+    return "";
+  }
+  
+}
+var imgToArry = function(imgStr){
+  if (imgStr && imgStr!=""){
+    // console.log(imgStr);
+    var imgArry = imgStr.indexOf(',')>-1?imgStr.split(','):imgStr,arry = []; 
+    if (typeof(imgArry)=='object'){
+      imgArry.forEach(function (val) {
+        arry.push(val)
+      })
+    }else{
+      arry.push(imgStr);
+    }
+    console.log(arry);
+    return arry;
+  }
+}
+
+module.exports = {
+  formatImg: formatImg,
+  formatImg2: formatImg2,
+  formatImg3: formatImg3,
+  formatTime: formatTime,
+  imgToArry: imgToArry,
+  formatTime2: formatTime2
+};

@@ -1,0 +1,38 @@
+<view class="wrap"  hidden="{{isLogin}}">
+  <view class="login-section" hidden="{{isLogin}}" >
+    <view wx:if="{{infoMess && infoMess!=''}}" class='error-tips'>{{infoMess}}</view>
+      <view class="welcome"> 
+          <!-- <view class="welcome-logo">
+            <image src="https://file.niannian99.com/niannianyun/wx/login/login_logo.png"></image>
+            <text>寄真情，用念念</text>
+          </view> -->
+          <view class="welcome-logo2">
+            <image mode="widthFix" src="../../images/logo-v2.png"></image>
+          </view>
+          <view class="user-box">
+              <form id="jBdForm" action="" class="ui-form" > 
+                <view class="form-item" >
+                  <button bindtap='changeUserZone' class="btn-userZone"  plain="true" data-num="{{userTelZone}}">+{{userTelZone}}</button><input type="text" name="userTel" id="userTel" maxlength="11" placeholder="请输入您的手机号码" placeholder-style='color:#D6D0CE;'  bindinput="listenerPhoneInput" value="{{userTel}}" style='margin-left:20rpx;width:300rpx;'  bindblur='phoneOnblur'/> 
+                </view>
+                
+                <view class="form-item" >
+                <input type="text" class="smsCode" name="smsCode" id="smsCode" maxlength="6" placeholder="请输入验证码" placeholder-style='color:#D6D0CE;'  bindinput="listenersmsCodeInput" value="{{smsCode}}" bindblur='smsCodeOnblur'/>
+                  <button class="jSmsCode" bindtap="getSmsCode" wx:if="{{is_show}}"  plain="none">获取验证码</button>
+                  <button class="jSmsCode" wx:if="{{!is_show}}" plain="none">{{last_time}}s</button> 
+                </view>
+                <view class="form-item">
+                    <button 
+                      class="jSubmit {{isSubmit ? 'disabled' : ''}}"   
+                      bindtap="listenerLogin"
+                      open-type="getUserInfo"
+                      >确定
+                    </button>
+                </view>
+            </form>
+          </view>
+
+      </view>
+    </view>
+   
+ <telzone zoneList="{{zoneList}}" isUserZone="{{isUserZone}}" userTelZone="{{userTelZone}}" bind:onClickZone="clickZone"></telzone>
+</view> 

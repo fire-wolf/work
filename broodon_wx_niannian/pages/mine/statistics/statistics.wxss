@@ -1,0 +1,72 @@
+page{
+  background-color: #F5F6F7;
+}
+.statitics-box,.calendar-box{
+  background: #fff;
+}
+.statitics-box{
+  padding-left:32rpx;
+}
+.statitics-box .statitics-item{
+  padding-right: 32rpx;
+  height: 112rpx;
+  line-height: 112rpx;
+  font-size: 32rpx;
+  color: #3A3B3A;
+  border-bottom:2rpx solid #E3EAE6;
+}
+.statitics-box .statitics-item span{
+  float: right;
+}
+
+.calendar-box{
+  padding-top:30rpx;
+}
+.act-box{
+  margin-top: 24rpx;
+  background:#fff;
+  color: #707371;
+}
+.act-box .act-item{
+  padding:32rpx 32rpx 0 32rpx;
+  min-height: 202rpx;
+  border-bottom: 2rpx solid #F2F5F3;
+}
+.act-box .title{
+  margin-bottom: 16rpx; 
+  font-size: 28rpx;
+  line-height: 40rpx;
+  height: 80rpx;
+}
+.act-box .sign-item{
+  float: left;
+  width: 50%;
+  font-size: 24rpx;
+  line-height: 26rpx;
+  text-align: center;
+
+}
+.act-box .sign-item span{
+  display: inline-block;
+  vertical-align: middle;
+  width: 20rpx;
+  height: 20rpx;
+  border-radius: 100%;
+  margin-right: 10rpx;
+  background: linear-gradient(90deg,#FD7753,#FA5A3F);
+}
+.act-box .sign-item span.cl-g{
+  background: linear-gradient(90deg,rgba(122,221,94,1),rgba(79,202,124,1));
+}
+.act-box .sign-item span.cl-b{
+  background:#E3EAE6;
+}
+
+.act-time-box{
+  margin-top: 16rpx;
+  padding-bottom: 142rpx;
+  text-align: center;
+  color: #B3B9B5;
+  font-size: 24rpx;
+  line-height: 38rpx;
+}

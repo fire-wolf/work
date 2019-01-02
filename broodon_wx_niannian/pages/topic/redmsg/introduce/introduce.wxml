@@ -1,0 +1,24 @@
+<!-- 红色家书活动介绍页 -->
+
+<view class="introduce-wrap">
+  <scroll-view scroll-y style="wdith:100%;height:100%;">
+    <view class="main" style="background-image: url('{{yunMediaRoot}}niannianyun/wx/topic/red/1.4/r_bg.png')">
+    <view class="text">
+        <text decode="{{true}}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;为深入落实习近平总书记重要指示精神，教育引导青少年传承坚定的理想信念和艰苦奋斗的革命精神，中国关心下一代工作委员会特联合念念科技在全国范围内开展“传承红色基因，争做时代新人”的主题宣教活动。\n &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;活动以传扬红色家书为主要内容，面向全国青少年宣扬红色革命文化。选择一封先烈家书，成为其红色基因的传承者，为实现中华民族伟大复兴的中国梦凝聚青春力量。</text>
+    </view>
+
+    <view class="leanner-btn" bindtap="goIndex" hidden="{{btnHidden}}"  style="background-image: url('{{yunMediaRoot}}niannianyun/wx/topic/red/1.4/r_btn.png')">
+      <view class="cover" hidden="{{btnClick == false}}"></view>
+    </view>
+    
+  </view>
+  </scroll-view>
+  
+  <!-- <view class="intro-img" style="background-image: url('{{yunMediaRoot}}niannianyun/wx/topic/red/1.2/r_bg.png')">
+    <navigator url="/pages/redmsg/index/index" open-type="navigateTo">
+      <view class="leanner-btn" hidden="{{btnHidden}}"  style="background-image: url('{{yunMediaRoot}}niannianyun/wx/topic/red/1.2/r_btn.png')"></view>
+    </navigator>
+  </view> -->
+  
+</view>
+

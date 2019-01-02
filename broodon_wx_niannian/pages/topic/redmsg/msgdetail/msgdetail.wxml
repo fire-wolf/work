@@ -1,0 +1,46 @@
+
+<!--红色家书详情页 msg-detail-->
+<view class='msg-wrap' style='position: fixed;top:0;width:100%;height:100%;'>
+  <scroll-view scroll-y bindscroll='onHideBtn' style='position:absolute;height:{{scrollViewHeight}};z-index:3;' >
+    <view class='msg-main' style='background-color: {{msgConfig.backgroundColor}};'>
+      <image class='bg-msg' mode='widthFix' src='{{msgConfig.paperTop}}'></image>
+      <view class='msg-title'><text>{{letter.title}}</text></view>
+      <view class='msg-subtitle'><text>—{{letter.subtitle}}—</text></view>
+      <view style='min-height:{{windowHeight * 0.65}}px;padding-bottom:30rpx;'>
+        <image src='{{letter.coverUrl}}' bindtap="imgYu" data-src="{{letter.coverUrl}}" class='image' mode="widthFix" > </image>
+        <view class='msg-text'>
+        <text decode='{{true}}'>{{letter.content}}</text>   
+      </view>
+      <block  wx:if="{{letter.date && letter.date!=''}}"><view class='msg-signature'><text decode='{{true}}'>{{letter.date}}</text></view></block>
+      <block  wx:if="{{letter.info && letter.info!=''}}">
+        <view class="info"><text decode='{{true}}'>{{letter.info}}</text></view>
+      </block>
+      </view> 
+
+      <image class='bg-msg bg-msg-bottom' mode='widthFix' src='{{msgConfig.paperBottom}}'></image>   
+    </view> 
+  </scroll-view>
+
+  <image class="msg-bottom-bg2 {{isIphoneX ?'msg-bottom-bg2-iphonex':''}}" mode='widthFix' src='{{yunMediaRoot}}niannianyun/wx/topic/letter/bg-envelope-bottom.png'></image> 
+  <!-- niannianyun/wx/topic/red/1.5/bg-kuang.png niannianyun/wx/topic/red/1.5/icon-mune.png-->
+
+  <view class="msg-bottom {{isIphoneX ?'msg-bottom-iphonex':''}}" >
+    <view class="btn" bindtap="onShowBtn" style="background-image: url('{{yunMediaRoot}}niannianyun/wx/topic/red/1.5/icon-mune.png');">
+      红色家书
+    </view>
+    <view class="btn" bindtap="goToEdit">写感悟</view>
+    <view class="btn btn-3" bindtap="goCreateImage">
+      成为传习者
+      <image class="icon" mode="heightFix" src="{{yunMediaRoot}}niannianyun/wx/topic/red/icon-deliver1.png"></image>
+    </view>
+  </view>
+  <view class="msg-bottom msg-bottom-2 {{isIphoneX ?'msg-bottom-iphonex':''}}">
+    <view class="more {{btnHidden ? 'rotate1':'rotate2'}}">
+      <view class="more-btn more-btn-1" bindtap="goIntroduce">活动说明</view>
+      <view class="more-btn" bindtap="goIndex">更多家书</view>
+    </view>
+  </view>
+
+  <author wx:if="{{!isAuthor}}" bind:authFun="getUserAuthor"></author>
+</view>
+

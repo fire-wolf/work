@@ -1,0 +1,121 @@
+@import "../../../../wxParse/wxParse.wxss";
+.main{
+  min-height: 1100rpx;
+  background-repeat: no-repeat;
+  background-position: 0 -128rpx;
+  background-size: 100%;
+}
+.background-image {
+  width: 100%;
+  /* height: 1166rpx; */
+  z-index: -99;
+}
+
+.position {
+  position: absolute;
+  top: 38rpx;
+  width: 100%;
+}
+
+.avatar-image {
+  display: flex;
+  -webkit-align-items: center;
+  align-items: center;
+  width: 438rpx;
+  height: 438rpx;
+  margin: 0 156rpx 48rpx;
+  background: #ffffff;
+  box-shadow:40rpx 32rpx 33rpx 0rpx rgba(0,0,0,0.2);
+  border-radius:4rpx;
+  overflow: hidden;
+}
+
+.avatar-image image{
+  display: block;
+  width: 438rpx;
+  height: 438rpx;
+}
+
+.head-container {
+  padding: 0 80rpx;
+  margin-bottom: 56rpx;
+}
+
+.B-name {
+  width: 580rpx;
+  text-align: center;
+  font-size: 56rpx;
+  color: rgba(255, 255, 255, 1);
+  line-height: 56rpx;
+  font-weight: bold;
+  text-shadow:0px 4rpx 6rpx rgba(0,0,0,0.2);
+}
+
+.S-name {
+  font-size: 48rpx;
+  color: rgba(255, 255, 255, 1);
+  text-align: center;
+  line-height: 56rpx;
+  font-weight: bold;
+  text-shadow:0px 4rpx 6rpx rgba(0,0,0,0.2);
+}
+
+.intro {
+  margin-top: 48rpx;
+  margin-bottom: 16rpx;
+  font-size: 34rpx;
+  color: rgba(255, 255, 255, 1);
+  line-height: 52rpx;
+  text-shadow:0px 4rpx 6rpx rgba(0,0,0,0.2);
+}
+
+.detailed-intro {
+  font-size: 26rpx;
+  color: rgba(255, 255, 255, 1);
+  line-height: 40rpx;
+  text-shadow:0px 4rpx 6rpx rgba(0,0,0,0.2);
+}
+
+.story-container-wrapper{
+  min-height: 500rpx;
+  padding: 80rpx 0rpx 110rpx;
+  background: rgba(255, 255, 255, 1);
+  border-radius: 48rpx 48rpx 4rpx 4rpx;
+}
+
+.story-container {
+  width: 78.6%;
+  margin: 0 auto;
+}
+
+.story-container .wxParse-p,.story-container .wxParse-p image{
+  max-width: 100%!important;
+}
+
+.story-font {
+  font-size: 28rpx;
+  color: rgba(59, 54, 53, 1);
+  line-height: 42rpx;
+}
+
+.story-image {
+  width: 590rpx;
+  height: 320rpx;
+  margin: 32rpx 0;
+}
+
+.empty{
+  padding-top: 200rpx;
+}
+.empty image{
+  display: block;
+  width: 250rpx;
+  height: 250rpx;
+  margin: 0 auto;
+}
+.empty .words{
+  padding-bottom: 200rpx;
+  color: rgba(158,147,142,1);
+  font-size: 28rpx;
+  text-align: center;
+}

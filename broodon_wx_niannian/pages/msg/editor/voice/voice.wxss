@@ -1,0 +1,74 @@
+
+.tab-bottom {
+  position: fixed;
+  bottom: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  height: 96rpx;
+  border-top: 1rpx solid #d6d0ce;
+  line-height: 96rpx;
+  font-size:36rpx;
+  color: #cdcbca; 
+  padding-left: 32rpx;
+  padding-right: 32rpx;
+}
+
+/* .tab-bottom{
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+  width: 50%;
+  font-size: 36rpx;
+  color: #595350;
+  height: 100%;
+  border: none !important;
+  line-height: 96rpx;
+  background: none;
+} */
+
+.tips-box {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background: rgba(76, 174, 195, 1);
+  opacity: 0.9;
+  color: rgba(255, 255, 255, 1);
+  font-size: 32rpx;
+  height: 88rpx;
+  padding: 21rpx 32rpx 0;
+  position: absolute;
+  bottom: 96rpx;
+  width: 100%;
+}
+
+.tips-click {
+  font-weight: 400;
+}
+
+.tips-box {
+  font-weight: 600;
+}
+
+.images {
+  display: block;
+  width: 180rpx;
+  height: 180rpx;
+  margin: 393rpx auto 36rpx;
+}
+
+.time {
+  font-size: 64rpx;
+  font-weight: bold;
+  color: rgba(89, 83, 80, 1);
+  letter-spacing: 3rpx;
+  text-align: center;
+}
+.progress-image{
+  position: absolute;
+  top: 406rpx;
+  left: 50%;
+  margin-left: -106rpx;
+  z-index: -2;
+}

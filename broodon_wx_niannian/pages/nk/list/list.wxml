@@ -1,0 +1,59 @@
+<import src="../../../wxParse/wxParse.wxml"/> 
+
+<view class="main">
+  <view class="nk-list" hidden="{{!(isStatus=='mySelf')}}">
+      <swiper
+        autoplay="{{autoplay}}" 
+        interval="{{interval}}" 
+        duration="{{duration}}"      
+        indicator-dots="{{indicatorDots}}"
+        indicator-color="#cccccc"
+        indicator-active-color="#69BF30"
+        style="margin:26rpx 0 10rpx 0;height:1008rpx;"
+        bindchange="onSlideChangePaper"
+        class="swiper-box"
+      >  
+        <swiper-item wx:for="{{msgList}}" wx:key="{{index}}">
+              <!-- <view><template is="msgTpl" data="{{msgData:msgList.item}}"/> </view> -->
+              <view class="swiper-box-item" style='background-image: url({{item.paperUrl[1]}});'>
+                <view class='fed-main' style="background-image: url({{item.paperUrl[2]}});">
+                <image class="fed-bg-top" src="{{item.paperUrl[0]}}" mode="widthFix" style='width:100%;height:120rpx;display:block;' ></image>
+                    <view class="audio" bindtap="playBackgroundAudio" wx:if="{{item.musicUrl && item.musicUrl!=''}}">
+                    <image class="icon {{item.isPlaying  ? 'rotate' : ''}}" src="{{item.isPlaying ? yunMediaRoot + 'niannianyun/wx/write/1.1/icon-music-play.png' : yunMediaRoot + 'niannianyun/wx/write/1.1/icon-music-close.png'}}" ></image>
+                  </view> 
+                    <view class='fed-salutation' style='opacity:{{item.title?1:0}};'>{{item.title}}</view>
+                    <view class="fed-content" >
+                      <view class="content" >
+                        <image wx:if="{{item.images}}" id="img_{{index}}" src='{{item.images[0]}}' mode="widthFix" style='margin:0 auto;display:block;width:{{item.imgWidth?item.imgWidth+"rpx":"100%"}};height:{{item.imgHeight}}rpx' bindload="imageLoading" ></image>
+                        <view style="width:101%;">
+                          <template is="wxParse" data="{{wxParseData:item.content.nodes}}"/>
+                        </view>
+                        <!-- <view class='fed-signature' style='opacity:{{item.author?1:0}};'>{{item.author}}</view> -->
+                      </view>
+                    </view>
+                    <view class='fed-signature' style='opacity:{{item.author?1:0}};'>{{item.author}}</view>
+                </view>
+              </view>
+        </swiper-item> 
+        <swiper-item>
+          <view class="swiper-box-item" style="background-image:url('https://file.niannian99.com/niannianyun/wx/nk/d_img2.png');background-repeat:no-repeat;background-color:#fff;background-size:188rpx 276rpx;background-position:center center;"></view>
+        </swiper-item>
+      </swiper>
+      <button bindtap='onJoin' hover-class="none">寄这封信</button>
+    </view>
+     <view class="msg-box" wx:if="{{isStatus=='notSelf'}}"> 
+        <image src="https://file.niannian99.com/niannianyun/wx/nk/d_no.png" style="margin:370rpx auto 30rpx;display:block;width:246rpx;height:154rpx;"></image>
+        <view><text>{{tipMsg}}</text></view> 
+      </view>
+       <view class="msg-box" wx:if="{{isStatus=='noBegin'}}">
+      <image src="https://file.niannian99.com/niannianyun/wx/nk/d_no1.png" style="margin:370rpx auto 30rpx;display:block;width:248rpx;height:150rpx;"></image>
+      <view>您来早了</view>
+      <view>活动还未开始</view>
+    </view>
+    <view class="msg-box" wx:if="{{isStatus=='closed'}}">
+      <image src="https://file.niannian99.com/niannianyun/wx/nk/d_no.png" style="margin:370rpx auto 30rpx;display:block;width:246rpx;height:154rpx;"></image>
+      <view>您来晚了</view>
+      <view>活动已结束</view>
+    </view>
+</view>
+

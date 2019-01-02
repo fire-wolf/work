@@ -1,0 +1,27 @@
+.down-wrap{
+  position: relative;
+  height: 100%;
+  color: #3B3635;
+  padding-bottom: 94rpx;
+}
+.down-wrap .img-introduce{
+  display: block;
+  width: 100%;
+  height: 1000rpx;
+}
+
+.down-wrap .share-btn{
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 94rpx;
+  color: #fff;
+  font-size:36rpx;
+  background: #69BF30;
+  border-radius: 0;
+  border: 0;
+  margin: 0;
+}
+.down-wrap .share-btn-iphonex{
+  height: 176rpx;
+}

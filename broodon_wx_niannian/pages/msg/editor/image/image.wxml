@@ -1,0 +1,13 @@
+
+<view class="main">
+   
+  <view style='position:fixed;width:100%;height:100%;background:#fff;' >  
+       <view style="padding:30rpx 30rpx 0;width:100%;">
+        <image src="{{imgData.images}}" bindload="imgLoad" bindtap='change' style="width:{{imgData.width}}rpx;height:{{imgData.height}}rpx;" ></image>
+       </view>
+       <view class="tab-bottom">
+        <button type='default' plain='false' hover-class='none' class='change' bindtap='change'>更换</button>
+        <button type='default' plain='false' hover-class='none' class='delete' bindtap='delete'><text>删除</text></button>
+       </view>
+  </view>
+</view>

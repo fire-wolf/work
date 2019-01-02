@@ -1,0 +1,46 @@
+<wxs src="../../module.wxs" module="tools" />
+<view>
+  <image src="{{pagePicture}}" mode='widthFix' style="width:100%;display:block;"></image>
+  <view class='toall'>
+    <view style='display:flex;flex-direction:row;'>
+      <view class='red'></view>
+      <view class='toall-title'>信函主题</view>
+    </view>
+    <view style='display:flex;flex-direction:row;'>
+      <view class='toall-btn'>更多主题</view>
+      <image src='/images/right.png' style='width:32rpx;height:32rpx;'></image>
+    </view>
+  </view>
+  <scroll-view class='topics' scroll-x>
+    <block wx:for="{{topics}}" wx:key="{{index}}">
+      <view class='topic' style='background-image:url({{item.topicBgImage}})' bindtap='toTopicDetail' data-index="{{index}}">
+        <view class='topic-name'>{{item.topicName}}</view>
+        <view class='topic-like'>{{item.totalLike}}人喜欢/{{item.totalMsg}}封馆藏</view>
+      </view>
+    </block>
+  </scroll-view>
+  <view class='toall'>
+    <view style='display:flex;flex-direction:row;'>
+      <view class='red'></view>
+      <view class='toall-title'>精品馆藏</view>
+    </view>
+    <view style='display:flex;flex-direction:row;'>
+      <view class='toall-btn'>全部馆藏</view>
+      <image src='/images/right.png' style='width:32rpx;height:32rpx;'></image>
+    </view>
+  </view> 
+  <block wx:for="{{collections}}" wx:key="{{index}}">
+    <view class="letter style1">
+      <view style='margin:8rpx 0;width:474rpx;'>
+        <view class='letter-title omit' style='-webkit-line-clamp:1;'>{{item.title}}</view>
+        <view class='letter-msg omit'>{{item.msgAbstract}}</view>
+        <view class='letter-label'>
+          <text wx:for="{{item.labelNameArry}}" wx:key="{{index}}">{{item}}　</text>
+        </view>
+      </view>
+      <view class='letter-image'>
+        <image src='{{tools.formatImg3(item.image)}}' style='width:100%' mode='widthFix'></image>
+      </view>
+    </view>
+  </block>
+</view>

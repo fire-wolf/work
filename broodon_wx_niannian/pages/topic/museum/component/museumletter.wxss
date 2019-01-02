@@ -1,0 +1,56 @@
+.letter {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  -webkit-justify-content: space-between;
+  padding: 16rpx 16rpx 16rpx 32rpx;
+  height: 216rpx;
+  width: 100%;
+  /* box-shadow: 0rpx 1rpx 0rpx 0rpx rgb(212, 210, 208); */
+}
+
+.style1 {
+  border-top: solid 8rpx #dad8d7;
+}
+
+.style2 {
+  box-shadow: 0rpx 1rpx 0rpx 0rpx rgb(212, 210, 208);
+}
+
+.letter-title {
+  font-size: 32rpx;
+  color: rgba(59, 54, 53, 1);
+  margin-bottom: 8rpx;
+  font-weight: bold;
+  height: 44rpx;
+  line-height: 44rpx;
+}
+
+.letter-msg {
+  font-size: 28rpx;
+  color: rgba(89, 83, 80, 1);
+  height: 86rpx;
+}
+
+.omit {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.letter-label {
+  font-size: 20rpx;
+  color: rgba(187, 114, 93, 1);
+  margin-top: 10rpx;
+  height: 20rpx;
+  line-height: 20rpx;
+}
+
+.letter-image {
+  width: 184rpx;
+  height: 184rpx;
+  border-radius: 4px;
+  overflow: hidden;
+}

@@ -1,0 +1,14 @@
+.in-doubt{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 10;
+  background-color: #fff;
+}
+.in-doubt image{
+  width: 630rpx;
+  height: 559rpx;
+  display: block;
+  margin: 60rpx auto 0;
+}

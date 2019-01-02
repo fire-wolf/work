@@ -1,0 +1,105 @@
+<!--我的感悟详情 fed feeding-detail-->
+<import src="../../../wxParse/wxParse.wxml" />
+
+<view style='position: fixed;top:0;width:100%;height:100%;'>
+  <view class='fed-wrap' wx:if='{{msgId != "systemMsg"}}'>
+    <scroll-view scroll-y wx:if="{{isPaiXin == false}}" style='position:absolute;top:0;height:{{scrollViewHeight}}px;z-index:3;'>
+      <view class='fed-main' style='min-height:98%;background-color: {{msgConfig.backgroundColor}};background-image: url({{paperUrl[2]}}),url({{paperUrl[1]}});'>
+        <view class="audio" bindtap="playBackgroundAudio" wx:if="{{isMusic}}">
+          <image class="icon {{isPlaying ? 'rotate' : ''}}" src="{{isPlaying ? yunMediaRoot + 'niannianyun/wx/write/1.1/icon-music-play.png' : yunMediaRoot + 'niannianyun/wx/write/1.1/icon-music-close.png'}}"></image>
+        </view>
+        <image class='bg-msg' mode='widthFix' src='{{paperUrl[0]}}' style='border-radius:8rpx;'></image>
+        <view class='fed-salutation' style='opacity:{{letter.title?1:0}};color:{{fontColor}};font-size:{{fontSize+4}}rpx;'>{{letter.title}}</view>
+        <view style='min-height:{{mainHeight * 0.6}}px;padding-bottom:90rpx;'>
+          <view class='fed-text' style='color:{{fontColor}};font-size:{{fontSize}}rpx;'>
+            <template is="wxParse" data="{{wxParseData:content.nodes}}" />
+          </view>
+          <view class='fed-signature' style='opacity:{{letter.author?1:0}};color:{{fontColor}};font-size:{{fontSize+4}}rpx;'>{{letter.author}}</view>
+          <view class='fed-time' style='color:{{fontColor}};font-size:{{fontSize-4}}rpx;'>{{letter.createTime}}</view>
+        </view>
+      </view>
+    </scroll-view>
+
+    <view class="paixin" wx:if="{{isPaiXin}}" style="height:{{scrollViewHeight}}px;">
+      <slid imgUrls="{{paiXinUrls}}" swiperHeight="{{scrollViewHeight - 8}}" />
+    </view>
+
+    <image class='fed-bottom-bg2 {{isIphoneX ?"fed-bottom-bg2-iphonex":""}}' mode='widthFix' src='{{yunMediaRoot}}niannianyun/wx/topic/letter/bg-envelope-bottom.png'></image>
+
+    <view class='fed-bottom {{isIphoneX ?"fed-bottom-iphonex":""}}' bindtap='goEdit'>{{isFamous ?'': ( isSendUser? '再次编辑' : '回信') }}
+    </view>
+
+     <view class='btn-app-view' hidden='{{isSendUser}}' wx:if='{{false}}'>
+      APP内查看
+      <button class='btn-open' open-type='launchApp' app-parameter='{{appParameter}}' binderror="launchAppError"></button>
+    </view>
+
+    <view class="video-wrap" hidden="{{isVideoPlaying == false}}">
+      <view class="cover" bindtap="pauseVideo"></view>
+       <video id="myVideo" src="{{video}}" objectFit="cover" controls></video> 
+    </view>
+
+    <view class="audio-wrap" hidden="{{isVoiceHidden}}">
+      <view class="audio-main">
+        <view class="audio-hd">
+          语音播放
+        </view>
+        <view class='voice' wx:if='{{voice}}' style='background-image: url({{yunMediaRoot}}niannianyun/wx/write/1.1/bg-detail-voice.png);'>
+          <image class='handle-icon' bindtap="playAudio" src='{{yunMediaRoot}}{{isVoicePlaying ?"niannianyun/wx/write/1.1/icon-voice-pause.png":"niannianyun/wx/write/1.1/icon-voice-play.png"}}'></image>
+          {{voiceCurrentTime}}
+        </view>
+        <image class="icon-close" bindtap="onHiddenVoice" src="../../../images/letter/icon-close2.png"></image>
+      </view>
+    </view> 
+  </view>
+
+  <!-- 官方图 -->
+  <scroll-view wx:else scroll-y style='height:100%;'>
+    <image class='img-introduce' wx:for='{{contImages}}' wx:key='introduceimg{{index}}' lazy-load src='{{item}}' mode='widthFix'></image>
+  </scroll-view>
+
+  <!-- 违规页面 -->
+  <view class="unhealthy" wx:if="{{isSensitive}}">
+    <image class="wram-img" mode="widthFix" src="{{yunMediaRoot}}/niannianyun/wx/warn/img.png" />
+    <view class="title">您所访问的页面存在不良信息！</view>
+    <view class="customer">如有疑问请至电客服:400-811-3522，</view>
+    <view class="customer">我们将竭诚为您服务。</view>
+    <image class="niannian-img {{isIphoneX ?'niannian-img-iphonex':''}}" mode="widthFix" src="{{yunMediaRoot}}/niannianyun/wx/warn/info.png" />    
+  </view>
+
+  <!-- 用户授权 -->
+  <author wx:if="{{!isAuthor}}" bind:authFun="getUserAuthor"></author>
+
+   <!--场景浮层-->
+  <msgType wx:if="{{isParam}}" map="{{map}}" curTime="{{curTime}}" isReceive="{{isReceive}}" redPacketBox="{{redPacketBox}}"  bind:openRedPacket="openRedPacket" ></msgType>
+
+  <view class="begin-box" wx:if="{{status}}"> 
+    <view class="begin-item" wx:if="{{status==1}}">
+      <image src="{{yunMediaRoot}}niannianyun/wx/act/msg/icon_addr.png"></image>
+      <view class="info">这是一封设置了指定地点的来信<text/><view wx:if="{{msgDistance}}" style="display:block;height:auto;">您距离<span class="cl-r" style="height:auto;">{{map.address}}</span><text/>还有<span class="cl-r" style="height:auto;">{{msgDistance}}</span>公里</view>发信人正期待着您拆信噢</view>
+      <block wx:if="{{isOpenBtn}}">
+        <button bindtap='openMsg' wx:if="{{isLogin}}" data-type="addr">拆信</button>
+        <button wx:else open-type='getPhoneNumber' bindgetphonenumber='openMsg' data-type="addr">拆信</button>
+      </block>
+    </view>
+     <view class="begin-item" wx:if="{{status==2}}">
+      <image src="{{yunMediaRoot}}niannianyun/wx/act/msg/icon_time.png"></image>
+      <view class="info">这是一封设置了未来时间的来信<text/>您距离目标时间还有<view wx:if="{{curTime.day}}"><span class="cl-r">{{curTime.day}}</span>天</view><view wx:if="{{curTime.hour}}"><span class="cl-r">{{curTime.hour}}</span>小时</view><view wx:if="{{curTime.minth}}"><span class="cl-r">{{curTime.minth}}</span>分钟</view><view wx:if="{{curTime.second>=0}}"><span class="cl-r">{{curTime.second}}</span>秒</view>，发信人正期待着您拆信哦！</view>
+      <block wx:if="{{isOpenBtn}}">
+        <button bindtap='openMsg' wx:if="{{isLogin}}" data-type="time">拆信</button>
+        <button wx:else open-type='getPhoneNumber' bindgetphonenumber='openMsg' data-type="time">拆信</button>
+      </block>
+    </view>
+     <view class="begin-item" wx:if="{{status==3}}">
+      <image src="{{yunMediaRoot}}niannianyun/wx/act/msg/icon_begin.png"></image>
+      <view class="info">您收到一封神秘来信<text/>发信人正期待着您“拆信”查看哦</view>
+      <button bindtap='openMsg' wx:if="{{isLogin}}" data-type="open">拆信</button>
+      <button wx:else open-type='getPhoneNumber' bindgetphonenumber='openMsg' data-type="open">拆信</button>
+    </view>
+     <view class="begin-item" wx:if="{{status==4}}">
+      <image src="{{yunMediaRoot}}niannianyun/wx/act/msg/icon_begin.png"></image>
+      <view class="info">您来晚一步啦，神秘信函已经被人领走了噢！<text/>要不您也来写封有趣的神秘信函把！</view>
+      <button bindtap='openMsg'  data-type="write">写信</button> 
+    </view>
+  </view>
+</view>

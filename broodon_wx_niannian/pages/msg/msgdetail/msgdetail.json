@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "msgtemplet": "/component/msgview/msgview",
+    "slid": "/component/slid/slid",
+    "author": "/component/author/author",
+    "msgType":"/component/msgtype/msgtype"
+  }
+}

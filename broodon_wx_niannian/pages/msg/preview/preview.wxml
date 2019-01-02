@@ -1,0 +1,156 @@
+<!-- 预览信件 -->
+<import src="../../../wxParse/wxParse.wxml" />
+
+<view class="preview-wrap" style='position:fixed; width:100%; height:100%;background-color:#F1F3F5;'>
+
+  <scroll-view scroll-y style='position:absolute;top:0;height:100%;z-index:3;'>
+    <view class='preview-box' style='min-height:{{scrollViewHeight}};background-image: url({{paperUrl.paperImage[2]}}),url({{paperUrl.paperImage[1]}});margin-bottom:{{isIphoneX ? "158" : "80"}}rpx;'>
+      <view class="audio" wx:if="{{isMusic}}">
+        <image class="icon {{isPlaying ? 'rotate' : ''}}" bindtap="playBackgroundAudio" src="{{isPlaying ? yunMediaRoot+'niannianyun/wx/write/1.1/icon-music-play.png' : yunMediaRoot+'niannianyun/wx/write/1.1/icon-music-close.png'}}"></image>
+      </view>
+      <image class='bg-msg' src='{{paperUrl.paperImage[0]}}' style='border-radius:8rpx 8rpx 0 0;' mode='widthFix'></image>
+      <view class='preview-main' style='min-height:{{mainHeight}};'>
+        <view class='preview-salutation'>{{letter.title}}</view>
+        <!-- <view class='preview-text'> 
+          <image class="msg-img" wx:if="{{letter.msgImg}}" mode="widthFix" src="{{letter.msgImg}}"></image>
+          <text>{{letter.content}}</text>
+        </view> -->
+        <view class='preview-text'>
+          <template is="wxParse" data="{{wxParseData:content.nodes}}" />
+        </view>
+        <view class='preview-signature'>{{letter.author}}</view>
+        <view class='preview-time'>{{letter.createTime}}</view>
+      </view>
+      <!-- <image class='bg-msg' src='{{paperUrl.paperImage[2]}}' mode='widthFix'></image> -->
+    </view>
+  </scroll-view>
+
+  <image class="bottom-bg {{isIphoneX ?'bottom-bg-iphonex':''}}" mode='widthFix' src='{{yunMediaRoot}}niannianyun/wx/topic/letter/bg-envelope-bottom.png'></image>
+
+  <view class="btn-warp {{isIphoneX ?'btn-warp-iphonex':''}}">
+    <block wx:if="{{isMsgSend && !cardUuid}}">      
+      <button class="btn btn-send" open-type="share" style="width: 100%;" wx:if="{{!isWriteBack && !isFamous && !redPacket}}"></button>
+      <button class="btn btn-send" style="width: 100%;" bindtap="redPacketPay" data-type="1" wx:if="{{redPacket && redPacket>0}}"></button>
+      <view class='btn send-btn' bindtap='onBackMsg'>发送</view>
+      <!-- <view class='btn' bindtap='onBackMsg' style='width: {{isFamous ? "100%":"50%"}};'>发送</view> -->
+      <!-- <view  class='btn' bindtap='bindHandleSave' wx:if='{{!isFamous}}'>生成图片</view> -->
+      <!-- <view class='right-border' wx:if='{{!isFamous}}'></view> -->
+    </block>
+    <block wx:if="{{cardUuid}}">
+      <view class='btn' bindtap='onSaveNk' style='width:100%;'>保存</view>
+    </block>
+  </view>
+
+  <view class="modal-wrap" wx:if="{{showModal}}">
+    <view class="modal-main">
+      <view class="title">保存内容后将无法再修改</view>
+      <view class="btn-list">
+        <view class="btn" bindtap="onCloseModal" style="border-right: 1rpx solid #E5E5E5;color: #000000;">取消</view>
+        <view class="btn" bindtap="sendMsg">确定</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="audio-wrap" hidden="{{isVoiceHidden}}">
+      <view class="audio-main">
+        <view class="audio-hd">
+          语音播放
+        </view>
+        <view class='voice' wx:if='{{voice}}' style='background-image: url({{yunMediaRoot}}niannianyun/wx/write/1.1/bg-detail-voice.png);'>
+          <image class='handle-icon' bindtap="playAudio" src='{{yunMediaRoot}}{{isVoicePlaying ?"niannianyun/wx/write/1.1/icon-voice-pause.png":"niannianyun/wx/write/1.1/icon-voice-play.png"}}'></image>
+          {{voiceCurrentTime}}
+        </view>
+        <image class="icon-close" bindtap="onHiddenVoice" src="../../../images/letter/icon-close2.png"></image>
+      </view>
+  </view> 
+<!-- 
+  <view class="share-wrap {{isIphoneX ?'share-wrap-iphonex':''}}" wx:if="false" hidden='{{shareHidden}}'>
+    <view class='share-box {{shareAnimate == true ? "share-hidden" : ""}}'>
+      <view class='share-main'>
+        <view class='share-item'>
+          <image class='share-icon' src='{{yunMediaRoot}}niannianyun/wx/topic/letter/icon-wechat.png'></image>
+          <view class='share-text'>微信</view>
+          <button class='share-btn' open-type="share">发送</button>
+        </view>
+        <view class='share-item' bindtap='bindShowSharePyq'>
+          <image class='share-icon' src='{{yunMediaRoot}}niannianyun/wx/topic/letter/icon-pengyouquan.png'></image>
+          <view class='share-text'>微信朋友圈</view>
+        </view>
+      </view>
+      <view class='share-cancel-btn' bindtap='bindHandleShare'>取消</view>
+    </view>
+  </view> -->
+
+  <!-- <view class="share-pyq {{isIphoneX ?'share-pyq-iphonex':''}}" wx:if="false" hidden='{{true}}'>
+    <view class='pyq-main'>
+      <view class='share-title'>分享到朋友圈</view>
+
+      <view class='canvas'>
+        <image class='bg-share-pyq' src='{{yunMediaRoot}}niannianyun/wx/topic/letter/bg-pengyouquan.png'></image>
+        <view class='share-username'>{{nickName}}</view>
+        <image class='qr-code' src='{{wxacodePath}}'></image>
+      </view>
+      <view class='have-save'>
+        <text>图片已保存到相册\n快去微信朋友圈分享吧！</text>
+      </view>
+      <view class='line'></view>
+      <view class='go-now' bindtap='bindHiddenSharePyq'>马上去分享</view>
+    </view>
+  </view> -->
+  <canvas id="myCanvas" canvas-id="myCanvas" wx:if="false" hidden='{{true}}' />
+
+    <!--场景浮层-->
+   <!--场景浮层-->
+  <msgType wx:if="{{isParam}}" map="{{map}}" curTime="{{curTime}}" redPacket="{{redPacket}}"   ></msgType>
+
+</view>
+
+
+
+ 
+ <!--红包处理弹层-->
+  <view  wx:if="{{isRedpacketWin && isRedpacketWin>0}}" class="redpacket-win">
+      <view wx:if="{{isRedpacketWin==1}}" class="redpacket-box">
+        <view class="title">确认支付</view>
+        <view class="content pay-box">
+          <view class="pay-box-cont">红包金额<view class="money"><span>{{redPacket}}</span>元</view></view>
+          <view class="pay-type-box">
+            <button class="local-pay" type="default" plain="true" data-type="local" bindtap='redPacketPay' style="background-image:url({{yunMediaRoot}}niannianyun/wx/msg/begin/icon_local.png)">余额支付</button>
+            <button class="wx-pay"  type="default" plain="true"  data-type="wx" bindtap='redPacketPay' style="background-image:url({{yunMediaRoot}}niannianyun/wx/msg/begin/icon_wx.png)">微信支付</button>
+          </view>
+        </view>
+      </view>
+      <view wx:if="{{isRedpacketWin==2}}" class="redpacket-box">
+        <view class="title">输入短信验证码</view>
+        <view class="content pay-box smsCode-box">
+          <view class="hd">念念已向{{userTel}}发送了一个验证码</view>
+          <view class="bd">
+            <input type="number" maxlength='11' placeholder='请输入验证码'  value="" bindblur='smsCodeBlur' />
+            <button type="default" wx:if="{{smsCode==0}}" class="btn-smsCode" bindtap='redPacketPay'  data-type="local_smsCode">重新发送</button>
+            <button type="default" wx:else disabled='{{smsCode>0}}' class="btn-smsCode"><span>{{smsCode}}</span>s后重发</button>
+          </view>
+        </view>
+        <button type="default" plain="true" class="btn" bindtap='redPacketPay' data-type="local_pay">确认支付</button>
+      </view>
+      <view wx:if="{{isRedpacketWin==3}}" class="redpacket-box">
+        <view class="content pay-box">
+          <image src="{{yunMediaRoot}}niannianyun/wx/msg/begin/icon_wan.png" />
+          <view class="warn-tips">支付失败</view>
+          <view class="warn-tips" style="margin-top:10rpx;">{{redPacketInfo}}</view>
+        </view>
+         <button type="default" plain="true" class="btn btn-know" bindtap='redPacketPay' data-type="close">我知道了</button>
+      </view>
+      <view wx:if="{{isRedpacketWin==4}}" class="redpacket-box">
+        <view class="content pay-box">
+          <image src="{{yunMediaRoot}}niannianyun/wx/act/icon_m_ok.png" />
+          <view class="warn-tips">支付成功</view> 
+        </view>
+         <button type="default" plain="true" class="btn" bindtap='redPacketPay' open-type='share' data-type="close">确定</button>
+      </view>
+      <block wx:if="{{isRedpacketWin==4}}">
+      <button type="default" plain='true' class="btn-close" style="background-image:url({{yunMediaRoot}}niannianyun/wx/msg/begin/icon_close.png)" bindtap='redPacketPay' data-type="close" open-type='share'></button> 
+      </block>
+      <block wx:else>
+      <button type="default" plain='true' class="btn-close" style="background-image:url({{yunMediaRoot}}niannianyun/wx/msg/begin/icon_close.png)" bindtap='redPacketPay' data-type="close" ></button> 
+      </block>
+  </view>

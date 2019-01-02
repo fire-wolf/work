@@ -1,0 +1,250 @@
+.main{
+  position: relative;
+  padding-top:34rpx;
+  height: 100%; 
+  background: #fff; 
+}
+.header-contain {
+  position: relative; 
+  margin: 0 auto; 
+  height: 348rpx;
+  overflow: hidden; 
+}
+.header-bg{
+   -webkit-filter: blur(20px);
+    filter: blur(20px);
+    background-repeat: repeat;
+    opacity: 0.4;
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    z-index:1;
+    background-size: 100%;
+}
+.header-cont{
+  position:relative;
+  top:0;
+  left:0; 
+  height:100%;
+  z-index:2;
+  background:rgba(0,0,0,0.4);
+  padding:24rpx 0 48rpx 32rpx;
+}
+
+.header-contain .act-img{
+  float: left;
+  position: relative;
+  width: 204rpx;
+  height: 276rpx;
+  border-radius: 8rpx;
+}
+.header-contain .act-img  image{
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 8rpx;
+}
+.header-contain .act-img span{
+  position: absolute;
+  top:0;
+  left:0;
+  display: inline-block;
+  font-size: 20rpx;
+  color: #fff;
+  text-align: center;
+  padding:0 8rpx;
+  height: 38rpx;
+  line-height: 38rpx;
+  border-radius: 8rpx 0 8rpx 0;
+  background: rgba(0,0,0,0.7);
+}
+.header-contain .act-cont{
+  float: left; 
+  margin-left: 24rpx;
+  width:456rpx;
+}
+.header-contain .act-cont .title{
+  margin-bottom:24rpx;
+  font-size: 36rpx;
+  line-height: 48rpx;
+  text-align: left;
+  color:#fff; 
+}
+.header-contain .act-cont .time {
+  margin-bottom: 16rpx; 
+  font-size: 24rpx;
+  line-height: 26rpx;
+  color:#fff;
+  text-align: left;
+}
+
+.sign-cont{
+  padding:38rpx 32rpx 170rpx;
+  font-size: 28rpx;
+  color: #707371;
+  line-height: 40rpx;
+  background:#fff;
+}
+.sign-cont .sign-icon{
+  position: absolute;
+  left: 0;
+  top:4rpx;
+  width:28rpx;
+  height: 28rpx;
+  vertical-align: middle;
+  background: #E3EAE6;
+  border-radius: 28rpx;
+}
+.sign-cont .sign-top{
+  position: relative; 
+  height: 226rpx;
+  margin-bottom: 32rpx;
+}
+.sign-top-l{
+  position: absolute;
+  top:46rpx;
+  left:14rpx;
+  width: 2rpx;
+  height: 156rpx;
+  background: #E3EAE6;
+}
+.sign-cont .sign-top .sign-top-item{
+  position: relative;
+  padding-left:52rpx;
+}
+.sign-cont .sign-top .sign-top-cont {
+  vertical-align: middle;
+}
+.sign-cont .sign-top .sign-cont view{
+  margin-bottom: 8rpx;
+}
+.sign-cont .cl-g{
+  background:#57C37D !important;
+}
+.sign-cont .sign-distance .icon-sign{ 
+    margin:0 auto 54rpx;
+    width: 208rpx;
+    height: 208rpx;
+    border-radius: 100%;
+    font-size: 48rpx;
+    line-height: 48rpx;
+    text-align: center;
+    padding-top:56rpx;
+    color:#B3B9B5;
+    background: #E3EAE6;
+   
+}
+.sign-cont .sign-distance .icon-sign.ok{
+  color:#FFFFFF;
+  background:linear-gradient(90deg,rgba(122,221,94,1),rgba(79,202,124,1)); 
+}
+.sign-cont .sign-distance .icon-sign.out{
+  color:#FFFFFF;
+  background:linear-gradient(90deg,#FD7954,#FA573D); 
+}
+.sign-cont .sign-distance .icon-sign span{
+  display: block;
+  margin-top: 8rpx;
+  font-size:28rpx;
+  line-height: 40rpx;
+}
+.sign-cont .sign-distance .txt-sign{
+  font-size: 24rpx;
+  line-height: 26rpx;
+  color: #B3B9B5;
+  text-align: center;
+}
+.sign-cont .sign-distance .txt-sign button,.sign-cont .sign-distance .txt-sign  .addr{
+  display: inline-block;
+  color:#57C37D !important;
+  border:none!important;
+  margin:0;
+  padding-left:10rpx;
+  max-width: 240rpx;
+  text-overflow: ellipsis;
+  vertical-align: middle;
+  font-size: 24rpx;
+  line-height: 26rpx;
+  height: 26rpx;
+  overflow: hidden;
+}
+.sign-cont .sign-distance .txt-sign .icon{
+  display: inline-block;
+  margin-right: 8rpx;
+  width: 28rpx;
+  height: 28rpx;
+  vertical-align: top;
+  background-repeat: no-repeat;
+  background-size: 100%;
+
+}
+
+.win-box{
+  position: fixed;
+  top: 0;
+  left:0;
+  width: 100%;
+  height: 100%;
+  z-index:9;
+}
+.win-box .win-mask{
+  position: absolute;
+  top:0;
+  left:0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+}
+.win-box .win-cont{
+  padding:80rpx 32rpx 200rpx; 
+  margin: 160rpx auto 0;
+  width: 560rpx;
+  position: relative;
+  background:#fff;
+  border-radius: 16rpx;
+}
+.win-box .win-cont button{
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  bottom: 32rpx;
+  width: 496rpx;
+  height: 88rpx;
+  line-height: 88rpx;
+  text-align: center;
+  font-size: 32rpx;
+  color: #fff !important;
+  border:none !important;
+  border-radius: 8rpx;
+  background: linear-gradient(90deg,rgba(122,221,94,1),rgba(79,202,124,1)); 
+}
+.win-box .win-cont .win-icon{
+  margin:  0 auto 32rpx;
+  width: 176rpx;
+  height: 176rpx;
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+.win-box .win-cont .title{
+  margin-bottom: 16rpx;
+  text-align: center;
+  color: #3A3B3A;
+  font-size: 48rpx;
+  line-height: 48rpx;
+}
+.win-box .win-cont .desc{
+  color: #707371;
+  font-size: 28rpx;
+  line-height: 40rpx;
+  text-align: center;
+}
+.time-box{
+  padding-top: 16rpx;
+  text-align: center;  
+  font-size: 24rpx;
+  line-height: 26rpx;
+  color:#B3B9B5;
+  background: #F5F6F7;
+}

@@ -1,0 +1,24 @@
+
+<view class="main">
+  <view wx:if="{{commList}}" style="height:100%;">
+    <scroll-view class="comment-list" deltaY="10"  style="position: absolute;width: 100%;height: 100%;bottom: 0;left: 0;" scroll-top="{{scrollTop}}"  scroll-y     bindscrolltolower="onScrollDown" bindscroll="onScroll" enable-back-to-top lower-threshold="{{50}}" >
+      <view style="height:34rpx;"></view>
+      <view class="comment-box" wx:for="{{commList}}" wx:key="{{index}}">
+        <view class="title">{{item.userName}}{{item.friendStatus?"(念友)":""}} <button  bindtap='onComment' wx:if="{{curUserId==item.userId || curUserId==targetUserId}}" data-id="{{item.replyId}}" data-attr='{{index}}' plain style="">删除</button></view>
+        <view class="content"><text>{{item.content}}</text></view>
+      </view> 
+           
+    </scroll-view>
+    <button  bindtap='onComment'  data-attr="open" plain style="position:fixed;margin:0;border:none;bottom:54rpx;right:64rpx;width:78rpx;height:78rpx;background:url('https://file.niannian99.com/niannianyun/wx/nk/icon_com.png') no-repeat;background-size:78rpx 78rpx;"></button>
+  </view>
+ 
+  <view class="modal-wrap" wx:if="{{showModal}}">
+    <view class="modal-main">
+      <view class="title">确定要删除这条评论吗？</view>
+      <view class="btn-list">
+        <view class="btn" bindtap="onCloseModal" style="border-right: 1rpx solid #E5E5E5;color: #000000;">取消</view>
+        <view class="btn" bindtap="removeComment">确定</view>
+      </view>
+    </view>
+  </view>
+</view>

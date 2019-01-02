@@ -1,0 +1,65 @@
+
+<view class="list">
+  <view class="type-tab">
+    <view style="float: left;width: 33.33%;">
+      <view class="tab-send {{handleType == 'send' ? 'active' : ''}}" bindtap="onChangeType" data-type="send">TA的公开信</view>
+    </view>
+    <view style="float: left;width: 33.33%;">
+      <view class="tab-send {{handleType == 'fans' ? 'active' : ''}}" bindtap="onChangeType" data-type="fans">粉丝公开信</view>
+    </view>
+    <view style="float: left;width: 33.33%;">
+      <view class="tab-receive {{handleType == 'receive' ? 'active' : ''}}" bindtap="onChangeType" data-type="receive">我的信函</view>
+    </view>
+  </view>
+
+  <scroll-view 
+    hidden="{{list.length == 0}}" 
+    style='height:100%;' 
+    scroll-y 
+    scroll-top='{{scrollTop}}'
+    bindscroll='bindscroll'
+    bindscrolltolower='bindscrolllower'
+    bindscrolltoupper='bindscrolltoupper'
+    lower-threshold="{{10}}"
+   >
+    <view class="letter-list">
+      <view class="list-item" wx:for='{{list}}' wx:key='letterList{{index}}'>
+        <view style="width:890rpx;position:absolute;top:0;tottom:0;left:{{item.left}};">
+          <view style="width:750rpx;"  bindtouchstart='touchStart' bindtouchmove='touchMove' bindtouchend='touchEnd' data-index="{{index}}">  
+            <view class="item-main" bindtap="goDetail" data-id="{{item.letterId}}" data-index="{{index}}" data-status="{{item.status}}" style="background-color:{{handleType != 'send' && userId == item.sendUserid ?'#ffffff':'#f1e7d6'}};">
+              
+              <view class="frame-wrap">
+                <view class="frame" wx:for="{{6}}" wx:for-idx="{{index}}" wx:key="frame{{idx}}"></view>
+              </view>
+              <image class="stamp" src="{{yunMediaRoot}}niannianyun/wx/write/1.1/icon-stamp.png"></image>
+              <image class="read-status" wx:if="{{handleType == 'receive'}}" src="{{handleType == 'receive' && item.status == 2 && userId == item.receiveUserid && userId != item.sendUserid ? yunMediaRoot+'niannianyun/wx/write/1.1/icon-unread.png' : yunMediaRoot+'niannianyun/wx/famous/icon_read.png'}}" mode='widthFix'></image>
+              <block wx:if="{{handleType=='fans'}}">
+              <view class="title-wrap"><view class="title">{{item.sendUserName ? item.sendUserName : (item.signature ? item.signature : "")}}</view><text>的信</text></view>
+              <view class="signature">{{item.receiveUserName ? item.receiveUserName : (item.salutation ? item.salutation : "")}}<text> 缄</text></view>
+              </block>
+              <block wx:else>
+              <view class="title-wrap"><view class="title">{{item.receiveUserName ? item.receiveUserName : (item.salutation ? item.salutation : "")}}</view><text>亲启</text></view>
+              <view class="signature">{{item.sendUserName ? item.sendUserName : (item.signature ? item.signature : "") + ' 缄'}}</view>
+              </block>
+              <view class="time">{{item.createTime + item.sendUserArea}}</view>
+            </view>
+          </view>
+          <view class="remove" bindtap="removeMsg" data-index="{{index}}" data-id="{{item.letterId}}">删除</view>
+        </view>
+      </view>
+    </view>
+
+    <view class="loading" hidden="{{list.length == 0}}">
+      <block wx:if="{{(handleType == 'send' && sendEnd == false) || (handleType == 'receive' && receiveEnd == false)}}"><image src="{{yunMediaRoot}}niannianyun/wx/images/loading.gif" /></block>
+      
+      {{(handleType == 'send' && sendEnd) || (handleType == 'receive' && receiveEnd) ? "到底了，没有数据了..." : loadingTxt}}
+    </view>
+  </scroll-view>
+  
+  <view class="empty" hidden="{{list.length != 0 || firstLoad}}">
+    <image mode="widthFix" src="{{yunMediaRoot}}niannianyun/wx/famous/famous_empty.png"></image>
+    <view class="txt">还没有任何信件噢</view>
+    <view class="txt">不如主动写信给ta吧…</view>
+    <image class="btn-write" bindtap="toWrite" src="{{yunMediaRoot}}niannianyun/wx/famous/xiangtaxiexin.png"></image>
+  </view>
+</view>

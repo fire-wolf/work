@@ -1,0 +1,26 @@
+<wxs src="../../module.wxs" module="tools" />
+<view class="statitics-box">
+  <view class="statitics-item">累计参加活动<span>{{times}}次</span></view>
+  <view class="statitics-item">累计活动时间<span>{{timeLong}}</span></view> 
+</view>
+<view class="calendar-box">
+    <calendar cell-size="40" days-color="{{days_style}}" binddayClick="dayClick" calendar-style='day-cont' header-style="day-header" board-style="day-board" weeks-type="cn" binddateChange="dateChange" bindprevMonth="dateChange" bindnextMonth="dateChange" />
+</view>
+<view class="act-box" wx:if="{{actList && actList.length>0}}">
+  <block wx:for="{{actList}}" wx:key="">
+    <view class="act-item" wx:if="{{item.day==day.day}}">
+      <view class="title">{{item.activitiesTitle}}</view>
+      <view class="sign-box">
+        <view class="sign-item" wx:if="{{item.checkInTime && item.checkInTime>0}}"><span class="cl-g"></span>签到时间：{{tools.formatTime(item.checkInTime,"minute")}}</view>
+        <view class="sign-item " wx:else><span class="cl-b"></span>签到时间：未签到</view>
+        <view class="sign-item"  wx:if="{{item.checkOutTime && item.checkOutTime>0}}"><span></span>签出时间：{{tools.formatTime(item.checkOutTime,"minute")}}</view>
+        <view class="sign-item" wx:else><span class="cl-b"></span>签出时间：未签出</view>
+      </view>
+    </view>
+  </block>
+</view>
+<view class="act-time-box" wx:if="{{mTime>0}}">
+  <view>本月参与活动次数：{{mTime}}次</view>
+  <view>本月累计参加活动时间：{{mTimeLong}}</view>
+</view>
+
