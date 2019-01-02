@@ -1,0 +1,62 @@
+page{
+  background: #F1F3F5;
+}
+.container{
+  padding: 40rpx;
+}
+.promo-code{
+  height: 100rpx;
+  margin-bottom: 20rpx;
+  overflow: hidden;
+  background: url('//file.niannian99.cn/niannianyun/wx/write/1.1/icon-right.png') no-repeat right center;
+  background-size: 15rpx 25.7rpx;
+  border-bottom: 1rpx solid #CED4DA;
+}
+.promo-code .label{
+  float: left;
+  height: 100rpx;
+  font-size:32rpx;
+  color:#212529;
+  line-height:100rpx;
+}
+.promo-code .code{
+  float: right;
+  height: 100rpx;
+  margin-right: 46rpx;
+  font-size:28rpx;
+  color:#ADB5BD;
+  line-height:100rpx;
+}
+
+.price-area {
+  font-size:28rpx;
+  text-align: right;
+}
+.price-area .price{
+  color:#868E96;
+  line-height:40rpx;
+  margin-top: 20rpx;
+}
+.price-area .total-price{
+  color:#212529;
+  line-height:40rpx;
+  font-weight: 700;
+  margin-top: 20rpx;
+}
+.btn-pay{
+  width: 100%;
+  height: 94rpx;
+  margin: 80rpx auto 40rpx;
+  font-size:36rpx;
+  color: #fff;
+  text-align: center;
+  line-height: 94rpx;
+  background: #329AF0;
+  border-radius:10rpx;
+}
+.explain{
+  font-size:28rpx;
+  color:#329AF0;
+  line-height:40rpx;
+  text-align: center;
+}

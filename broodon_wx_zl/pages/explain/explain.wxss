@@ -1,0 +1,21 @@
+
+page{
+  background: #F1F3F5;
+}
+.container{
+  padding: 40rpx;
+}
+.title{
+  height:52rpx;
+  font-size:28rpx;
+  font-weight: 700;
+  color:#212529;
+  line-height:52rpx;
+  margin-bottom: 14rpx;
+}
+.paragraph{
+  font-size:28rpx;
+  color:#868E96;
+  line-height:52rpx;
+  margin-bottom: 10rpx;
+}

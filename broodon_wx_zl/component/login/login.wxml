@@ -1,0 +1,14 @@
+<view class="login-wrap">
+  <view class="error-tip" hidden='{{errorHidden}}'>{{errorText}}</view>
+  <image class="icon-close" wx:if="{{isShowClose}}" bindtap="onClose" src="https://file.niannian99.cn/niannianyun/wx/zl/icon_close.png"></image>
+  <view class="form">
+    <view class="form-item {{phoneFocus ? 'borderColor':''}}">
+      <input class="phone" bindinput="onInputPhone" bindfocus="onFocusPhone" bindblur="onBlurPhone" type="number" placeholder="请输入您的手机号" placeholder-style="color:#868E96;" maxlength="11" />
+    </view>
+    <view class="form-item {{smsCodeFocus ? 'borderColor':''}}">
+      <input class="code" bindinput="onInputCode" bindfocus="onFocusCode" bindblur="onBlurCode" placeholder="请输入您的验证码" placeholder-style="color:#868E96;" maxlength="6" />
+      <view  class="get-code" bindtap="sengSmsCode" style="color:{{isCountTime ? '#ADB5BD':'#329AF0' }}">{{isCountTime ? "再次获取"+countdown+"s":"获取验证码"}}</view>
+    </view>
+    <button class="btn-login {{(phone.length == 11 && smsCode != '') ? '':'disbale'}}"  open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="onGotUserInfo">登录</button>
+  </view>
+</view>

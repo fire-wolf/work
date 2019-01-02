@@ -1,0 +1,7 @@
+{
+  "enablePullDownRefresh": false,
+  "usingComponents": {
+    "appfooter": "/component/appfooter/appfooter",
+    "login": "/component/login/login"
+  }
+}

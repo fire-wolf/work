@@ -1,0 +1,5 @@
+<view class="container">
+  <view class="error-tip" hidden='{{errorHidden}}'>{{errorText}}</view>
+  <view class="input-code"><input bindinput="onInputCode" bindfocus="onFocusCode" placeholder-style="color:#ADB5BD;" placeholder="请输入集团优惠码" confirm-type="done" maxlength="30"/></view>
+  <view class="btn-save" bindtap="onSave">保存</view>
+</view>

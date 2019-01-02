@@ -1,0 +1,6 @@
+<template name="card-item">
+  <view class="title">{{info.goodsName}}</view>
+    <image class="icon-car" src="/images/icon_car.png"></image>
+    <view class="price">原价 ¥{{info.shopPrice}} 集团价 ¥{{info.discountPrice}}</view>
+  <view class="count">{{info.goodsDesc}}</view>
+</template>

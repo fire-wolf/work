@@ -1,0 +1,21 @@
+<import src="../../../template/card.wxml"/>
+<view class="container">
+  <view class="page-item" style="{{cardInfo.goodsContent}}">
+    <template is="card-item" data="{{info: cardInfo}}"/>
+  </view>
+  <view class="promo-code" bindtap="goInputCode">
+    <view class="label">集团优惠码（选填)</view>
+    <view class="code">{{code}}</view>
+  </view>
+  <view class="price-area">
+    <view class="price">商品金额： ¥{{cardInfo.price}}</view>
+    <view class="price" wx:if="{{code}}">集团优惠： -¥{{cardInfo.preferentialPrice}}</view>
+    <view class="total-price">实际支付金额： ¥{{code ? cardInfo.disPrice : cardInfo.price}}</view>
+  </view>
+  <view class="btn-pay" bindtap="onClickPay">支付</view>
+  <navigator open-type="navigateTo" url="/pages/explain/explain">
+    <view class="explain">使用说明</view>
+  </navigator>
+  
+  <login id="login" wx:if="{{isShowLogin}}" bind:handleShowLogin='handleShowLogin'></login>
+</view>

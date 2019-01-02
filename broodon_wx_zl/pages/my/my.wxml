@@ -1,0 +1,6 @@
+  <!-- 我的 -->
+  <view>
+    <login id="login" wx:if="{{isShowLogin}}" bind:handleShowLogin='handleShowLogin' isShowClose="{{isShowClose}}"></login>
+    <web-view wx:if="{{!isShowLogin}}" src="{{url}}"></web-view> 
+  </view>
+ 

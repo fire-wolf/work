@@ -1,0 +1,21 @@
+{
+  "pages": [
+    "pages/find/find",
+    "pages/seller/seller",
+    "pages/my/my",
+    "pages/card/buy/buycard",
+    "pages/card/code/code",
+    "pages/explain/explain",
+    "pages/login/login"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "卡券",
+    "navigationBarTextStyle": "black",
+    "enablePullDownRefresh": false,
+    "onReachBottom": true
+  },
+  
+  "component": true
+}

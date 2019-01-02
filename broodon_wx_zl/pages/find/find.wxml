@@ -1,0 +1,18 @@
+<import src="../../template/card.wxml"/>
+<view class="container">
+  <view class="page-body"> 
+  <!-- <button open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="onGotUserInfo">获取用户信息</button> -->
+      <view class="page-section  article-mod">
+        <view style="padding-top: 40rpx;">
+            <view class="page-item" wx:for="{{cardList}}" wx:key="card{{index}}"  bindtap="onClickItem" data-item="{{item}}" style="{{item.goodsContent}}">
+              <template is="card-item" data="{{info: item}}"/>
+            </view>
+          </view>
+      </view> 
+  </view>
+  <login id="login" wx:if="{{isShowLogin}}" bind:handleShowLogin='handleShowLogin'></login>
+
+  <appfooter id="appfooter" 
+    list="{{tabList}}" bind:handleShowLogin='handleShowLogin'>
+  </appfooter>
+</view>

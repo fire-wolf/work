@@ -1,0 +1,28 @@
+<view class="container">
+  <view class="title">VIP尊享服务A卡</view>
+  <view class="paragraph">
+    本卡为全国通用6次半年卡，共包含6次洗车服务，每个月可使用一次洗车服务，使用半年；每个月不使用则该月次数作废；
+  </view>
+  <view class="title">VIP尊享服务B卡</view>
+  <view class="paragraph">
+    本卡为全国通用12次半年卡，共包含12次洗车服务，每个月可使用两次洗车服务，使用半年；每个月不使用则该月次数作废；
+  </view>
+  <view class="title">VIP尊享服务C卡</view>
+  <view class="paragraph">
+    本卡为全国通用12次年卡，共包含12次洗车服务，每个月可使用一次洗车服务，使用一年；每个月不使用则该月次数作废；
+  </view>
+  <text>\n\n</text>
+  <view class="paragraph">
+    1.购买该卡后可在小程序主页底部的附近商家中查找可使用的洗车商家；
+  </view>
+  <view class="paragraph">
+    2.VIP洗车卡提供洗车服务次数以卡片说明为准。洗车服务全国合作店通用，限轿车、微型车、跑车、SUV等7座（含）以下车型。
+  </view>
+  <text>\n\n</text>
+  <view class="paragraph">
+    最终解释权归朝来文化所有
+  </view>
+  <view class="paragraph">
+    客服电话：4001096138
+  </view>
+</view>

@@ -1,0 +1,9 @@
+<!-- 底部tabBar -->
+<view class="tab-bar {{isIphoneX ?'tab-bar-iphonex':''}}" >
+  <view class='tab-item'  wx:for='{{list}}' wx:key='tabList{{index}}' > 
+    <view bindtap='handleClick' data-info='{{item}}'>
+      <image class='icon-item' src='{{item.iconPath}}'></image>
+      <view class='tab-title {{item.isActive == true ? "active" : ""}}'>{{item.text}}</view>
+    </view>
+  </view>
+</view>
